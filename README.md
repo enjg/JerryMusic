@@ -7,4 +7,4 @@
 # 使用
 首先使用node构建自己的服务器API,详细请到https://github.com/enjg/NeteaseCloudMusicApi
 
-![img](https://github.com/MaiEmily/map/blob/master/public/image/20190528145810708.png)
+![img](https://github.com/enjg/JerryMusic/blob/master/img/QR_Code.jpg)
