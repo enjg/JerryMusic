@@ -7,4 +7,8 @@
 # 使用
 首先使用node构建自己的服务器API,详细请到https://github.com/enjg/NeteaseCloudMusicApi
 
-![img](https://github.com/enjg/JerryMusic/blob/master/img/QR_Code.jpg)
+# 微信小程序二维码展示
+![图像]（https://github.com/enjg/JerryMusic/blob/master/img/QR_Code.jpg）
+
+# 提示
+如有任何疑问请联系邮箱201305339@qq.com
