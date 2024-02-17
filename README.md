@@ -11,4 +11,5 @@
 ![img](https://github.com/enjg/JerryMusic/blob/master/img/QR_Code.jpg)
 
 # 提示
+该项目的API不能从事任何商业行为，一切后果自行负责
 如有任何疑问请联系邮箱201305339@qq.com
