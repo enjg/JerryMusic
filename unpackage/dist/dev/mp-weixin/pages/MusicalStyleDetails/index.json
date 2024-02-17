@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "more-details": "../module/MoreDetails",
+    "musical-style-song": "./module/MusicalStyleSong",
+    "musical-style-album": "./module/MusicalStyleAlbum",
+    "musical-style-song-list": "./module/MusicalStyleSongList",
+    "musical-style-singer": "./module/MusicalStyleSinger"
+  }
+}

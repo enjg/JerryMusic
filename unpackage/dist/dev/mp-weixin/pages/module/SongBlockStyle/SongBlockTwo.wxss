@@ -1,0 +1,125 @@
+
+.bj.data-v-c0533e2c {
+		width: 100vw;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.15);
+		position: absolute;
+		top: 0;
+		left: -20px;
+		z-index: 1;
+}
+.bjTwo.data-v-c0533e2c {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.4);
+		animation: shrink-c0533e2c 400ms linear 1;
+}
+@keyframes shrink-c0533e2c {
+0% {
+			transform: scaleX(0);
+			opacity: 0;
+}
+100% {
+			transform: scaleX(1);
+			opacity: 0.5;
+}
+}
+.mv.data-v-c0533e2c {
+		height: 11px;
+		border-radius: 2px;
+		margin: 0 !important;
+		margin-top: 2px !important;
+		color: #bcb682 !important;
+		font-size: 8px !important;
+		padding: 0 3px;
+		line-height: 9px !important;
+		box-sizing: border-box;
+		border: 1px solid #bcb682;
+		margin-right: 5px !important;
+}
+.vip.data-v-c0533e2c {
+		color: #d14a57 !important;
+		border: 1px solid #d14a57 !important;
+}
+.SongBlockTwo.data-v-c0533e2c {
+		width: 100%;
+		height: 40px;
+		padding: 10px 0;
+		position: relative;
+}
+.one.data-v-c0533e2c {
+		height: 100%;
+		width: 40px;
+		float: left;
+}
+.one>image.data-v-c0533e2c {
+		height: 100%;
+		width: 100%;
+		border-radius: 5px;
+}
+.two.data-v-c0533e2c {
+		height: 100%;
+		float: left;
+		width: calc(100% - 80px);
+		display: flex;
+		margin-left: 20px;
+}
+.name.data-v-c0533e2c {
+		flex-grow: 1;
+		overflow: hidden;
+}
+.name>.p.data-v-c0533e2c {
+		height: 25px;
+		width: 100%;
+		line-height: 25px;
+		font-size: 16px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+.name>view.data-v-c0533e2c {
+		height: 15px;
+		width: 100%;
+		overflow: hidden;
+}
+.name>view>.p.data-v-c0533e2c {
+		line-height: 15px;
+}
+.mvDiv.data-v-c0533e2c {
+		width: 50px;
+		height: 100%;
+		position: relative;
+}
+.mvDiv>image.data-v-c0533e2c {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.three.data-v-c0533e2c {
+		width: 20px;
+		height: 100%;
+		float: right;
+		position: relative;
+}
+.three>image.data-v-c0533e2c {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 20px;
+		height: 20px;
+}
+.name>view>.p.data-v-c0533e2c {
+		float: left;
+		line-height: 15px;
+		font-size: 13px;
+		color: #808080;
+		white-space: nowrap;
+		font-weight: 300;
+}

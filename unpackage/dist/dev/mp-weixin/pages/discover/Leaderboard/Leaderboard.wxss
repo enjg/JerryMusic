@@ -1,0 +1,21 @@
+
+.Leaderboard.data-v-7baa6792 {
+		margin-left: 20px;
+		height: 280px;
+/* 		margin-top: 20px; */
+}
+.swiper-container.data-v-7baa6792 {
+		height: 230px;
+}
+.bt.data-v-7baa6792 {
+		width: 100%;
+		height: 50px;
+}
+.bt>.p.data-v-7baa6792 {
+		line-height: 50px;
+		font-weight: bold;
+		font-size: 18px;
+}
+.center.data-v-7baa6792 {
+		width: 100%;
+}

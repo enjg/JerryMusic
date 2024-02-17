@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "数字专辑",
+  "usingComponents": {
+    "digital-singles-chart": "./module/DigitalSinglesChart",
+    "digital-album-chart": "./module/DigitalAlbumChart",
+    "garousel-map": "../module/GarouselMap",
+    "sort": "./module/sort",
+    "latest-release": "./module/LatestRelease"
+  }
+}

@@ -1,0 +1,114 @@
+
+.LanguageStyleAlbum.data-v-c1ee9d26 {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+}
+.bt.data-v-c1ee9d26 {
+		width: 100%;
+		height: 60px;
+		position: absolute;
+		top: 0;
+}
+.bt>image.data-v-c1ee9d26 {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.bt>.p.data-v-c1ee9d26 {
+		line-height: 60px;
+		position: absolute;
+		left: 60px;
+		font-size: 17px;
+		font-weight: bold;
+}
+.scroll-view.data-v-c1ee9d26 {
+		width: 100%;
+		height: calc(100% - 60px);
+		position: absolute;
+		top: 60px;
+}
+.sort.data-v-c1ee9d26 {
+		width: 100%;
+		height: 40px;
+		border-top: 1px solid #999999;
+		border-bottom: 1px solid #999999;
+		box-sizing: border-box;
+}
+.AreaClick.data-v-c1ee9d26 {
+		color: #d33742 !important;
+		border-bottom: 2px solid #d33742 !important;
+}
+.sort_center.data-v-c1ee9d26 {
+		width: 25vw;
+		height: 100%;
+		float: left;
+		position: relative;
+}
+.sort_center>.p.data-v-c1ee9d26 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: #353535;
+		line-height: 25px;
+		box-sizing: border-box;
+		border-bottom: 2px solid white;
+}
+.content_center.data-v-c1ee9d26 {
+		width: calc((100vw - 10vw) / 2 - 10px);
+		height: calc((100vw - 10vw) / 2 - 10px + 10vw);
+		float: left;
+		display: inline-block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+}
+.content_center.data-v-c1ee9d26:nth-of-type(2n-1) {
+		margin-left: 10px;
+		margin-right: 5vw;
+}
+.content_center.data-v-c1ee9d26:nth-of-type(2n) {
+		margin-right: 10px;
+		margin-left: 5vw;
+}
+.content_center>.image.data-v-c1ee9d26 {
+		width: calc((100vw - 10vw) / 2 - 10px);
+		height: calc((100vw - 10vw) / 2 - 10px - 5vw);
+		position: relative;
+}
+.content_center>.image>image.data-v-c1ee9d26 {
+		width: calc((100vw - 10vw) / 2 - 10px - 5vw);
+		height: calc((100vw - 10vw) / 2 - 10px - 5vw);
+		border-radius: 5px;
+}
+.content_center>.image>.bj.data-v-c1ee9d26 {
+		width: calc((100vw - 10vw) / 2 - 10px - 5vw);
+		height: calc((100vw - 10vw) / 2 - 10px - 5vw);
+		background-color: black;
+		border-radius: 50%;
+		position: absolute;
+		right: 0;
+		z-index: -1;
+}
+.content_center>view.data-v-c1ee9d26 {
+		width: 100%;
+		height: 5vw;
+		line-height: 5vw;
+}
+.content_center>.albumName>.p.data-v-c1ee9d26 {
+		font-size: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+.content_center>.artisName>.p.data-v-c1ee9d26 {
+		font-size: 12px;
+		color: rgba(0, 0, 0, 0.5);
+}
+.content_center>.price>.p.data-v-c1ee9d26 {
+		font-size: 13px;
+		color: #995250;
+}

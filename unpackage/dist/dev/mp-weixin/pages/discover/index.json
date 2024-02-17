@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "主页",
+  "usingComponents": {
+    "garousel-map": "../module/GarouselMap",
+    "sort": "./sort/sort",
+    "recommended-playlist": "./RecommendedPlaylist/RecommendedPlaylist",
+    "search-box": "./SearchBox/SearchBox",
+    "leaderboard": "./Leaderboard/Leaderboard",
+    "latest-album": "./LatestAlbum/LatestAlbum",
+    "recommended-review": "./RecommendedReview/RecommendedReview"
+  }
+}

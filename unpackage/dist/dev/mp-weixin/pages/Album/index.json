@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "more-details": "../module/MoreDetails",
+    "song-block-one": "../module/SongBlockStyle/SongBlockOne"
+  }
+}

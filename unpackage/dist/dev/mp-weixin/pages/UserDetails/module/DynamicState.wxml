@@ -1,0 +1,1 @@
+<scroll-view scroll-y="{{b}}" class="DynamicState data-v-f3a97673"><dynamic-state-block-one wx:for="{{a}}" wx:for-item="item" wx:key="a" class="data-v-f3a97673" u-i="{{item.b}}" bind:__l="__l" u-p="{{item.c}}"></dynamic-state-block-one></scroll-view>

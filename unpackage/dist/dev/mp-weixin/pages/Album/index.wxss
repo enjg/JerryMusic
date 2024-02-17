@@ -1,0 +1,230 @@
+
+.Album.data-v-b4e1104c {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+}
+.bt.data-v-b4e1104c {
+		width: 100%;
+		height: 60px;
+		position: static;
+		top: 0;
+		left: 0;
+		z-index: 9999999;
+}
+.bt>.p.data-v-b4e1104c {
+		line-height: 60px;
+		font-size: 19px;
+		color: white;
+		position: absolute;
+		left: 50px;
+}
+.bt>image.data-v-b4e1104c {
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		left: 20px;
+		top: 20px;
+}
+.img.data-v-b4e1104c {
+		width: 200%;
+		height: calc(100% / 3);
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		z-index: -1;
+}
+.img>image.data-v-b4e1104c {
+		width: 100%;
+		height: 200%;
+		position: absolute;
+		top: 0;
+		transform: translateY(-50%);
+		filter: blur(30px);
+}
+.img_content.data-v-b4e1104c {
+		width: calc(100vw - 40px);
+		padding: 0 20px;
+		height: calc((100% - 60px) / 1.7);
+		position: absolute;
+		top: calc(50% + 30px);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+}
+.img_content>view.data-v-b4e1104c:nth-of-type(1) {
+		position: relative;
+		float: left;
+}
+.img_content image.data-v-b4e1104c {
+		height: 100%;
+		border-radius: 15px;
+}
+.img_content>view:nth-of-type(1)>view.data-v-b4e1104c {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: -15%;
+		background-color: black;
+		border-radius: 50%;
+		z-index: -1;
+}
+.img_content>view.data-v-b4e1104c:nth-of-type(2) {
+		flex-grow: 1;
+		overflow: hidden;
+		position: relative;
+}
+.img_content>view:nth-of-type(2)>.p.data-v-b4e1104c {
+		width: calc(100% - 20px);
+		overflow: hidden;
+		margin-left: 20px;
+		white-space: nowrap;
+		/* 防止文本换行 */
+		overflow: hidden;
+		/* 隐藏超出容器的文本 */
+		text-overflow: ellipsis;
+		/* 用省略号代替超出的文本 */
+}
+.img_content>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(1) {
+		line-height: 40px;
+		font-weight: bold;
+		font-size: 18px;
+		color: white;
+}
+.img_content>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(2) {
+		line-height: 20px;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 13px;
+		font-weight: bold;
+}
+.img_content>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(3) {
+		line-height: 20px;
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 13px;
+		font-weight: bold;
+		position: absolute;
+		bottom: 20px;
+}
+.img_content>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(4) {
+		line-height: 20px;
+		height: 20px;
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 13px;
+		font-weight: bold;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		position: absolute;
+		bottom: 0;
+}
+.content.data-v-b4e1104c {
+		position: absolute;
+		top: calc(100% / 3);
+		width: 100%;
+		height: calc(100% / 3 * 2);
+}
+.DataDetail.data-v-b4e1104c {
+		width: 80vw;
+		height: 40px;
+		background-color: white;
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 20px;
+		box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1),
+			-5px 5px 5px 0px rgba(0, 0, 0, 0.1)
+}
+.DataDetail>view.data-v-b4e1104c {
+		float: left;
+		width: calc(100% / 3);
+		height: 20px;
+		margin-top: 10px;
+		position: relative;
+}
+.DataDetail>view.data-v-b4e1104c:nth-of-type(2) {
+		box-sizing: border-box;
+		border-left: 2px solid #e2e2e2;
+		border-right: 2px solid #e2e2e2;
+}
+.DataDetail>view>image.data-v-b4e1104c {
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		left: 20px;
+}
+.DataDetail>view>.p.data-v-b4e1104c {
+		line-height: 20px;
+		position: absolute;
+		left: 45px;
+		font-size: 13px;
+		font-weight: bold;
+}
+.SongList.data-v-b4e1104c {
+		width: calc(100% - 40px);
+		height: calc(100% - 20px);
+		padding: 0 20px;
+		position: absolute;
+		top: 20px;
+}
+.SongList_bt.data-v-b4e1104c {
+		height: 60px;
+		width: 100%;
+		position: relative;
+}
+.SongList_bt>view.data-v-b4e1104c:nth-of-type(1) {
+		position: absolute;
+		width: 35px;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+}
+.SongList_bt>view:nth-of-type(1)>image.data-v-b4e1104c {
+		width: 9px;
+		height: 9px;
+		padding: 8px;
+		background-color: #f43226;
+		border-radius: 50%;
+}
+.SongList_bt>view.data-v-b4e1104c:nth-of-type(2) {
+		position: absolute;
+		left: 45px;
+		height: 60px;
+		width: calc(100% - 55px);
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-b4e1104c {
+		float: left;
+		line-height: 60px;
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(1) {
+		font-size: 17px;
+		color: black;
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-b4e1104c:nth-of-type(2) {
+		font-size: 12px;
+		color: #868485;
+		margin-left: 5px;
+		font-weight: 300;
+}
+.SongList_bt>view.data-v-b4e1104c:nth-of-type(3) {
+		position: absolute;
+		height: 60px;
+		width: 20px;
+		right: 0px;
+}
+.SongList_bt>view:nth-of-type(3)>image.data-v-b4e1104c {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.SongList_content.data-v-b4e1104c {
+		width: 100%;
+		height: calc(100% - 60px);
+		overflow-y: auto;
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "new-song-block": "../../module/NewSongBlock/NewSongBlock"
+  }
+}

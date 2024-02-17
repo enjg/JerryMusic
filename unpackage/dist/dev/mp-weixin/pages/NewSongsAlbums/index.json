@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "more-details": "../module/MoreDetails",
+    "new-song": "./NewSong/NewSong",
+    "new-album": "./NewAlbum/NewAlbum"
+  }
+}

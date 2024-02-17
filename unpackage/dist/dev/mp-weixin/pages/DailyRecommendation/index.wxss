@@ -1,0 +1,113 @@
+
+.DailyRecommendation.data-v-0e083416 {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+}
+.DailyRecommendation_bt.data-v-0e083416 {
+		width: 250%;
+		height: 30vh;
+		position: static;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		/* 		margin-left: calc(-50% + 50vw); */
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		overflow: hidden;
+		position: relative;
+}
+.DailyRecommendation_bt_content.data-v-0e083416 {
+		width: 100vw;
+		height: 30vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.DailyRecommendation_bt_content>.p.data-v-0e083416 {
+		position: absolute;
+		bottom: 3vh;
+		left: 5vw;
+		color: white;
+}
+.DailyRecommendation_bt_content>.p.data-v-0e083416:nth-of-type(1) {
+		font-size: 70rpx;
+}
+.DailyRecommendation_bt_content>.p>.span.data-v-0e083416 {
+		font-size: 35rpx;
+}
+.DailyRecommendation_bt_content>image.data-v-0e083416 {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+}
+.DailyRecommendation_content.data-v-0e083416 {
+		width: calc(100% - 40px);
+		height: 70vh;
+		padding: 0 20px;
+		position: absolute;
+		top: 30vh;
+		flex: 1;
+		overflow: hidden;
+}
+.SongList_bt.data-v-0e083416 {
+		height: 60px;
+		width: 100%;
+		position: relative;
+}
+.SongList_bt>view.data-v-0e083416:nth-of-type(1) {
+		position: absolute;
+		width: 35px;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+}
+.SongList_bt>view:nth-of-type(1)>image.data-v-0e083416 {
+		width: 9px;
+		height: 9px;
+		padding: 8px;
+		background-color: #f43226;
+		border-radius: 50%;
+}
+.SongList_bt>view.data-v-0e083416:nth-of-type(2) {
+		position: absolute;
+		left: 45px;
+		height: 60px;
+		width: calc(100% - 55px);
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-0e083416 {
+		float: left;
+		line-height: 60px;
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-0e083416:nth-of-type(1) {
+		font-size: 17px;
+		color: black;
+		font-weight: bold;
+}
+.SongList_bt>view:nth-of-type(2)>.p.data-v-0e083416:nth-of-type(2) {
+		font-size: 12px;
+		color: #868485;
+		margin-left: 5px;
+		font-weight: 300;
+}
+.SongList_bt>view.data-v-0e083416:nth-of-type(3) {
+		position: absolute;
+		height: 60px;
+		width: 20px;
+		right: 0px;
+}
+.SongList_bt>view:nth-of-type(3)>image.data-v-0e083416 {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.DailyRecommendation_content_center.data-v-0e083416 {
+		width: 100%;
+		height: calc(100% - 60px);
+}

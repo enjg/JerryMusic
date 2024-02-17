@@ -1,0 +1,50 @@
+
+.PlaylistTabDetails.data-v-eb19378d {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+}
+.bt.data-v-eb19378d {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 60px;
+		background-color: white;
+}
+.bt>image.data-v-eb19378d {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20px;
+		height: 20px;
+}
+.bt>.p.data-v-eb19378d {
+		position: absolute;
+		top: 50%;
+		left: 60px;
+		transform: translateY(-50%);
+		line-height: 50px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #283349;
+}
+.content.data-v-eb19378d {
+		width: calc(100vw - 40px);
+		height: calc(100vh - 60px);
+		position: absolute;
+		top: 60px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: 0 20px;
+}
+.center.data-v-eb19378d {
+		height: calc((100vw - 60px) / 3 + 40px);
+		width: calc((100vw - 60px) / 3);
+		float: left;
+		margin: 10px 0;
+}
+.center.data-v-eb19378d:nth-of-type(3n-1) {
+		margin: 10px 10px;
+}

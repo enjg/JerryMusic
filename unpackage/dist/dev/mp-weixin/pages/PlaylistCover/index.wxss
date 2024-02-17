@@ -1,0 +1,84 @@
+
+.PlaylistCover.data-v-5fcc4554 {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+		overflow: hidden;
+}
+.PlaylistCover>image.data-v-5fcc4554 {
+		height: 120vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		filter: blur(150px);
+}
+.content.data-v-5fcc4554 {
+		width: 100vw;
+		height: 100vw;
+		position: relative;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.content>image.data-v-5fcc4554:nth-of-type(1) {
+		width: 60%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		border-radius: 20px;
+		transform: translate(-50%, -50%);
+}
+.content>image.data-v-5fcc4554:nth-of-type(2) {
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		right: 15px;
+		top: 20px;
+}
+.content>.p.data-v-5fcc4554 {
+		color: white;
+		font-size: 18px;
+		font-weight: bold;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 20vw;
+		width: 80vw;
+		text-align: center;
+		line-height: 20vw;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+}
+.jianjie.data-v-5fcc4554 {
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		height: calc(100% - 100vw);
+		position: relative;
+}
+.jianjie>.p.data-v-5fcc4554 {
+		color: white;
+		font-size: 13px;
+		line-height: 40px;
+}
+.jianjie>.center.data-v-5fcc4554 {
+		line-height: 25px;
+		font-size: 12px;
+}
+.input.data-v-5fcc4554 {
+		width: 100px;
+		height: 30px;
+		border-radius: 15px;
+		border: 1px solid white;
+		position: absolute;
+		left: calc(50%);
+		bottom: 30px;
+		transform: translateX(-50%);
+		box-sizing: border-box;
+}
+.input>.p.data-v-5fcc4554 {
+		text-align: center;
+		line-height: 30px;
+		font-size: 15px;
+		color: white;
+}

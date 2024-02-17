@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "曲风分类",
+  "usingComponents": {
+    "sorting-block": "../module/SortingBlock/SortingBlock"
+  }
+}

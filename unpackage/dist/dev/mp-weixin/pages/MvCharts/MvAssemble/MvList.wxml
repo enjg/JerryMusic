@@ -1,0 +1,1 @@
+<view class="MvList data-v-f0057fa1"><view class="DateTime data-v-f0057fa1"><view class="p data-v-f0057fa1">更新时间：{{a}}</view></view><mvblock wx:for="{{b}}" wx:for-item="item" wx:key="a" class="data-v-f0057fa1" u-i="{{item.b}}" bind:__l="__l" u-p="{{item.c}}"></mvblock></view>

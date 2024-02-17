@@ -1,0 +1,58 @@
+
+.MusicalStyleSinger.data-v-fbf2582f {
+		height: 100%;
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		overflow: hidden;
+		position: relative;
+}
+.center.data-v-fbf2582f {
+		width: 100%;
+		height: 50px;
+		margin-top: 10px;
+}
+.img.data-v-fbf2582f {
+		position: relative;
+		width: 50px;
+		height: 50px;
+		float: left;
+		overflow: hidden;
+		border-radius: 50%;
+}
+.img>image.data-v-fbf2582f {
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+}
+.name.data-v-fbf2582f {
+		float: left;
+		height: 100%;
+		width: calc(100% - 60px);
+		margin-left: 10px;
+}
+.name>.p.data-v-fbf2582f {
+		line-height: 35px;
+		font-size: 17px;
+		width: 100%;
+		height: 35px;
+		white-space: nowrap;
+		/* 防止文本换行 */
+		overflow: hidden;
+		/* 隐藏超出部分的文本 */
+		text-overflow: ellipsis;
+		/* 用省略号代替超出部分的文本 */
+}
+.name>view.data-v-fbf2582f {
+		width: 100%;
+		height: 15px;
+		overflow: hidden;
+}
+.name>view>.p.data-v-fbf2582f {
+		float: left;
+		line-height: 15px;
+		font-size: 13px;
+		color: #808080;
+		white-space: nowrap;
+		font-weight: 300;
+}

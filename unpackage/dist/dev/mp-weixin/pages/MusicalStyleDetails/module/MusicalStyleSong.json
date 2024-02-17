@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "song-block-two": "../../module/SongBlockStyle/SongBlockTwo"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="SongListBlock data-v-b56f34e0" bindtap="{{f}}"><image class="data-v-b56f34e0" src="{{a}}" alt=""></image><view class="p data-v-b56f34e0">{{b}}</view><view style="{{'background-color:' + e}}" class="count data-v-b56f34e0"><image class="data-v-b56f34e0" src="{{c}}" alt=""></image><view class="p data-v-b56f34e0">{{d}}</view></view></view>

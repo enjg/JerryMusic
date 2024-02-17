@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "用户",
+  "usingComponents": {
+    "dynamic-state": "./DynamicState/DynamicState",
+    "more": "../module/More"
+  }
+}

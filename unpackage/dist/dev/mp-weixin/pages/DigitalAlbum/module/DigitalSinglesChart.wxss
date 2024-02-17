@@ -1,0 +1,105 @@
+
+.DigitalAlbumChart.data-v-84bd3001 {
+		width: 100%;
+		height: 250px;
+		margin-top: 20px;
+}
+.bt.data-v-84bd3001 {
+		width: calc(100% - 20px);
+		height: 50px;
+		padding: 0 10px;
+
+		position: relative;
+}
+.bt>.p.data-v-84bd3001 {
+		line-height: 50px;
+		font-size: 18px;
+		font-weight: bold;
+}
+.sort.data-v-84bd3001 {
+		width: 150px;
+		height: 20px;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.sort>.p.data-v-84bd3001 {
+		float: left;
+		line-height: 20px;
+		font-size: 13px;
+		width: 50px;
+		height: 100%;
+		text-align: center;
+		box-sizing: border-box;
+		color: #313234;
+}
+.sortClick.data-v-84bd3001 {
+		color: #b7403a !important;
+		font-weight: bold !important;
+}
+.sort>.p.data-v-84bd3001:nth-of-type(2) {
+		border-left: 1px solid #dedfe1;
+		border-right: 1px solid #dedfe1;
+}
+.swiper.data-v-84bd3001 {
+		width: 100%;
+		height: 200px;
+}
+.content.data-v-84bd3001 {
+		width: calc(100% - 20px);
+		padding: 0 10px;
+}
+.center.data-v-84bd3001 {
+		width: 100%;
+		height: 50px;
+		box-sizing: border-box;
+		border-top: 1px solid #e8e9eb;
+		border-bottom: 1px solid #e8e9eb;
+		position: relative;
+}
+.center>.image.data-v-84bd3001 {
+		width: 45px;
+		height: 50px;
+		position: absolute;
+		left: 0;
+}
+.center>.image>image.data-v-84bd3001 {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		z-index: 2;
+		border-radius: 3px;
+}
+.center>.image>.bj.data-v-84bd3001 {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		background-color: black;
+}
+.center>.index.data-v-84bd3001 {
+		width: 50px;
+		height: 100%;
+		position: absolute;
+		left: 45px;
+		text-align: center;
+		line-height: 50px;
+		color: #6a6a6c;
+		font-size: 15px;
+		font-weight: bold;
+}
+.center>.name.data-v-84bd3001 {
+		height: 100%;
+		position: absolute;
+		left: 95px;
+		line-height: 50px;
+		color: #363638;
+		font-size: 13px;
+}

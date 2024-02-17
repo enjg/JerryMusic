@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "load": "../load",
+    "new-song-bj": "../NewSongBj",
+    "song-block-two": "../SongBlockStyle/SongBlockTwo"
+  }
+}

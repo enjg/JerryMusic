@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "album": "../SearchDetailsComponent/Album",
+    "singer": "../SearchDetailsComponent/Singer",
+    "mv": "../SearchDetailsComponent/Mv",
+    "song-list": "../SearchDetailsComponent/SongList",
+    "single": "../SearchDetailsComponent/Single"
+  }
+}

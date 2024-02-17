@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "艺人",
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "mv-list": "./module/MvList",
+    "home-page": "./module/HomePage",
+    "song-list": "./module/SongList",
+    "album": "./module/Album",
+    "more-details": "../module/MoreDetails"
+  }
+}

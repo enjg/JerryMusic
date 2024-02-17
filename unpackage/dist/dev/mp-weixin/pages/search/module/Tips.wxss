@@ -1,0 +1,36 @@
+
+.Tips.data-v-c27b4288 {
+		width: 100%;
+		height: calc(100% - 50px);
+		position: absolute;
+		top: 50px;
+		left: 0;
+		overflow-y: auto;
+}
+.content.data-v-c27b4288 {
+		height: 50px;
+		width: 100%;
+		position: relative;
+}
+.content>image.data-v-c27b4288 {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.center.data-v-c27b4288 {
+		width: calc(100% - 60px);
+		height: 100%;
+		position: absolute;
+		left: 60px;
+		top: 50%;
+		transform: translateY(-50%);
+		box-sizing: border-box;
+		border-bottom: 1px solid #eeeff4;
+}
+.center>.p.data-v-c27b4288 {
+		line-height: 50px;
+		font-size: 15px;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "歌单广场",
+  "usingComponents": {
+    "song-list-component": "./SongListComponent/SongListComponent"
+  }
+}

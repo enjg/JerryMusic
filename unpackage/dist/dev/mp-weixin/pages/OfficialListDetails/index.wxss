@@ -1,0 +1,181 @@
+
+.OfficialListDetails.data-v-a6f32dad {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+}
+.bt.data-v-a6f32dad {
+		width: 100%;
+		height: 60px;
+		position: fixed;
+		top: 0;
+		z-index: 99999;
+}
+.bt>image.data-v-a6f32dad:nth-of-type(1) {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.bt>image.data-v-a6f32dad:nth-of-type(2) {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		z-index: -1;
+}
+.bt>.name.data-v-a6f32dad {
+		line-height: 60px;
+		position: absolute;
+		left: 60px;
+		font-size: 17px;
+		color: white;
+}
+.img.data-v-a6f32dad {
+		width: 100%;
+		height: calc(100% / 4);
+		overflow: hidden;
+		position: relative;
+}
+.img>image.data-v-a6f32dad {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.img>.p.data-v-a6f32dad {
+		z-index: 999;
+		position: absolute;
+		left: 50%;
+		bottom: 40px;
+		font-size: 14px;
+		transform: translateX(-50%);
+		color: rgba(255, 255, 255, 0.8);
+}
+.content.data-v-a6f32dad {
+		width: 100%;
+		height: calc(100% - 10px);
+		position: relative;
+}
+.DataDetail.data-v-a6f32dad {
+		width: 80vw;
+		height: 40px;
+		background-color: white;
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 20px;
+		box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05),
+			-5px 5px 5px 0px rgba(0, 0, 0, 0.05)
+}
+.DataDetail>view.data-v-a6f32dad {
+		float: left;
+		width: calc(100% / 3);
+		height: 20px;
+		margin-top: 10px;
+		position: relative;
+}
+.DataDetail>view.data-v-a6f32dad:nth-of-type(2) {
+		box-sizing: border-box;
+		border-left: 2px solid #e2e2e2;
+		border-right: 2px solid #e2e2e2;
+}
+.DataDetail>view>image.data-v-a6f32dad {
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		left: 20px;
+}
+.DataDetail>view>.p.data-v-a6f32dad {
+		line-height: 20px;
+		position: absolute;
+		left: 45px;
+		font-size: 12px;
+		font-weight: bold;
+}
+.songList.data-v-a6f32dad {
+		width: 100%;
+		height: calc(100% - 50px);
+		position: relative;
+		overflow: hidden;
+		position: absolute;
+		top: 50px;
+		/* 		scroll-padding-top: 60px; */
+}
+.songList_bt.data-v-a6f32dad {
+		height: 50px;
+		width: 100%;
+		background-color: white;
+}
+.songList_content.data-v-a6f32dad {
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		height: calc(100% - 50px);
+		overflow-y: auto;
+}
+.songList_bt>view.data-v-a6f32dad:nth-of-type(1) {
+		width: 25px;
+		height: 50px;
+		position: absolute;
+		left: 20px;
+}
+.songList_bt>view:nth-of-type(1)>image.data-v-a6f32dad {
+		width: 9px;
+		height: 9px;
+		padding: 8px;
+		background-color: #f43226;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view.data-v-a6f32dad:nth-of-type(2) {
+		position: absolute;
+		left: 65px;
+		height: 50px;
+		width: calc(100% - 155px);
+}
+.songList_bt>view:nth-of-type(2)>.p.data-v-a6f32dad {
+		float: left;
+		line-height: 50px;
+		margin-right: 10px;
+}
+.songList_bt>view:nth-of-type(2)>.p.data-v-a6f32dad:nth-of-type(1) {
+		font-size: 18px;
+		font-weight: bold;
+}
+.songList_bt>view:nth-of-type(2)>.p.data-v-a6f32dad:nth-of-type(2) {
+		font-size: 15px;
+		color: #868485;
+}
+.songList_bt>view.data-v-a6f32dad:nth-of-type(3) {
+		position: absolute;
+		height: 50px;
+		width: 50px;
+		right: 40px;
+}
+.songList_bt>view:nth-of-type(3)>image.data-v-a6f32dad {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view:nth-of-type(4)>image.data-v-a6f32dad {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view.data-v-a6f32dad:nth-of-type(4) {
+		position: absolute;
+		height: 50px;
+		width: 20px;
+		right: 20px;
+}

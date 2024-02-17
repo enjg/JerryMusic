@@ -1,0 +1,16 @@
+
+.MvList.data-v-f0057fa1 {
+		width: calc(100vw - 40px);
+		margin-left: 20px;
+		height: 100%;
+		overflow-y: auto;
+}
+.DateTime.data-v-f0057fa1 {
+		height: 50px;
+}
+.DateTime>.p.data-v-f0057fa1 {
+		line-height: 50px;
+		font-weight: bold;
+		font-size: 14px;
+		letter-spacing: 0.1em;
+}

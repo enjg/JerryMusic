@@ -1,0 +1,1 @@
+<view class="GarouselMap data-v-8ac89bbf"><swiper class="swiper-wrap data-v-8ac89bbf" circular="true" interval="5000" autoplay="true"><swiper-item wx:for="{{a}}" wx:for-item="item" wx:key="b" class="center data-v-8ac89bbf"><image mode="widthFix" class="imgs data-v-8ac89bbf" src="{{item.a}}" alt=""></image></swiper-item></swiper></view>

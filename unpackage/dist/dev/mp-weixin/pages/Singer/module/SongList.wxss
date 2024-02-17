@@ -1,0 +1,80 @@
+
+.SongList.data-v-3b9f9f93 {
+		width: 100%;
+		height: 100%;
+		background-color: white;
+}
+.songList_bt.data-v-3b9f9f93 {
+		height: 50px;
+		width: 100%;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+}
+.songList_bt>view.data-v-3b9f9f93:nth-of-type(1) {
+		width: 25px;
+		height: 50px;
+		position: absolute;
+		left: 20px;
+}
+.songList_bt>view:nth-of-type(1)>image.data-v-3b9f9f93 {
+		width: 9px;
+		height: 9px;
+		padding: 8px;
+		background-color: #f43226;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view.data-v-3b9f9f93:nth-of-type(2) {
+		position: absolute;
+		left: 65px;
+		height: 50px;
+		width: calc(100% - 155px);
+}
+.songList_bt>view:nth-of-type(2)>.p.data-v-3b9f9f93 {
+		float: left;
+		line-height: 50px;
+		margin-right: 10px;
+}
+.songList_bt>view:nth-of-type(2)>.p.data-v-3b9f9f93:nth-of-type(1) {
+		font-size: 18px;
+		font-weight: bold;
+}
+.songList_bt>view.data-v-3b9f9f93:nth-of-type(3) {
+		position: absolute;
+		height: 50px;
+		width: 50px;
+		right: 40px;
+}
+.songList_bt>view:nth-of-type(3)>image.data-v-3b9f9f93 {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view:nth-of-type(4)>image.data-v-3b9f9f93 {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+.songList_bt>view.data-v-3b9f9f93:nth-of-type(4) {
+		position: absolute;
+		height: 50px;
+		width: 20px;
+		right: 20px;
+}
+.songList_content.data-v-3b9f9f93 {
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		height: calc(100% - 50px);
+		overflow: hidden;
+		position: relative;
+}

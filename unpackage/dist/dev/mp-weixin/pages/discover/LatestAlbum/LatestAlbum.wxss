@@ -1,0 +1,93 @@
+
+.LatestAlbum.data-v-ed743c01 {
+		width: calc(100% - 20px);
+		margin-left: 20px;
+}
+.bt.data-v-ed743c01 {
+		height: 50px;
+}
+.bt>.p.data-v-ed743c01 {
+		line-height: 50px;
+		font-weight: bold;
+		font-size: 18px;
+}
+.swiper.data-v-ed743c01 {
+		height: 200px;
+}
+.swiper-item.data-v-ed743c01 {
+		width: 100%;
+		height: 200px;
+}
+.content.data-v-ed743c01 {
+		width: calc(100% - 10px);
+		height: 100%;
+}
+.center.data-v-ed743c01 {
+		height: 56.5px;
+		position: relative;
+		margin-top: 10px;
+}
+.pulseClick.data-v-ed743c01 {
+		animation: pulse-ed743c01 500ms 1;
+}
+@keyframes pulse-ed743c01 {
+0% {
+			transform: scale(1);
+			opacity: 1;
+}
+50% {
+			transform: scale(0.95);
+			opacity: 0.5;
+}
+100% {
+			transform: scale(1);
+			opacity: 1;
+}
+}
+.center.center.data-v-ed743c01:nth-of-type(3n-1) {}
+.center>image.data-v-ed743c01 {
+		height: 100%;
+		border-radius: 8px;
+		position: absolute;
+		left: 0;
+		top: 0;
+}
+.details.data-v-ed743c01 {
+		position: absolute;
+		left: 70px;
+		height: calc(100% - 20px);
+		padding: 10px 0px;
+		width: calc(100% - 70px);
+}
+.details>view>view.data-v-ed743c01 {
+		float: left;
+}
+.details>.p.data-v-ed743c01 {
+		line-height: 25px;
+		color: #44404e;
+		font-weight: bold;
+		font-size: 14px;
+		width: 100%;
+		white-space: nowrap;
+		/* 防止文本换行 */
+		overflow: hidden;
+		/* 隐藏超出容器的文本 */
+		text-overflow: ellipsis;
+		/* 用省略号代替超出的文本 */
+}
+.details>view .p.data-v-ed743c01 {
+		float: left;
+		line-height: 15px;
+		font-size: 12px;
+		color: #757a80;
+}
+.bj.data-v-ed743c01 {
+		height: 50.5px;
+		background-color: black;
+		width: 50.5px;
+		position: absolute;
+		z-index: -1;
+		border-radius: 50%;
+		top: -5px;
+		left: 2.5px;
+}

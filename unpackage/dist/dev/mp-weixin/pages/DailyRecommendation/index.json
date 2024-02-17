@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "每日推荐",
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "more-details": "../module/MoreDetails",
+    "song-block-two": "../module/SongBlockStyle/SongBlockTwo"
+  }
+}

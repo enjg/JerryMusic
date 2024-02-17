@@ -1,0 +1,493 @@
+
+.DynamicStateBlockOne.data-v-3988208b {
+		width: 100vh;
+		padding: 10px 0;
+		position: relative;
+		border-bottom: 1px solid #e0e1e3;
+		display: inline-block;
+}
+.DynamicStateBlockOne>.image.data-v-3988208b {
+		/* 		position: relative; */
+		width: 40px;
+		float: left;
+		margin-left: 20px;
+}
+.DynamicStateBlockOne>.image>image.data-v-3988208b {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+}
+.text.data-v-3988208b {
+		width: calc(100vw - 110px);
+		/* 		position: relative;
+		left: 70px;
+		top: 0; */
+		float: left;
+		margin-left: 10px;
+}
+.text>.name.data-v-3988208b {
+		height: 25px;
+		width: 100%;
+		line-height: 25px;
+		color: #313332;
+		font-weight: bold;
+		font-size: 15px
+}
+.time.data-v-3988208b {
+		width: 100%;
+		height: 15px;
+		line-height: 15px;
+		margin-bottom: 10px;
+		color: #949597;
+		font-size: 12px;
+		font-weight: 300;
+}
+.msg.data-v-3988208b {
+		min-height: 30px;
+		width: 100%;
+		line-height: 30px;
+		font-size: 15px;
+		color: #313332;
+}
+.img.data-v-3988208b {
+		max-width: calc(100vw - 110px);
+		max-height: calc(100vw - 110px);
+		display: inline-block;
+		border-radius: 3vw;
+		overflow: hidden;
+}
+.img_center.data-v-3988208b {
+		width: calc((100vw - 110px) / 3);
+		height: calc((100vw - 110px) / 3);
+		float: left;
+		position: relative;
+		overflow: hidden;
+		border: 1px solid white;
+}
+.imgCenterOne.data-v-3988208b {
+		width: calc((100vw - 110px) / 3 - 2px);
+		height: calc((100vw - 110px) / 3 - 2px);
+}
+.imgCenterTwo.data-v-3988208b {
+		width: calc((100vw - 110px) * 0.6);
+		height: calc(100vw - 110px);
+		/* 		background-color: wheat; */
+}
+.imgCenterThree.data-v-3988208b {
+		width: calc((100vw - 110px) / 2 - 2px);
+		height: calc((100vw - 110px) / 2 - 2px);
+}
+.imgCenterFour.data-v-3988208b {
+		width: calc((100vw - 110px) / 3 - 2px);
+		height: calc((100vw - 110px) / 3 - 2px);
+}
+.imgCenterFour.data-v-3988208b:nth-of-type(1),
+	.imgCenterFour.data-v-3988208b:nth-of-type(2) {
+		width: calc((100vw - 110px) / 2 - 2px) !important;
+		height: calc((100vw - 110px) / 2 - 2px) !important;
+}
+.imgCenterFive.data-v-3988208b {
+		width: calc((100vw - 110px) / 4 - 2px);
+		height: calc((100vw - 110px) / 4 - 2px);
+}
+.imgCenterFive.data-v-3988208b:nth-of-type(1),
+	.imgCenterFive.data-v-3988208b:nth-of-type(2),
+	.imgCenterFive.data-v-3988208b:nth-of-type(3) {
+		width: calc((100vw - 110px) / 3 - 2px) !important;
+		height: calc((100vw - 110px) / 3 - 2px) !important;
+}
+.imgCenterSix.data-v-3988208b {
+		width: calc((100vw - 110px) / 4 - 2px);
+		height: calc((100vw - 110px) / 4 - 2px);
+}
+.imgHeight.data-v-3988208b {
+		max-height: 100%;
+}
+.imgWidth.data-v-3988208b {
+		max-width: 100%;
+}
+.img_center>image.data-v-3988208b {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+}
+.content.data-v-3988208b {
+		width: 100%;
+		height: 50px;
+		padding: 7.5px;
+		box-sizing: border-box;
+		background-color: #ecedf1;
+		border-radius: 5px;
+		position: relative;
+}
+.Album>.image.data-v-3988208b {
+		height: 35px;
+		width: 45px;
+		position: relative;
+		float: left;
+}
+.Album>.image>.bjOne.data-v-3988208b {
+		width: 35px;
+		height: 100%;
+		background-color: black;
+		border-radius: 50%;
+		position: absolute;
+		right: 0;
+}
+.Album>.image>.bjTwo.data-v-3988208b {
+		width: calc(30px);
+		height: calc(30px);
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		z-index: 2;
+		background-color: rgba(255, 255, 255, 0.5);
+}
+.Album>.image>.bjThree.data-v-3988208b {
+		width: 15%;
+		height: calc(100% * 0.15);
+		background-color: black;
+		position: absolute;
+		border-radius: 50%;
+		right: 4%;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 3;
+}
+.Album>.image>image.data-v-3988208b {
+		width: 35px;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		z-index: 4;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+}
+.Album>.center.data-v-3988208b {
+		width: calc(100% - 50px);
+		float: left;
+		margin-left: 5px;
+}
+.Album>.center>.name.data-v-3988208b {
+		width: 100%;
+		height: 20px;
+}
+.Album>.center>.name>.p.data-v-3988208b {
+		width: 100%;
+		height: 20px;
+		line-height: 20px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #2f2f31 !important;
+		font-size: 14px;
+}
+.Album>.center>.singer.data-v-3988208b {
+		height: 15px;
+		width: 100%;
+}
+.Album>.center>.singer>.p.data-v-3988208b {
+		width: 100%;
+		height: 15px;
+		line-height: 15px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #767779;
+		font-size: 11px;
+		font-weight: 300;
+}
+.Playlist>image.data-v-3988208b {
+		width: 35px;
+		height: 35px;
+		border-radius: 5px;
+		float: left;
+}
+.Playlist>.center.data-v-3988208b {
+		width: calc(100% - 40px);
+		float: left;
+		margin-left: 5px;
+}
+.Playlist>.center>.name.data-v-3988208b {
+		width: 100%;
+		height: 20px;
+}
+.Playlist>.center>.name>.p.data-v-3988208b:nth-of-type(1) {
+		border: 1px solid #f49899;
+		border-radius: 2px;
+		font-size: 9px;
+		font-weight: 300;
+		color: #fe4243;
+		height: 12px;
+		width: 28px;
+		text-align: center;
+		float: left;
+		box-sizing: border-box;
+		line-height: 12px;
+		display: block;
+		margin-top: 4px;
+}
+.Playlist>.center>.name>.p.data-v-3988208b:nth-of-type(2) {
+		width: calc(100% - 37px);
+		height: 20px;
+		margin-left: 5px;
+		line-height: 20px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #2f2f31 !important;
+		font-size: 14px;
+		float: left;
+}
+.Playlist>.center>.singer.data-v-3988208b {
+		height: 15px;
+		width: 100%;
+}
+.Playlist>.center>.singer>.p.data-v-3988208b {
+		width: 100%;
+		height: 15px;
+		line-height: 15px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #767779;
+		font-size: 11px;
+		font-weight: 300;
+}
+.Mv.data-v-3988208b {
+		width: 100%;
+		position: relative;
+		display: inline-block;
+}
+.Mv>image.data-v-3988208b:nth-of-type(1) {
+		width: 100%;
+		border-radius: 10px;
+}
+.Mv>.name.data-v-3988208b {
+		width: 100%;
+		height: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		padding: 0 5px;
+}
+.Mv>.name>.p.data-v-3988208b:nth-of-type(1) {
+		float: left;
+		display: inline-block;
+		border: 1px solid white;
+		border-radius: 2px;
+		font-size: 10px;
+		font-weight: 300;
+		width: calc(30px);
+		text-align: center;
+		height: 15px;
+		line-height: 15px;
+		margin-top: 2.5px;
+		box-sizing: border-box;
+		color: white;
+}
+.Mv>.name>.p.data-v-3988208b:nth-of-type(2) {
+		float: left;
+		line-height: 20px;
+		width: calc(100% - 35px);
+		margin-left: 5px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: white;
+		font-size: 15px;
+}
+.Mv>.singer.data-v-3988208b {
+		width: 100%;
+		height: 15px;
+		padding: 0 5px;
+		position: absolute;
+		top: 20px;
+		left: 0;
+}
+.Mv>.singer>.p.data-v-3988208b {
+		line-height: 15px;
+		color: white;
+		font-size: 11px;
+		font-weight: 300;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+}
+.Mv>image.data-v-3988208b:nth-of-type(2) {
+		width: 10vw;
+		height: 10vw;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		opacity: 0.8;
+		transform: translate(-50%, -50%);
+}
+.Mv>.playCount.data-v-3988208b {
+		width: calc(40px);
+		height: 15px;
+		position: absolute;
+		bottom: 15px;
+		left: 5px;
+}
+.Mv>.playCount>image.data-v-3988208b {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.Mv>.playCount>.p.data-v-3988208b {
+		color: white;
+		font-size: 11px;
+		position: absolute;
+		right: 0;
+		line-height: 15px;
+}
+.Mv>.duration.data-v-3988208b {
+		height: 15px;
+		position: absolute;
+		right: 5px;
+		bottom: 15px;
+}
+.Mv>.duration>.p.data-v-3988208b {
+		font-size: 11px;
+		color: white;
+		line-height: 15px;
+}
+.Song.data-v-3988208b {
+		width: 100%;
+		height: 60px;
+		border-radius: 5px;
+		overflow: hidden;
+		position: relative;
+}
+.Song>image.data-v-3988208b:nth-of-type(1) {
+		position: absolute;
+		left: 0;
+		width: 60px;
+		height: 60px;
+}
+.Song>.text.data-v-3988208b {
+		width: calc(100% - 120px);
+		height: 100%;
+		position: absolute;
+		left: 60px;
+		box-sizing: border-box;
+		padding: 10px;
+}
+.Song>.text>.name.data-v-3988208b {
+		height: 25px;
+		width: 100%;
+}
+.Song>.text>.name>.p.data-v-3988208b {
+		color: white;
+		font-size: 14px;
+		width: 100%;
+		height: 100%;
+		line-height: 20px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+}
+.Song>.text>.singer.data-v-3988208b {
+		width: 100%;
+		height: 15px;
+}
+.Song>.text>.singer>.p.data-v-3988208b {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 11px;
+		width: 100%;
+		height: 100%;
+		line-height: 15px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-weight: 300;
+}
+.Song>image.data-v-3988208b:nth-of-type(2) {
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		right: 22.5px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.Song>.load.data-v-3988208b {
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		right: 22.5px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.Song>.load>.loadCenter.data-v-3988208b {
+		width: calc((100% - 4px) /3);
+		height: 100%;
+		border-radius: 5px;
+		background-color: rgba(255, 255, 255, 0.8);
+		float: left;
+}
+.Song>.load>.loadCenter.data-v-3988208b:nth-of-type(2) {
+		margin: 0 2px;
+}
+.Song>.load>.loadCenterOne.data-v-3988208b {
+		animation: shrinkAndGrow-3988208b 1s ease-in-out infinite forwards 0s;
+}
+.Song>.load>.loadCenterTwo.data-v-3988208b {
+		animation: shrinkAndGrow-3988208b 1s ease-in-out infinite forwards 0.25s;
+}
+.Song>.load>.loadCenterThree.data-v-3988208b {
+		animation: shrinkAndGrow-3988208b 1s ease-in-out infinite forwards 0.5s;
+}
+@keyframes shrinkAndGrow-3988208b {
+0% {
+			transform: scaleY(1);
+			transform-origin: bottom;
+			/* 动画开始时，高度为原始高度 */
+}
+50% {
+			transform: scaleY(0);
+			transform-origin: bottom;
+			/* 动画中间点，高度缩小到原始高度的10% */
+}
+100% {
+			transform: scaleY(1);
+			transform-origin: bottom;
+			/* 动画结束时，高度恢复到原始高度 */
+}
+}
+.input.data-v-3988208b {
+		width: 100%;
+		height: 30px;
+}
+.inputContent.data-v-3988208b {
+		width: calc(33%);
+		height: 100%;
+		float: left;
+		position: relative;
+}
+.inputContent>image.data-v-3988208b {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.inputContent>.p.data-v-3988208b {
+		width: calc(100% - 25px);
+		position: absolute;
+		left: 25px;
+		line-height: 30px;
+		font-size: 11px;
+		font-weight: 300;
+		color: #949597;
+}

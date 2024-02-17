@@ -1,0 +1,85 @@
+
+.Click.data-v-d6f715fc {
+		filter: brightness(0.8) !important;
+}
+.RecommendedPlaylist.data-v-d6f715fc {
+		margin-left: 20px;
+/* 		margin-top: 20px;
+		background-color: yellow; */
+}
+.bt.data-v-d6f715fc {
+		height: 50px;
+}
+.bt_name.data-v-d6f715fc {
+		line-height: 50px;
+		font-weight: bold;
+		font-size: 18px;
+}
+.songList.data-v-d6f715fc {
+		white-space: nowrap;
+		overflow: hidden;
+}
+.center.data-v-d6f715fc {
+		width: calc((100vw - 20px) / 2.8);
+		height: calc((100vw - 20px) / 2.8 + 40px);
+		display: inline-block;
+		margin-right: 10px;
+		position: relative;
+}
+.bj.data-v-d6f715fc {
+		width: 80%;
+		height: 20;
+		padding-bottom: 80%;
+		border-radius: 10px;
+		background-color: #ebecf0;
+		position: absolute;
+		top: 0;
+		left: 10%;
+		z-index: -1;
+}
+.center>image.data-v-d6f715fc:nth-of-type(1) {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		bottom: 40px;
+		right: 5px;
+}
+.center>image.data-v-d6f715fc:nth-of-type(2) {
+		width: 100%;
+		height: calc((100vw - 20px) / 2.8);
+		margin-top: 5px;
+		border-radius: 10px;
+		z-index: 2;
+}
+.playcount.data-v-d6f715fc {
+		height: 15px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 99999;
+}
+.playcount>image.data-v-d6f715fc {
+		height: 8px;
+		width: 8px;
+		float: left;
+		margin: 3.5px 0;
+}
+.playcount>.p.data-v-d6f715fc {
+		float: left;
+		margin: 0;
+		margin-left: 3px;
+		color: white;
+		font-size: 12px;
+		line-height: 15px;
+		font-weight: bold;
+}
+.center>.p.data-v-d6f715fc {
+		margin: 0;
+		white-space: pre-line;
+		line-height: 15px;
+		font-size: 13px;
+		font-weight: 300;
+		height: 30px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}

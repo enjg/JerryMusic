@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/discover/index",
+    "pages/User/index",
+    "pages/DynamicState/index",
+    "pages/SongList/index",
+    "pages/PlaylistTag/index",
+    "pages/PlaylistTabDetails/index",
+    "pages/PlaylistDetails/index",
+    "pages/PlaylistCover/index",
+    "pages/Leaderboard/index",
+    "pages/MvCharts/index",
+    "pages/NewSongsAlbums/index",
+    "pages/MusicalStyle/index",
+    "pages/MusicalStyleDetails/index",
+    "pages/Album/index",
+    "pages/Singer/index",
+    "pages/OfficialListDetails/index",
+    "pages/PlayDetails/index",
+    "pages/search/index",
+    "pages/SingerList/index",
+    "pages/Sensibilities/index",
+    "pages/Review/index",
+    "pages/VideoPlayback/index",
+    "pages/Roam/index",
+    "pages/LogIn/index",
+    "pages/Verify/index",
+    "pages/UserDetails/index",
+    "pages/DailyRecommendation/index",
+    "pages/DigitalAlbum/index",
+    "pages/DigitalAlbumDetails/index",
+    "pages/BestSellerList/index",
+    "pages/LanguageStyleAlbum/index",
+    "pages/ShareDT/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999a9c",
+    "selectedColor": "#f6255es",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "static/Bottomnavigationbar/发现.png",
+        "pagePath": "pages/discover/index",
+        "text": "发现"
+      },
+      {
+        "iconPath": "static/Bottomnavigationbar/动态.png",
+        "pagePath": "pages/DynamicState/index",
+        "text": "动态"
+      },
+      {
+        "iconPath": "static/Bottomnavigationbar/我的.png",
+        "pagePath": "pages/User/index",
+        "text": "用户"
+      }
+    ]
+  },
+  "app-plus": {
+    "customize": {
+      "mp-baidu": {
+        "unicodeNormalize": true
+      }
+    }
+  },
+  "usingComponents": {
+    "player": "/pages/module/player"
+  }
+}

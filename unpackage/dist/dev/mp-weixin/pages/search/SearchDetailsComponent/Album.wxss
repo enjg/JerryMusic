@@ -1,0 +1,65 @@
+
+.Album.data-v-843ebd76 {
+		width: 100%;
+		height: 100%;
+}
+.center.data-v-843ebd76 {
+		width: calc(100% - 40px);
+		height: 50px;
+		padding: 0 20px;
+		margin-top: 10px;
+}
+.img.data-v-843ebd76 {
+		height: 50px;
+		width: 50px;
+		position: absolute;
+		left: 20px;
+}
+.img>image.data-v-843ebd76 {
+		height: 100%;
+		width: 50px;
+		border-radius: 5px;
+}
+.img>view.data-v-843ebd76 {
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		position: absolute;
+		top: -5px;
+		border-radius: 50%;
+		z-index: -1;
+}
+.details.data-v-843ebd76 {
+		width: calc(100% - 100px);
+		height: 50px;
+		position: absolute;
+		left: 80px;
+		overflow: hidden;
+}
+.name.data-v-843ebd76 {
+		height: 35px;
+		width: 100%;
+		overflow: hidden;
+}
+.name>.p.data-v-843ebd76 {
+
+		line-height: 35px;
+		font-size: 17px;
+		float: left;
+}
+.name>.p.data-v-843ebd76:nth-of-type(2) {
+		color: #999999;
+}
+.Singer.data-v-843ebd76 {
+		width: 100%;
+		height: 15px;
+		overflow: hidden;
+}
+.Singer>.p.data-v-843ebd76 {
+		float: left;
+		line-height: 15px;
+		font-size: 13px;
+		color: #808080;
+		white-space: nowrap;
+		font-weight: 300;
+}

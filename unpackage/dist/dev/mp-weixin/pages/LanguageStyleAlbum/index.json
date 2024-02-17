@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "语种风格馆",
+  "usingComponents": {
+    "load": "../module/load"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="Tips data-v-c27b4288"><view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="content data-v-c27b4288" bindtap="{{item.b}}"><image class="data-v-c27b4288" src="/static/Search/放大镜.png" mode=""></image><view class="center data-v-c27b4288"><view class="p data-v-c27b4288">{{item.a}}</view></view></view></view>

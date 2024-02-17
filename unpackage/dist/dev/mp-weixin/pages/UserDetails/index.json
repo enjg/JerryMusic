@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "用户",
+  "usingComponents": {
+    "dynamic-state": "./module/DynamicState",
+    "song": "./module/Song"
+  }
+}

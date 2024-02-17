@@ -1,0 +1,179 @@
+{
+	"pages": [{
+			"path": "pages/discover/index",
+			"style": {
+				"navigationBarTitleText": "主页"
+			}
+		},
+		{
+			"path": "pages/User/index",
+			"style": {
+				"navigationBarTitleText": "用户"
+			}
+		},
+		{
+			"path": "pages/DynamicState/index"
+		},
+		{
+			"path": "pages/SongList/index",
+			"style": {
+				"navigationBarTitleText": "歌单广场"
+			}
+		},
+		{
+			"path": "pages/PlaylistTag/index"
+		},
+		{
+			"path": "pages/PlaylistTabDetails/index"
+		},
+		{
+			"path": "pages/PlaylistDetails/index"
+		},
+		{
+			"path": "pages/PlaylistCover/index"
+		},
+		{
+			"path": "pages/Leaderboard/index",
+			"style": {
+				"navigationBarTitleText": "排行榜"
+			}
+
+		},
+		{
+			"path": "pages/MvCharts/index"
+		},
+		{
+			"path": "pages/NewSongsAlbums/index"
+		},
+		{
+			"path": "pages/MusicalStyle/index",
+			"style": {
+				"navigationBarTitleText": "曲风分类"
+			}
+		},
+		{
+			"path": "pages/MusicalStyleDetails/index"
+		},
+		{
+			"path": "pages/Album/index"
+		},
+		{
+			"path": "pages/Singer/index",
+			"style": {
+				"navigationBarTitleText": "艺人"
+			}
+		},
+		{
+			"path": "pages/OfficialListDetails/index"
+		},
+		{
+			"path": "pages/PlayDetails/index"
+		},
+		{
+			"path": "pages/search/index",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+		{
+			"path": "pages/SingerList/index",
+			"style": {
+				"navigationBarTitleText": "歌手"
+			}
+		},
+		{
+			"path": "pages/Sensibilities/index",
+			"style": {
+				"navigationBarTitleText": "听歌识曲"
+			}
+		},
+		{
+			"path": "pages/Review/index",
+			"style": {
+				"navigationBarTitleText": "评论"
+			}
+		},
+		{
+			"path": "pages/VideoPlayback/index",
+			"style": {
+				"navigationBarTitleText": "视频"
+			}
+		},
+		{
+			"path": "pages/Roam/index"
+		},
+		{
+			"path": "pages/LogIn/index"
+		},
+		{
+			"path": "pages/Verify/index"
+		},
+		{
+			"path": "pages/UserDetails/index",
+			"style": {
+				"navigationBarTitleText": "用户"
+			}
+		},
+		{
+			"path": "pages/DailyRecommendation/index",
+			"style": {
+				"navigationBarTitleText": "每日推荐"
+			}
+		},
+		{
+			"path": "pages/DigitalAlbum/index",
+			"style": {
+				"navigationBarTitleText": "数字专辑"
+			}
+		},
+		{
+			"path": "pages/DigitalAlbumDetails/index"
+		},
+		{
+			"path": "pages/BestSellerList/index",
+			"style": {
+				"navigationBarTitleText": "畅销榜"
+			}
+		},
+		{
+			"path": "pages/LanguageStyleAlbum/index",
+			"style": {
+				"navigationBarTitleText": "语种风格馆"
+			}
+		},
+		{
+			"path": "pages/ShareDT/index"
+		}
+
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		// "navigationStyle": "custom",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#999a9c",
+		"selectedColor": "#f6255es",
+		"backgroundColor": "#fff",
+		"height": "50px",
+		"list": [{
+				"iconPath": "static/Bottomnavigationbar/发现.png",
+				"pagePath": "pages/discover/index",
+				"text": "发现"
+			},
+			{
+				"iconPath": "static/Bottomnavigationbar/动态.png",
+				"pagePath": "pages/DynamicState/index",
+				"text": "动态"
+			},
+			{
+				"iconPath": "static/Bottomnavigationbar/我的.png",
+				"pagePath": "pages/User/index",
+				"text": "用户"
+			}
+		]
+	}
+}

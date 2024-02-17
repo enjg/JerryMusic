@@ -1,0 +1,110 @@
+
+.ShareDT.data-v-c96f3aee {
+		width: 100vw;
+		height: 100vh;
+}
+.ShareDT_bt.data-v-c96f3aee {
+		width: 100%;
+		height: 60px;
+		position: relative;
+}
+.ShareDT_bt>image.data-v-c96f3aee {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 20px;
+}
+.ShareDT_bt>.p.data-v-c96f3aee {
+		color: #333333;
+		line-height: 60px;
+		position: absolute;
+		left: 60px;
+		font-size: 18px;
+		font-weight: bold;
+}
+.ShareDT_bt_button.data-v-c96f3aee {
+		height: 30px;
+		border-radius: 15px;
+		position: absolute;
+		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: #fe3a3b;
+		padding: 0 10px;
+}
+.ShareDT_bt_button>.p.data-v-c96f3aee {
+		color: white;
+		line-height: 30px;
+		font-size: 15px
+}
+.textarea.data-v-c96f3aee {
+		width: calc(100% - 40px);
+		margin-left: 20px;
+		height: 30vh;
+		caret-color: #cd3d3d;
+		color: #333333;
+		/* 		background-color: red; */
+}
+.textarea.data-v-c96f3aee::-webkit-input-placeholder {
+		color: red !important;
+		/* 设置为红色 */
+		font-size: 30px !important;
+}
+.textarea.data-v-c96f3aee::placeholder {
+		color: red !important;
+		/* 设置为红色 */
+		font-size: 30px !important;
+}
+.content.data-v-c96f3aee {
+		width: calc(100% - 40px);
+		height: 60px;
+		position: relative;
+		border-radius: 5px;
+		background-color: #f9f9f9;
+		margin-left: 20px;
+		/* 				background-color: red; */
+}
+.SongList.data-v-c96f3aee {
+		width: calc(100% - 20px);
+		height: 100%;
+		position: relative;
+		padding: 10px;
+}
+.SongList>image.data-v-c96f3aee {
+		width: 40px;
+		height: 40px;
+		border-radius: 5px;
+		float: left;
+}
+.textContent.data-v-c96f3aee {
+		margin-left: 10px;
+		width: calc(100% - 50px);
+		height: 100%;
+		float: left;
+}
+.name.data-v-c96f3aee {
+		height: 25px;
+		width: 100%;
+}
+.name>.p.data-v-c96f3aee {
+		line-height: 25px;
+		font-size: 14px;
+		color: #323232;
+		white-space: nowrap;
+		/* 防止文本换行 */
+		overflow: hidden;
+		/* 隐藏超出容器的文本 */
+		text-overflow: ellipsis;
+		/* 用省略号代替超出的文本 */
+}
+.text.data-v-c96f3aee {
+		height: 15px;
+		width: 100%;
+}
+.text>.p.data-v-c96f3aee {
+		font-size: 12px;
+		line-height: 15px;
+		color: #959595;
+}

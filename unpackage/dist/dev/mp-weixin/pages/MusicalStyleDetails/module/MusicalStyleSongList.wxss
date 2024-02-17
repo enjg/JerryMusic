@@ -1,0 +1,55 @@
+
+.MusicalStyleSongList.data-v-ee1ca2ec {
+		width: calc(100% - 40px);
+		height: 100%;
+		padding: 0 20px;
+		position: relative;
+		overflow: hidden;
+}
+.center.data-v-ee1ca2ec {
+		width: 100%;
+		height: 50px;
+		margin-top: 10px;
+}
+.img.data-v-ee1ca2ec {
+		position: relative;
+		width: 50px;
+		height: 50px;
+		float: left;
+}
+.img>image.data-v-ee1ca2ec {
+		height: 100%;
+		float: left;
+		border-radius: 5px;
+}
+.name.data-v-ee1ca2ec {
+		float: left;
+		height: 100%;
+		width: calc(100% - 60px);
+		margin-left: 10px;
+}
+.name>.p.data-v-ee1ca2ec {
+		line-height: 35px;
+		font-size: 17px;
+		width: 100%;
+		height: 35px;
+		white-space: nowrap;
+		/* 防止文本换行 */
+		overflow: hidden;
+		/* 隐藏超出部分的文本 */
+		text-overflow: ellipsis;
+		/* 用省略号代替超出部分的文本 */
+}
+.name>view.data-v-ee1ca2ec {
+		width: 100%;
+		height: 15px;
+		overflow: hidden;
+}
+.name>view>.p.data-v-ee1ca2ec {
+		float: left;
+		line-height: 15px;
+		font-size: 13px;
+		color: #808080;
+		white-space: nowrap;
+		font-weight: 300;
+}

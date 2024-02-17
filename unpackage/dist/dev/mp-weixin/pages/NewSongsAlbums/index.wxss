@@ -1,0 +1,62 @@
+
+.bt.data-v-03b6b50a {
+		height: 60px;
+		position: relative;
+}
+.bt>image.data-v-03b6b50a {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+}
+.input.data-v-03b6b50a {
+		width: 130px;
+		height: 30px;
+		border-radius: 15px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: white;
+		border: 1px solid #fe3a3c;
+}
+.inputBj.data-v-03b6b50a {
+		height: 30px;
+		width: 65px;
+		position: absolute;
+		top: 0;
+		border-radius: 15px;
+		background-color: #fe3a3c;
+		z-index: -1;
+		transition: left 0.3s ease-out;
+}
+.inputBjTwo.data-v-03b6b50a {
+		left: 65px;
+}
+.input>view.data-v-03b6b50a {
+		width: 50%;
+		height: 100%;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 15px;
+}
+.nameOne.data-v-03b6b50a {
+		color: white;
+}
+.nameTwo.data-v-03b6b50a {
+		color: #fe3a3c;
+}
+.NewSongsAlbums_content.data-v-03b6b50a {
+		width: 100%;
+		height: calc(100vh - 60px);
+}
+.swiper.data-v-03b6b50a {
+		height: 100%;
+}
+.swiper-item.data-v-03b6b50a {
+		height: 100%;
+		width: 100%;
+}

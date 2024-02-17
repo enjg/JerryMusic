@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "share-sort": "../module/ShareSort",
+    "more-details": "../module/MoreDetails",
+    "post-search": "./module/PostSearch",
+    "pre-search": "./module/PreSearch",
+    "tips": "./module/Tips"
+  }
+}

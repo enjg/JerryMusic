@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "song-list-block": "../module/SongListBlock/SongListBlock",
+    "load": "../module/load"
+  }
+}
