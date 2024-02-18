@@ -5,8 +5,7 @@
 跳转分支到master分支中
 
 # 使用
-首先使用node构建自己的服务器API,详细请到https://github.com/enjg/NeteaseCloudMusicApi
-重试错误原因<br>
+首先使用node构建自己的服务器API,详细请到https://github.com/enjg/NeteaseCloudMusicApi<br>
 前往Axios文件更改api地址<br>
 因微信小程序开发上线版需要域名接口，需自行创建域名合法接口。（如仅需测试可联系邮箱获取测试域名接口）<br>
 文件在HBuilder中打开，下载微信小程序开发者工具，并申请个人的小程序备案，获取到小程序AppID配置到项目的manifest.json文件中uni-app应用标识<br>
