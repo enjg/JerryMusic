@@ -27,6 +27,62 @@
 		padding: 10px 0;
 		border-bottom: 8px solid #f7f7f7;
 }
+.List.data-v-6bb6a698 {
+		width: 100%;
+		position: relative;
+		height: 70px;
+}
+.List>.image.data-v-6bb6a698 {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		left: 20px;
+}
+.List>.image>image.data-v-6bb6a698 {
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		background-color: #999999;
+}
+.List>.details.data-v-6bb6a698 {
+		position: absolute;
+		width: calc(100% - 120px);
+		height: 70px;
+		left: 100px;
+}
+.List>.details>.name.data-v-6bb6a698 {
+		max-height: 50px;
+		width: 100%;
+		min-height: 37.5px;
+		/* 		position: relative; */
+		/* 		background-color: olive; */
+		display: flex;
+		/* 启用Flexbox布局 */
+		flex-direction: column;
+		/* 子元素垂直排列 */
+		justify-content: flex-end;
+		/* 子元素在父元素内垂直对齐到底部 */
+}
+.List>.details>.name>.p.data-v-6bb6a698 {
+		/* 		min-height: 25px;
+		max-height: 50px; */
+		width: 100%;
+		font-size: 17px;
+		line-height: 25px;
+		color: #333333;
+		/* 		position: sticky;
+		bottom: 0; */
+		/* 		background-color: red; */
+}
+.List>.details>.singer.data-v-6bb6a698 {
+		height: 20px;
+		width: 100%;
+}
+.List>.details>.singer>.p.data-v-6bb6a698 {
+		line-height: 20px;
+		font-size: 14px;
+		color: #5578a0;
+}
 .song.data-v-6bb6a698 {
 		height: 40px;
 		width: 100%;
@@ -47,6 +103,7 @@
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
+		background-color: #999999;
 }
 .song>.name.data-v-6bb6a698 {
 		width: calc(100% - 90px);
@@ -76,22 +133,106 @@
 }
 .album.data-v-6bb6a698 {
 		width: 100%;
-		height: 70px;
 		position: relative;
+		height: 70px;
 }
 .album>.image.data-v-6bb6a698 {
-		width: 70px;
+		width: 80px;
 		height: 70px;
 		position: absolute;
 		left: 20px;
 }
 .album>.image>image.data-v-6bb6a698 {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		left: 0;
+		border-radius: 5px;
+		z-index: 3;
+		background-color: #999999;
+}
+.album>.image>.bjone.data-v-6bb6a698 {
+		background-color: black;
+		position: absolute;
+		right: 0;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		top: 50%;
+		z-index: 2;
+		transform: translateY(-50%);
+}
+.album>.image>.bjTwo.data-v-6bb6a698 {
+		box-sizing: border-box;
+		border: 1px solid #d3d3d3;
+		width: 65px;
+		height: 65px;
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		transform: translateY(-50%);
+}
+.album>.details.data-v-6bb6a698 {
+		position: absolute;
+		width: calc(100% - 130px);
+		height: 70px;
+		left: 110px;
+}
+.album>.details>.name.data-v-6bb6a698 {
+		max-height: 50px;
+		width: 100%;
+		min-height: 37.5px;
+		/* 		position: relative; */
+		/* 		background-color: olive; */
+		display: flex;
+		/* 启用Flexbox布局 */
+		flex-direction: column;
+		/* 子元素垂直排列 */
+		justify-content: flex-end;
+		/* 子元素在父元素内垂直对齐到底部 */
+}
+.album>.details>.name>.p.data-v-6bb6a698 {
+		/* 		min-height: 25px;
+		max-height: 50px; */
+		width: 100%;
+		font-size: 17px;
+		line-height: 25px;
+		color: #333333;
+		/* 		position: sticky;
+		bottom: 0; */
+		/* 		background-color: red; */
+}
+.album>.details>.singer.data-v-6bb6a698 {
+		height: 20px;
+		width: 100%;
+}
+.album>.details>.singer>.p.data-v-6bb6a698 {
+		line-height: 20px;
+		font-size: 14px;
+		color: #5578a0;
+}
+
+	/* .album {
+		width: 100%;
+		height: 70px;
+		position: relative;
+	}
+
+	.album>.image {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		left: 20px;
+	}
+
+	.album>.image>image {
 		width: 100%;
 		height: 100%;
 		border-radius: 5px;
 		z-index: 2;
-}
-.album>.image>.bj.data-v-6bb6a698 {
+	}
+
+	.album>.image>.bj {
 		width: 80%;
 		height: 80%;
 		background-color: black;
@@ -101,23 +242,26 @@
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: -1;
-}
-.album>.details.data-v-6bb6a698 {
+	}
+
+	.album>.details {
 		width: calc(100% - 130px);
 		height: calc(100% - 30px);
 		padding: 15px 0;
 		position: absolute;
 		left: 110px;
-}
-.album>.details>.p.data-v-6bb6a698:nth-of-type(1) {
+	}
+
+	.album>.details>.p:nth-of-type(1) {
 		line-height: 25px;
 		font-size: 17px;
-}
-.album>.details>.p.data-v-6bb6a698:nth-of-type(2) {
+	}
+
+	.album>.details>.p:nth-of-type(2) {
 		line-height: 15px;
 		font-size: 14px;
 		color: #5578a0;
-}
+	} */
 .Review_content.data-v-6bb6a698 {
 		width: 100vw;
 		height: 100vh;
@@ -139,14 +283,14 @@
 		font-weight: bold;
 }
 .Review_content_head>.sort.data-v-6bb6a698 {
-		width: 100px;
+		width: 150px;
 		height: 100%;
 		position: absolute;
 		right: 0;
 }
 .Review_content_head>.sort>.p.data-v-6bb6a698 {
 		float: left;
-		width: calc(50%);
+		width: calc(50px);
 		line-height: 15px;
 		margin-top: 12.5px;
 		text-align: center;

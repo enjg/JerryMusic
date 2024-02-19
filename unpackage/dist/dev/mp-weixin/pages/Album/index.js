@@ -84,7 +84,9 @@ const _sfc_main = {
     }
     function routerPush(center, type, event) {
       common_vendor.wx$1.navigateTo({
-        url: center + "?type=" + type + "&id=" + event
+        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(
+          albumObj
+        ))
       });
     }
     return (_ctx, _cache) => {

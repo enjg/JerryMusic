@@ -22,12 +22,12 @@
 				<p class="p">{{listObj.description }}</p>
 			</view>
 			<view class="Button">
-				<view class="Button_center"  @click.stop="myShare.SharePost(2,Props.id)">
+				<view class="Button_center" @click.stop="myShare.SharePost(2,Props.id)">
 					<p class="p" v-if="countObj.shareCount">{{formatFansCount(countObj.shareCount)}}</p>
 					<p class="p" v-else>分享</p>
 					<image src="@/static/SongList/分享.png" alt=""></image>
 				</view>
-				<view class="Button_center" @click="routerPushTwo('/pages/Review/index',2,Props.id)">
+				<view class="Button_center" @click="routerPushTwo('/pages/Review/index',2,Props.id,listObj)">
 					<p class="p" v-if="countObj.commentCount">{{formatFansCount(countObj.commentCount)}}</p>
 					<p class="p" v-else>评论</p>
 					<image src="@/static/SongList/评论.png" alt=""></image>
@@ -65,7 +65,7 @@
 					<p class="p" v-else>分享</p>
 					<image src="@/static/SongList/分享.png" alt=""></image>
 				</view>
-				<view class="Button_center" @click="routerPushTwo('/pages/Review/index',2,Props.id)">
+				<view class="Button_center" @click="routerPushTwo('/pages/Review/index',2,Props.id,listObj)">
 					<p class="p" v-if="countObj.commentCount">{{formatFansCount(countObj.commentCount)}}</p>
 					<p class="p" v-else>评论</p>
 					<image src="@/static/SongList/评论.png" alt=""></image>
@@ -134,6 +134,7 @@
 	});
 
 	onMounted(() => {
+		console.log(Props.id);
 		getPlaylistDetail(Props.id);
 		getPlaylistDetailDynamic(Props.id);
 	})
@@ -210,9 +211,12 @@
 		// myPlayBack.postCurrentSong(index,listArray,song);
 	}
 
-	function routerPushTwo(center, type, event) {
-		wx.navigateTo({
-			url: center + '?type=' + type + '&id=' + event
+	function routerPushTwo(center, type, event, content) {
+		let Obj={
+			name:content.name
+		}
+		uni.navigateTo({
+			url: center + '?type=' + type + '&id=' + event + '&content=' + encodeURIComponent(JSON.stringify(content))
 		})
 	}
 

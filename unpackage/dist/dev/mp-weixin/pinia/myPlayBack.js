@@ -226,7 +226,7 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
         level: "standard"
       }
     }).then((res) => {
-      console.log(res.data.data[0].time, "输出2");
+      console.log(res.data.data[0].url, "输出2");
       songTime.value = res.data.data[0].time;
       url.value = res.data.data[0].url;
     }).catch((err) => {

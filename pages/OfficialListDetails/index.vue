@@ -16,11 +16,11 @@
 					<image src="./img/收藏.png" alt=""></image>
 					<p class="p">{{formatFansCount(countObj.bookedCount)}}</p>
 				</view>
-				<view>	
+				<view @click="routerPush('/pages/Review/index',2,Props.id)">
 					<image src="./img/评论.png" alt=""></image>
 					<p class="p">{{formatFansCount(countObj.commentCount)}}</p>
 				</view>
-				<view  @click="myShare.SharePost(2,Props.id)">
+				<view @click="myShare.SharePost(2,Props.id)">
 					<image src="./img/链接.png" alt=""></image>
 					<p class="p">{{formatFansCount(countObj.shareCount)}}</p>
 				</view>
@@ -141,6 +141,13 @@
 		} else {
 			return fansCount;
 		}
+	}
+
+	function routerPush(center, type, event) {
+		uni.navigateTo({
+			url: center + '?type=' + type + '&id=' + event + '&content=' + encodeURIComponent(JSON.stringify(
+				listObj))
+		})
 	}
 
 	function SongClick(lisArray) {

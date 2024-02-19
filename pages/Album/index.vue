@@ -162,7 +162,8 @@
 
 	function routerPush(center, type, event) {
 		wx.navigateTo({
-			url: center + '?type=' + type + '&id=' + event
+			url: center + '?type=' + type + '&id=' + event + '&content=' + encodeURIComponent(JSON.stringify(
+				albumObj))
 		})
 	}
 </script>

@@ -135,9 +135,9 @@
 	}
 
 	function Review() {
-		centerClick.value = 1;
+		centerClick.value = 1;		
 		uni.navigateTo({
-			url: '/pages/Review/index' + '?type=' + 0 + '&id=' + myMore.id
+			url: '/pages/Review/index' + '?type=' + 0 + '&id=' + myMore.id + '&content=' + encodeURIComponent(JSON.stringify(MoreDetails))
 		})
 		myMore.TF = false;
 	}

@@ -5,17 +5,37 @@
 			<p class="p">评论</p>
 		</view>
 		<view class="Review_head">
-			<view class="song" v-if="song.name">
+			<view class="song" v-if="Props.type==0">
 				<view class="image">
-					<image :src="song.al.picUrl" mode="heightFix"></image>
+					<image :src="JsonStringObj(Props.content).al.picUrl" mode="heightFix"></image>
 				</view>
 				<view class="name">
-					<p class="p">{{song.name}}</p>
-					<p class="p intro">{{song.alia[0]}}</p>
-					<p class="p">-&nbsp;{{song.ar[0].name}}</p>
+					<p class="p">{{JsonStringObj(Props.content).name}}</p>
+					<p class="p intro">{{JsonStringObj(Props.content).alia[0]}}</p>
+					<p class="p">-&nbsp;{{JsonStringObj(Props.content).ar[0].name}}</p>
 				</view>
 			</view>
-			<view class="album" v-if="albumObj.name">
+			<view class="album" v-if="Props.type==3">
+				<view class="image">
+					<image :src="JsonStringObj(Props.content).picUrl" mode=""></image>
+					<view class="bjone"></view>
+					<view class="bjTwo">
+
+					</view>
+				</view>
+				<view class="details">
+					<view class="name">
+						<p class="p">{{JsonStringObj(Props.content).name}}</p>
+					</view>
+					<view class="singer">
+						<p class="p"><span
+								v-for="(item,index) in JsonStringObj(Props.content).artists">{{item.name}}<span
+									v-if="index<JsonStringObj(Props.content).artists.length-1">/</span></span>
+						</p>
+					</view>
+				</view>
+			</view>
+			<!-- 			<view class="album" v-if="albumObj.name">
 				<view class="image">
 					<image :src="albumObj.picUrl" mode=""></image>
 					<view class="bj">
@@ -25,6 +45,19 @@
 					<p class="p">{{albumObj.name}}</p>
 					<p class="p">{{albumObj.artists[0].name}}</p>
 				</view>
+			</view> -->
+			<view class="List" v-if="Props.type==2">
+				<view class="image">
+					<image :src="JsonStringObj(Props.content).coverImgUrl" mode=""></image>
+				</view>
+				<view class="details">
+					<view class="name">
+						<p class="p">{{JsonStringObj(Props.content).name}}</p>
+					</view>
+					<view class="singer">
+						<p class="p">by {{JsonStringObj(Props.content).creator.nickname}}</p>
+					</view>
+				</view>
 			</view>
 		</view>
 		<scroll-view scroll-y="true" @scrolltoupper="handleScrollToUpper" @scrolltolower="handleScrollToLower"
@@ -32,6 +65,7 @@
 			<view class="Review_content_head">
 				<p class="p">评论区</p>
 				<view class="sort">
+					<p class="p" @click="sortType=1" :class="{sortClick:sortType==1}">推荐</p>
 					<p class="p" @click="sortType=2" :class="{sortClick:sortType==2}">最热</p>
 					<p class="p" @click="sortType=3" :class="{sortClick:sortType==3}">最新</p>
 				</view>
@@ -74,9 +108,10 @@
 	} from 'vue';
 	const Props = defineProps({
 		type: String,
-		id: String
+		id: String,
+		content: String
 	});
-	let sortType = ref(2);
+	let sortType = ref(1);
 	let time = ref(null);
 	onMounted(() => {
 		if (Props.type == 0) {
@@ -85,20 +120,17 @@
 		if (Props.type == 3) {
 			getAlbum(Props.id);
 		}
-		getCommentHot(Props.id, Props.type, 20, 0);
-		// 	getCommentNew(Props.id, Props.type, 5, 20, 1, 1698711541721);
+		getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 1, time.value);
 	})
 	watch(() => sortType.value, (newValue) => {
 		time.value = null;
 		commentListArray.length = 0;
-		if (newValue == 2) {
-			getCommentHot(Props.id, Props.type, 20, time.value);
-		}
-		if (newValue == 3) {
-			getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 3, time.value);
-		}
+		getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, sortType.value, time.value);
 	})
 
+	function JsonStringObj(event) {
+		return JSON.parse(event);
+	}
 
 	let song = reactive({});
 
@@ -137,24 +169,24 @@
 	let commentListArray = reactive([]);
 
 
-	function getCommentHot(ids, types, limits, befores) {
-		axios
-			.get("/comment/hot", {
-				params: {
-					id: ids,
-					type: types,
-					limit: limits,
-					before: befores
-				},
-			})
-			.then((res) => {
-				commentListArray.push(...res.data.hotComments)
-				time.value = res.data.hotComments[res.data.hotComments.length - 1].time;
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
+	// function getCommentHot(ids, types, limits, befores) {
+	// 	axios
+	// 		.get("/comment/hot", {
+	// 			params: {
+	// 				id: ids,
+	// 				type: types,
+	// 				limit: limits,
+	// 				before: befores
+	// 			},
+	// 		})
+	// 		.then((res) => {
+	// 			commentListArray.push(...res.data.hotComments)
+	// 			time.value = res.data.hotComments[res.data.hotComments.length - 1].time;
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }
 
 
 
@@ -171,8 +203,13 @@
 				},
 			})
 			.then((res) => {
+				console.log(res.data)
 				commentListArray.push(...res.data.data.comments)
-				time.value = res.data.data.comments[res.data.data.comments.length - 1].time;
+				console.log(sortTypes, cursors, '详情')
+				if (sortTypes == 3) {
+					console.log(cursors)
+					time.value = res.data.data.comments[res.data.data.comments.length - 1].time;
+				}
 			})
 			.catch((err) => {
 				console.error(err);
@@ -185,20 +222,21 @@
 
 	function handleScrollToLower() {
 		console.log('底部');
-		if (sortType.value == 2) {
-			getCommentHot(Props.id, Props.type, 20,time.value);
-		}
-		if (sortType.value == 3) {
-			getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 3, time.value);
-		}
+		getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, sortType.value, time.value);
+		// if (sortType.value == 2) {
+		// 	getCommentHot(Props.id, Props.type, 20, time.value);
+		// }
+		// if (sortType.value == 3) {
+		// 	getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 3, time.value);
+		// }
 	}
 
-	function routerPush(event){
+	function routerPush(event) {
 		wx.navigateTo({
 			url: '/pages/UserDetails/index' + '?id=' + event
 		})
 	}
-	
+
 	function formatTimestampToDateString(timestamp) {
 		const date = new Date(timestamp);
 		const year = date.getFullYear();
@@ -242,6 +280,70 @@
 		border-bottom: 8px solid #f7f7f7;
 	}
 
+	.List {
+		width: 100%;
+		position: relative;
+		height: 70px;
+	}
+
+	.List>.image {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		left: 20px;
+	}
+
+	.List>.image>image {
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		background-color: #999999;
+	}
+
+	.List>.details {
+		position: absolute;
+		width: calc(100% - 120px);
+		height: 70px;
+		left: 100px;
+	}
+
+	.List>.details>.name {
+		max-height: 50px;
+		width: 100%;
+		min-height: 37.5px;
+		/* 		position: relative; */
+		/* 		background-color: olive; */
+		display: flex;
+		/* 启用Flexbox布局 */
+		flex-direction: column;
+		/* 子元素垂直排列 */
+		justify-content: flex-end;
+		/* 子元素在父元素内垂直对齐到底部 */
+	}
+
+	.List>.details>.name>.p {
+		/* 		min-height: 25px;
+		max-height: 50px; */
+		width: 100%;
+		font-size: 17px;
+		line-height: 25px;
+		color: #333333;
+		/* 		position: sticky;
+		bottom: 0; */
+		/* 		background-color: red; */
+	}
+
+	.List>.details>.singer {
+		height: 20px;
+		width: 100%;
+	}
+
+	.List>.details>.singer>.p {
+		line-height: 20px;
+		font-size: 14px;
+		color: #5578a0;
+	}
+
 	.song {
 		height: 40px;
 		width: 100%;
@@ -264,6 +366,7 @@
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
+		background-color: #999999;
 	}
 
 	.song>.name {
@@ -299,6 +402,96 @@
 
 
 	.album {
+		width: 100%;
+		position: relative;
+		height: 70px;
+	}
+
+	.album>.image {
+		width: 80px;
+		height: 70px;
+		position: absolute;
+		left: 20px;
+	}
+
+	.album>.image>image {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		left: 0;
+		border-radius: 5px;
+		z-index: 3;
+		background-color: #999999;
+	}
+
+	.album>.image>.bjone {
+		background-color: black;
+		position: absolute;
+		right: 0;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		top: 50%;
+		z-index: 2;
+		transform: translateY(-50%);
+	}
+
+	.album>.image>.bjTwo {
+		box-sizing: border-box;
+		border: 1px solid #d3d3d3;
+		width: 65px;
+		height: 65px;
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		transform: translateY(-50%);
+	}
+
+	.album>.details {
+		position: absolute;
+		width: calc(100% - 130px);
+		height: 70px;
+		left: 110px;
+	}
+
+	.album>.details>.name {
+		max-height: 50px;
+		width: 100%;
+		min-height: 37.5px;
+		/* 		position: relative; */
+		/* 		background-color: olive; */
+		display: flex;
+		/* 启用Flexbox布局 */
+		flex-direction: column;
+		/* 子元素垂直排列 */
+		justify-content: flex-end;
+		/* 子元素在父元素内垂直对齐到底部 */
+	}
+
+	.album>.details>.name>.p {
+		/* 		min-height: 25px;
+		max-height: 50px; */
+		width: 100%;
+		font-size: 17px;
+		line-height: 25px;
+		color: #333333;
+		/* 		position: sticky;
+		bottom: 0; */
+		/* 		background-color: red; */
+	}
+
+	.album>.details>.singer {
+		height: 20px;
+		width: 100%;
+	}
+
+	.album>.details>.singer>.p {
+		line-height: 20px;
+		font-size: 14px;
+		color: #5578a0;
+	}
+
+	/* .album {
 		width: 100%;
 		height: 70px;
 		position: relative;
@@ -347,7 +540,7 @@
 		line-height: 15px;
 		font-size: 14px;
 		color: #5578a0;
-	}
+	} */
 
 
 	.Review_content {
@@ -375,7 +568,7 @@
 	}
 
 	.Review_content_head>.sort {
-		width: 100px;
+		width: 150px;
 		height: 100%;
 		position: absolute;
 		right: 0;
@@ -383,7 +576,7 @@
 
 	.Review_content_head>.sort>.p {
 		float: left;
-		width: calc(50%);
+		width: calc(50px);
 		line-height: 15px;
 		margin-top: 12.5px;
 		text-align: center;

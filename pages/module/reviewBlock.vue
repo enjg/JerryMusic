@@ -1,15 +1,22 @@
 <template>
 	<view class="Review_content_center">
-<!-- 		{{Props.event.content}} -->
-		<view class="image">
-			<image @click.stop="routerPush(Props.event.user.userId)" :src="Props.event.user.avatarUrl" mode="heightFix">
+		<!-- 		{{Props.event.content}} -->
+		<view class="image" @click="routerPush(Props.event.user.userId)">
+			<image :src="Props.event.user.avatarUrl" mode="heightFix">
 			</image>
+			<image v-if="Props.event.pendantData" :src="Props.event.pendantData.imageUrl" mode=""></image>
 		</view>
 		<view class="details">
 			<view class="name">
 				<view class="UserDetails">
-					<p class="p">{{Props.event.user.nickname}}</p>
-					<p class="p">{{formatTimestampToDateString(Props.event.time)}}</p>
+					<view class="nameText">
+						<p class="p">{{Props.event.user.nickname}}</p>
+						<image v-if="Props.event.user.vipRights&&Props.event.user.vipRights.associator"
+							:src="Props.event.user.vipRights.associator.iconUrl" mode="heightFix"></image>
+					</view>
+					<view class="timeText">
+						<p class="p">{{formatTimestampToDateString(Props.event.time)}}</p>
+					</view>
 				</view>
 				<view class="giveLike">
 					<image src="@/static/Universalimage/点赞2.png" mode=""></image>
@@ -33,12 +40,20 @@
 	const Props = defineProps({
 		event: Object
 	})
+	onMounted(() => {
+		if (Props.event.pendantData) {
+
+			console.log(Props.event.pendantData.imageUrl)
+		}
+	})
 
 	function routerPush(event) {
+		console.log(event,'点击')
 		wx.navigateTo({
 			url: '/pages/UserDetails/index' + '?id=' + event
 		})
 	}
+
 	function formatTimestampToDateString(timestamp) {
 		const date = new Date(timestamp);
 		const year = date.getFullYear();
@@ -64,19 +79,28 @@
 	.Review_content_center>.image {
 		width: 35px;
 		height: 35px;
-		background-color: olivedrab;
-		border-radius: 50%;
 		float: left;
 		position: relative;
-		overflow: hidden;
+		/* 		overflow: hidden; */
 	}
 
-	.Review_content_center>.image>image {
+	.Review_content_center>.image>image:nth-of-type(1) {
 		height: 100%;
-		position: absolute;
+		/* 		position: absolute;
 		top: 0;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%); */
+		border-radius: 50%;
+	}
+
+	.Review_content_center>.image>image:nth-of-type(2) {
+		width: 150%;
+		height: 150%;
+		z-index: 999999;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.Review_content_center>.details {
@@ -101,14 +125,32 @@
 		left: 0;
 	}
 
-	.Review_content_center>.details>.name>.UserDetails>.p:nth-of-type(1) {
+	.Review_content_center>.details>.name>.UserDetails>.nameText {
+		height: 25px;
+		width: 100%;
+	}
+
+	.Review_content_center>.details>.name>.UserDetails>.nameText>image {
+		height: 15px;
+		float: left;
+		margin: 5px 2px;
+	}
+
+	.Review_content_center>.details>.name>.UserDetails>.nameText>.p {
 		line-height: 25px;
 		font-size: 14px;
 		color: #676566;
 		font-weight: bold;
+		float: left;
 	}
 
-	.Review_content_center>.details>.name>.UserDetails>.p:nth-of-type(2) {
+	.Review_content_center>.details>.name>.UserDetails>.timeText {
+		height: 10px;
+		width: 100%;
+
+	}
+
+	.Review_content_center>.details>.name>.UserDetails>.timeText>.p {
 		line-height: 10px;
 		font-size: 10px;
 		color: #a19fa0;
@@ -121,7 +163,8 @@
 		right: 0;
 		display: inline-block;
 	}
-	.Review_content_center>.details>.name>.giveLike>image{
+
+	.Review_content_center>.details>.name>.giveLike>image {
 		width: 20px;
 		height: 20px;
 		position: absolute;
@@ -129,6 +172,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
+
 	.Review_content_center>.details>.name>.giveLike>.p {
 		font-weight: 300;
 		font-size: 12px;

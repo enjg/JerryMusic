@@ -26,6 +26,7 @@ const _sfc_main = {
     const myShare = pinia_myShare.useMyShare();
     const myMore = pinia_myMore.useMyMore();
     common_vendor.onMounted(() => {
+      console.log(Props.id);
       getPlaylistDetail(Props.id);
       getPlaylistDetailDynamic(Props.id);
     });
@@ -85,9 +86,12 @@ const _sfc_main = {
     function clickSongList(listArray) {
       myPlayBack.PostAddSongList(listArray);
     }
-    function routerPushTwo(center, type, event) {
-      common_vendor.wx$1.navigateTo({
-        url: center + "?type=" + type + "&id=" + event
+    function routerPushTwo(center, type, event, content) {
+      ({
+        name: content.name
+      });
+      common_vendor.index.navigateTo({
+        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(content))
       });
     }
     let bt = common_vendor.ref(false);
@@ -137,7 +141,7 @@ const _sfc_main = {
         w: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
       } : {}, {
         x: common_assets._imports_2$1,
-        y: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id)),
+        y: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
         z: common_vendor.unref(countObj).bookedCount
       }, common_vendor.unref(countObj).bookedCount ? {
         A: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))
@@ -165,7 +169,7 @@ const _sfc_main = {
         P: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
       } : {}, {
         Q: common_assets._imports_2$1,
-        R: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id)),
+        R: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
         S: common_vendor.unref(countObj).bookedCount
       }, common_vendor.unref(countObj).bookedCount ? {
         T: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))

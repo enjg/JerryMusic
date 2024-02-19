@@ -71,6 +71,13 @@ const _sfc_main = {
         return fansCount;
       }
     }
+    function routerPush(center, type, event) {
+      common_vendor.index.navigateTo({
+        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(
+          listObj
+        ))
+      });
+    }
     function SongClick(lisArray) {
       myPlayBack.PostAddSongList(listArray);
     }
@@ -101,15 +108,16 @@ const _sfc_main = {
         i: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount)),
         j: common_assets._imports_1$7,
         k: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount)),
-        l: common_assets._imports_2$4,
-        m: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount)),
-        n: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
-        o: common_assets._imports_0$4,
-        p: common_vendor.o(($event) => common_vendor.unref(myPlayBack).PlayDifference(common_vendor.unref(listArray))),
-        q: common_vendor.t(common_vendor.unref(listObj).trackCount),
-        r: common_assets._imports_1$4,
-        s: common_assets._imports_1,
-        t: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
+        l: common_vendor.o(($event) => routerPush("/pages/Review/index", 2, Props.id)),
+        m: common_assets._imports_2$4,
+        n: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount)),
+        o: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
+        p: common_assets._imports_0$4,
+        q: common_vendor.o(($event) => common_vendor.unref(myPlayBack).PlayDifference(common_vendor.unref(listArray))),
+        r: common_vendor.t(common_vendor.unref(listObj).trackCount),
+        s: common_assets._imports_1$4,
+        t: common_assets._imports_1,
+        v: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
           return {
             a: index,
             b: "a6f32dad-0-" + i0,
@@ -127,13 +135,13 @@ const _sfc_main = {
             })
           };
         }),
-        v: common_vendor.o(($event) => SongClick(common_vendor.unref(listArray))),
-        w: common_vendor.unref(myMore).TF
+        w: common_vendor.o(($event) => SongClick(common_vendor.unref(listArray))),
+        x: common_vendor.unref(myMore).TF
       }, common_vendor.unref(myMore).TF ? {} : {}, {
-        x: common_vendor.unref(myShare).ShowTF
+        y: common_vendor.unref(myShare).ShowTF
       }, common_vendor.unref(myShare).ShowTF ? {} : {}, {
-        y: common_vendor.o(scrollToLower),
-        z: common_vendor.o(scrollToUpper)
+        z: common_vendor.o(scrollToLower),
+        A: common_vendor.o(scrollToUpper)
       });
     };
   }

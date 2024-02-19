@@ -8,7 +8,13 @@ const _sfc_main = {
   },
   setup(__props) {
     const Props = __props;
+    common_vendor.onMounted(() => {
+      if (Props.event.pendantData) {
+        console.log(Props.event.pendantData.imageUrl);
+      }
+    });
     function routerPush(event) {
+      console.log(event, "点击");
       common_vendor.wx$1.navigateTo({
         url: "/pages/UserDetails/index?id=" + event
       });
@@ -21,15 +27,23 @@ const _sfc_main = {
       return year + "-" + month + "-" + day;
     }
     return (_ctx, _cache) => {
-      return {
-        a: common_vendor.o(($event) => routerPush(Props.event.user.userId)),
-        b: Props.event.user.avatarUrl,
-        c: common_vendor.t(Props.event.user.nickname),
-        d: common_vendor.t(formatTimestampToDateString(Props.event.time)),
-        e: common_assets._imports_0$18,
-        f: common_vendor.t(Props.event.likedCount),
-        g: common_vendor.t(Props.event.content)
-      };
+      return common_vendor.e({
+        a: Props.event.user.avatarUrl,
+        b: Props.event.pendantData
+      }, Props.event.pendantData ? {
+        c: Props.event.pendantData.imageUrl
+      } : {}, {
+        d: common_vendor.o(($event) => routerPush(Props.event.user.userId)),
+        e: common_vendor.t(Props.event.user.nickname),
+        f: Props.event.user.vipRights && Props.event.user.vipRights.associator
+      }, Props.event.user.vipRights && Props.event.user.vipRights.associator ? {
+        g: Props.event.user.vipRights.associator.iconUrl
+      } : {}, {
+        h: common_vendor.t(formatTimestampToDateString(Props.event.time)),
+        i: common_assets._imports_0$18,
+        j: common_vendor.t(Props.event.likedCount),
+        k: common_vendor.t(Props.event.content)
+      });
     };
   }
 };

@@ -10,11 +10,12 @@ const _sfc_main = {
   __name: "index",
   props: {
     type: String,
-    id: String
+    id: String,
+    content: String
   },
   setup(__props) {
     const Props = __props;
-    let sortType = common_vendor.ref(2);
+    let sortType = common_vendor.ref(1);
     let time = common_vendor.ref(null);
     common_vendor.onMounted(() => {
       if (Props.type == 0) {
@@ -23,18 +24,16 @@ const _sfc_main = {
       if (Props.type == 3) {
         getAlbum(Props.id);
       }
-      getCommentHot(Props.id, Props.type, 20, 0);
+      getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 1, time.value);
     });
     common_vendor.watch(() => sortType.value, (newValue) => {
       time.value = null;
       commentListArray.length = 0;
-      if (newValue == 2) {
-        getCommentHot(Props.id, Props.type, 20, time.value);
-      }
-      if (newValue == 3) {
-        getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 3, time.value);
-      }
+      getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, sortType.value, time.value);
     });
+    function JsonStringObj(event) {
+      return JSON.parse(event);
+    }
     let song = common_vendor.reactive({});
     function getSongDetail(id) {
       axios.instance.get("/song/detail", {
@@ -60,21 +59,6 @@ const _sfc_main = {
       });
     }
     let commentListArray = common_vendor.reactive([]);
-    function getCommentHot(ids, types, limits, befores) {
-      axios.instance.get("/comment/hot", {
-        params: {
-          id: ids,
-          type: types,
-          limit: limits,
-          before: befores
-        }
-      }).then((res) => {
-        commentListArray.push(...res.data.hotComments);
-        time.value = res.data.hotComments[res.data.hotComments.length - 1].time;
-      }).catch((err) => {
-        console.error(err);
-      });
-    }
     function getCommentNew(ids, types, pageNos, pageSizes, sortTypes, cursors) {
       axios.instance.get("/comment/new", {
         params: {
@@ -86,8 +70,13 @@ const _sfc_main = {
           cursor: cursors
         }
       }).then((res) => {
+        console.log(res.data);
         commentListArray.push(...res.data.data.comments);
-        time.value = res.data.data.comments[res.data.data.comments.length - 1].time;
+        console.log(sortTypes, cursors, "详情");
+        if (sortTypes == 3) {
+          console.log(cursors);
+          time.value = res.data.data.comments[res.data.data.comments.length - 1].time;
+        }
       }).catch((err) => {
         console.error(err);
       });
@@ -97,34 +86,42 @@ const _sfc_main = {
     }
     function handleScrollToLower() {
       console.log("底部");
-      if (sortType.value == 2) {
-        getCommentHot(Props.id, Props.type, 20, time.value);
-      }
-      if (sortType.value == 3) {
-        getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 3, time.value);
-      }
+      getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, sortType.value, time.value);
     }
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_assets._imports_0$2,
-        b: common_vendor.unref(song).name
-      }, common_vendor.unref(song).name ? {
-        c: common_vendor.unref(song).al.picUrl,
-        d: common_vendor.t(common_vendor.unref(song).name),
-        e: common_vendor.t(common_vendor.unref(song).alia[0]),
-        f: common_vendor.t(common_vendor.unref(song).ar[0].name)
+        b: Props.type == 0
+      }, Props.type == 0 ? {
+        c: JsonStringObj(Props.content).al.picUrl,
+        d: common_vendor.t(JsonStringObj(Props.content).name),
+        e: common_vendor.t(JsonStringObj(Props.content).alia[0]),
+        f: common_vendor.t(JsonStringObj(Props.content).ar[0].name)
       } : {}, {
-        g: common_vendor.unref(albumObj).name
-      }, common_vendor.unref(albumObj).name ? {
-        h: common_vendor.unref(albumObj).picUrl,
-        i: common_vendor.t(common_vendor.unref(albumObj).name),
-        j: common_vendor.t(common_vendor.unref(albumObj).artists[0].name)
+        g: Props.type == 3
+      }, Props.type == 3 ? {
+        h: JsonStringObj(Props.content).picUrl,
+        i: common_vendor.t(JsonStringObj(Props.content).name),
+        j: common_vendor.f(JsonStringObj(Props.content).artists, (item, index, i0) => {
+          return common_vendor.e({
+            a: common_vendor.t(item.name),
+            b: index < JsonStringObj(Props.content).artists.length - 1
+          }, index < JsonStringObj(Props.content).artists.length - 1 ? {} : {});
+        })
       } : {}, {
-        k: common_vendor.o(($event) => common_vendor.isRef(sortType) ? sortType.value = 2 : sortType = 2),
-        l: common_vendor.unref(sortType) == 2 ? 1 : "",
-        m: common_vendor.o(($event) => common_vendor.isRef(sortType) ? sortType.value = 3 : sortType = 3),
-        n: common_vendor.unref(sortType) == 3 ? 1 : "",
-        o: common_vendor.f(common_vendor.unref(commentListArray), (item, index, i0) => {
+        k: Props.type == 2
+      }, Props.type == 2 ? {
+        l: JsonStringObj(Props.content).coverImgUrl,
+        m: common_vendor.t(JsonStringObj(Props.content).name),
+        n: common_vendor.t(JsonStringObj(Props.content).creator.nickname)
+      } : {}, {
+        o: common_vendor.o(($event) => common_vendor.isRef(sortType) ? sortType.value = 1 : sortType = 1),
+        p: common_vendor.unref(sortType) == 1 ? 1 : "",
+        q: common_vendor.o(($event) => common_vendor.isRef(sortType) ? sortType.value = 2 : sortType = 2),
+        r: common_vendor.unref(sortType) == 2 ? 1 : "",
+        s: common_vendor.o(($event) => common_vendor.isRef(sortType) ? sortType.value = 3 : sortType = 3),
+        t: common_vendor.unref(sortType) == 3 ? 1 : "",
+        v: common_vendor.f(common_vendor.unref(commentListArray), (item, index, i0) => {
           return {
             a: index,
             b: "6bb6a698-0-" + i0,
@@ -133,8 +130,8 @@ const _sfc_main = {
             })
           };
         }),
-        p: common_vendor.o(handleScrollToUpper),
-        q: common_vendor.o(handleScrollToLower)
+        w: common_vendor.o(handleScrollToUpper),
+        x: common_vendor.o(handleScrollToLower)
       });
     };
   }

@@ -51,7 +51,7 @@ const _sfc_main = {
     function Review() {
       centerClick.value = 1;
       common_vendor.index.navigateTo({
-        url: "/pages/Review/index?type=0&id=" + myMore.id
+        url: "/pages/Review/index?type=0&id=" + myMore.id + "&content=" + encodeURIComponent(JSON.stringify(MoreDetails))
       });
       myMore.TF = false;
     }
