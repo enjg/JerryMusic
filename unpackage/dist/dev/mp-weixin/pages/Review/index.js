@@ -28,8 +28,6 @@ const _sfc_main = {
     function JsonStringObj(event) {
       return JSON.parse(event);
     }
-    common_vendor.reactive({});
-    common_vendor.reactive({});
     let commentListArray = common_vendor.reactive([]);
     function getCommentNew(ids, types, pageNos, pageSizes, sortTypes, cursors) {
       axios.instance.get("/comment/new", {

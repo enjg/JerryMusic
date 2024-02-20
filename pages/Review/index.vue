@@ -132,39 +132,39 @@
 		return JSON.parse(event);
 	}
 
-	let song = reactive({});
+	// let song = reactive({});
 
-	function getSongDetail(id) {
-		axios
-			.get("/song/detail", {
-				params: {
-					ids: id
-				},
-			})
-			.then((res) => {
-				Object.assign(song, res.data.songs[0]);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
+	// function getSongDetail(id) {
+	// 	axios
+	// 		.get("/song/detail", {
+	// 			params: {
+	// 				ids: id
+	// 			},
+	// 		})
+	// 		.then((res) => {
+	// 			Object.assign(song, res.data.songs[0]);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }
 
-	let albumObj = reactive({});
+	// let albumObj = reactive({});
 
-	function getAlbum(id) {
-		axios
-			.get("/album", {
-				params: {
-					id: id
-				},
-			})
-			.then((res) => {
-				Object.assign(albumObj, res.data.album);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
+	// function getAlbum(id) {
+	// 	axios
+	// 		.get("/album", {
+	// 			params: {
+	// 				id: id
+	// 			},
+	// 		})
+	// 		.then((res) => {
+	// 			Object.assign(albumObj, res.data.album);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }
 
 	let commentListArray = reactive([]);
 

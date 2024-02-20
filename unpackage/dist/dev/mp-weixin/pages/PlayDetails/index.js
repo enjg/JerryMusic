@@ -68,8 +68,8 @@ const _sfc_main = {
       dynamicWidth.value = newValue / (myPlayBack.CurrentSong.dt / 1e3) * 100;
     });
     function routerPush(center, type, event) {
-      common_vendor.wx$1.navigateTo({
-        url: center + "?type=" + type + "&id=" + event
+      common_vendor.index.navigateTo({
+        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(myPlayBack.CurrentSong))
       });
     }
     function routerPushTwo(event) {

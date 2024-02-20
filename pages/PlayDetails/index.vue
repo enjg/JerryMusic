@@ -167,8 +167,8 @@
 	})
 
 	function routerPush(center, type, event) {
-		wx.navigateTo({
-			url: center + '?type=' + type + '&id=' + event
+		uni.navigateTo({
+			url: center + '?type=' + type + '&id=' + event + '&content='+ encodeURIComponent(JSON.stringify(myPlayBack.CurrentSong))
 		})
 	}
 
