@@ -18,12 +18,6 @@ const _sfc_main = {
     let sortType = common_vendor.ref(1);
     let time = common_vendor.ref(null);
     common_vendor.onMounted(() => {
-      if (Props.type == 0) {
-        getSongDetail(Props.id);
-      }
-      if (Props.type == 3) {
-        getAlbum(Props.id);
-      }
       getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 1, time.value);
     });
     common_vendor.watch(() => sortType.value, (newValue) => {
@@ -34,30 +28,8 @@ const _sfc_main = {
     function JsonStringObj(event) {
       return JSON.parse(event);
     }
-    let song = common_vendor.reactive({});
-    function getSongDetail(id) {
-      axios.instance.get("/song/detail", {
-        params: {
-          ids: id
-        }
-      }).then((res) => {
-        Object.assign(song, res.data.songs[0]);
-      }).catch((err) => {
-        console.error(err);
-      });
-    }
-    let albumObj = common_vendor.reactive({});
-    function getAlbum(id) {
-      axios.instance.get("/album", {
-        params: {
-          id
-        }
-      }).then((res) => {
-        Object.assign(albumObj, res.data.album);
-      }).catch((err) => {
-        console.error(err);
-      });
-    }
+    common_vendor.reactive({});
+    common_vendor.reactive({});
     let commentListArray = common_vendor.reactive([]);
     function getCommentNew(ids, types, pageNos, pageSizes, sortTypes, cursors) {
       axios.instance.get("/comment/new", {

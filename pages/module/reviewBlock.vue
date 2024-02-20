@@ -40,12 +40,6 @@
 	const Props = defineProps({
 		event: Object
 	})
-	onMounted(() => {
-		if (Props.event.pendantData) {
-
-			console.log(Props.event.pendantData.imageUrl)
-		}
-	})
 
 	function routerPush(event) {
 		console.log(event,'点击')

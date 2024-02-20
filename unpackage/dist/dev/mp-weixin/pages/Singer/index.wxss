@@ -21,6 +21,8 @@
 		top: 0;
 		left: 0;
 		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 }
 .bt>image.data-v-740b96fd {
 		width: 20px;

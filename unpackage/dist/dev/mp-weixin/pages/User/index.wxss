@@ -35,6 +35,8 @@
 		position: absolute;
 		top: 0;
 		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 }
 .User.data-v-26c6183d {
 		width: 100vw;

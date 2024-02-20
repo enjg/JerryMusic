@@ -28,6 +28,7 @@ const _sfc_main = {
     common_vendor.onMounted(() => {
       getPlaylistDetail(Props.id);
       getPlaylistDetailDynamic(Props.id);
+      getWidth();
     });
     let listObj = common_vendor.reactive({});
     let listArray = common_vendor.reactive([]);
@@ -81,14 +82,32 @@ const _sfc_main = {
     function SongClick(lisArray) {
       myPlayBack.PostAddSongList(listArray);
     }
-    let bt = common_vendor.ref(null);
+    let bt = common_vendor.ref(false);
     function scrollToLower() {
       console.log("底部");
-      bt.value = 1;
+      bt.value = true;
     }
     function scrollToUpper() {
       console.log("离开底部");
-      bt.value = null;
+      bt.value = false;
+    }
+    const instance = common_vendor.getCurrentInstance();
+    let height = common_vendor.ref(null);
+    function getWidth() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#item1").boundingClientRect((rect) => {
+        if (rect) {
+          console.log(rect);
+          height.value = rect.height + 60;
+        } else {
+          getWidth();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+      console.log(opc.value);
     }
     function routerReturn() {
       common_vendor.index.navigateBack({
@@ -98,10 +117,10 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.o(($event) => routerReturn()),
-        b: common_vendor.unref(bt) == 1,
-        c: common_vendor.unref(listObj).coverImgUrl,
+        b: common_vendor.unref(listObj).coverImgUrl,
+        c: common_vendor.unref(opc),
         d: common_vendor.t(common_vendor.unref(listObj).name),
-        e: common_vendor.unref(bt) === 1,
+        e: common_vendor.unref(opc) > 0.5,
         f: common_vendor.unref(listObj).coverImgUrl,
         g: common_vendor.t(getCurrentMonthDay()),
         h: common_assets._imports_2$3,
@@ -135,13 +154,15 @@ const _sfc_main = {
             })
           };
         }),
-        w: common_vendor.o(($event) => SongClick(common_vendor.unref(listArray))),
-        x: common_vendor.unref(myMore).TF
+        w: common_vendor.unref(bt),
+        x: common_vendor.o(($event) => SongClick(common_vendor.unref(listArray))),
+        y: common_vendor.unref(myMore).TF
       }, common_vendor.unref(myMore).TF ? {} : {}, {
-        y: common_vendor.unref(myShare).ShowTF
+        z: common_vendor.unref(myShare).ShowTF
       }, common_vendor.unref(myShare).ShowTF ? {} : {}, {
-        z: common_vendor.o(scrollToLower),
-        A: common_vendor.o(scrollToUpper)
+        A: common_vendor.o(scrollToLower),
+        B: common_vendor.o(scrollToUpper),
+        C: common_vendor.o(handleScroll)
       });
     };
   }

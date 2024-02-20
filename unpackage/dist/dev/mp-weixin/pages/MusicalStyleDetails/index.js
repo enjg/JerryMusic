@@ -33,6 +33,7 @@ const _sfc_main = {
     common_vendor.onMounted(() => {
       getStyleDetail(Props.id);
       getWidth();
+      getHeight();
     });
     function getWidth() {
       const query = common_vendor.index.createSelectorQuery().in(instance);
@@ -89,14 +90,29 @@ const _sfc_main = {
       console.log("离开底部");
       bt.value = false;
     }
+    let height = common_vendor.ref(null);
+    function getHeight() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#content").boundingClientRect((rect) => {
+        if (rect) {
+          height.value = rect.height + 60;
+        } else {
+          getHeight();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+    }
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.unref(listObj).code
       }, common_vendor.unref(listObj).code ? common_vendor.e({
         b: common_vendor.o(($event) => routerReturn()),
         c: common_assets._imports_0$3,
-        d: common_vendor.unref(bt),
-        e: common_vendor.unref(listObj).data.cover[0],
+        d: common_vendor.unref(listObj).data.cover[0],
+        e: common_vendor.unref(opc),
         f: common_vendor.unref(listObj).data.cover[0],
         g: common_vendor.t(common_vendor.unref(listObj).data.parentNames),
         h: common_vendor.t(common_vendor.unref(listObj).data.name),
@@ -151,7 +167,8 @@ const _sfc_main = {
         z: common_vendor.unref(myShare).ShowTF
       }, common_vendor.unref(myShare).ShowTF ? {} : {}, {
         A: common_vendor.o(scrollToLower),
-        B: common_vendor.o(scrollToUpper)
+        B: common_vendor.o(scrollToUpper),
+        C: common_vendor.o(handleScroll)
       }) : {});
     };
   }

@@ -28,6 +28,7 @@ const _sfc_main = {
     let scrollIndex = common_vendor.ref(0);
     common_vendor.onMounted(() => {
       getWidth();
+      getHeight();
     });
     function getWidth() {
       const query = common_vendor.index.createSelectorQuery().in(instance);
@@ -57,33 +58,50 @@ const _sfc_main = {
     function scrollToLower() {
       console.log("底部");
       bt.value = true;
-      sort.value = 1;
     }
     function scrollToUpper() {
       console.log("离开底部");
       bt.value = false;
-      sort.value = 2;
     }
     function routerPush(event) {
       common_vendor.wx$1.navigateTo({
         url: event
       });
     }
+    let height = common_vendor.ref(null);
+    function getHeight() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#content").boundingClientRect((rect) => {
+        if (rect) {
+          height.value = rect.height + 60;
+        } else {
+          getHeight();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+      if (opc.value < 0.5) {
+        sort.value = 2;
+      } else {
+        sort.value = 1;
+      }
+    }
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: common_vendor.unref(bt)
-      }, common_vendor.unref(bt) ? {} : {}, {
+        a: common_vendor.unref(opc),
         b: common_vendor.p({
           sort: common_vendor.unref(sort)
         }),
-        c: !common_vendor.unref(bt)
-      }, !common_vendor.unref(bt) ? {
+        c: common_vendor.unref(opc) < 0.5
+      }, common_vendor.unref(opc) < 0.5 ? {
         d: common_assets._imports_0$1
       } : {
         e: common_assets._imports_1$1
       }, {
-        f: !common_vendor.unref(bt)
-      }, !common_vendor.unref(bt) ? {
+        f: common_vendor.unref(opc) < 0.5
+      }, common_vendor.unref(opc) < 0.5 ? {
         g: common_vendor.o(($event) => routerPush("/pages/search/index")),
         h: common_assets._imports_2
       } : {
@@ -123,7 +141,8 @@ const _sfc_main = {
         E: common_vendor.o(swiperChange),
         F: !common_vendor.unref(bt) ? 1 : "",
         G: common_vendor.o(scrollToLower),
-        H: common_vendor.o(scrollToUpper)
+        H: common_vendor.o(scrollToUpper),
+        I: common_vendor.o(handleScroll)
       });
     };
   }

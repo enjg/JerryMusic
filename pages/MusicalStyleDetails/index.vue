@@ -1,9 +1,11 @@
 <template>
-	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper"
+	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" @scroll="handleScroll"
 		class="MusicalStyleDetails" v-if="listObj.code">
 		<view class="bt">
 			<image @click="routerReturn()" src="@/static/Universalimage/返回three.png" alt=""></image>
-			<image v-show="bt" mode="heightFix" :src="listObj.data.cover[0]" alt=""></image>
+			<view class="image" :style="{opacity:opc}">
+				<image mode="heightFix" :src="listObj.data.cover[0]" alt=""></image>
+			</view>
 		</view>
 		<view class="img">
 			<image mode="heightFix" :src="listObj.data.cover[0]" alt=""></image>
@@ -44,7 +46,7 @@
 			<image src="@/static/SongList/播放.png" alt=""></image>
 			<p class="p">听听看</p>
 		</view>
-		<view class="content">
+		<view class="content" id="content">
 
 			<view class="sort">
 				<scroll-view class="scroll-view" scroll-x="true">
@@ -115,6 +117,7 @@
 	onMounted(() => {
 		getStyleDetail(Props.id);
 		getWidth();
+		getHeight();
 	})
 
 	function getWidth() {
@@ -186,6 +189,28 @@
 		console.log('离开底部')
 		bt.value = false;
 	}
+
+	let height = ref(null);
+
+	function getHeight() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#content')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getHeight();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+	}
 </script>
 
 <style scoped>
@@ -207,7 +232,16 @@
 		z-index: 2;
 	}
 
-	.bt>image:nth-of-type(2) {
+	.bt>.image {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		bottom: 0;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
+	}
+
+	.bt>.image>image {
 		height: calc((100vh / 3) * 1.5);
 		position: absolute;
 		left: 50%;

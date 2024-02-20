@@ -8,11 +8,6 @@ const _sfc_main = {
   },
   setup(__props) {
     const Props = __props;
-    common_vendor.onMounted(() => {
-      if (Props.event.pendantData) {
-        console.log(Props.event.pendantData.imageUrl);
-      }
-    });
     function routerPush(event) {
       console.log(event, "点击");
       common_vendor.wx$1.navigateTo({

@@ -43,6 +43,12 @@ const _sfc_main = {
         console.error(err);
       });
     }
+    function routerReturn() {
+      common_vendor.wx$1.navigateBack({
+        delta: 1
+        // 返回的页面层数，1表示返回上一级页面，2表示返回上两级页面，以此类推
+      });
+    }
     let bt = common_vendor.ref(false);
     function scrollToLower() {
       console.log("底部");
@@ -58,6 +64,7 @@ const _sfc_main = {
     let scrollIndex = common_vendor.ref(0);
     common_vendor.onMounted(() => {
       getWidth();
+      getHeight();
     });
     function getWidth() {
       const query = common_vendor.index.createSelectorQuery().in(instance);
@@ -82,44 +89,67 @@ const _sfc_main = {
       }
       scrollIndex.value = event.detail.current;
     }
+    let height = common_vendor.ref(null);
+    function getHeight() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#content").boundingClientRect((rect) => {
+        if (rect) {
+          height.value = rect.height + 60;
+        } else {
+          getHeight();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+    }
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: common_vendor.unref(bt)
-      }, common_vendor.unref(bt) ? {
-        b: common_vendor.t(common_vendor.unref(listObj).profile.nickname)
+        a: common_vendor.unref(opc) < 0.5
+      }, common_vendor.unref(opc) < 0.5 ? {
+        b: common_vendor.o(($event) => routerReturn())
       } : {}, {
-        c: common_vendor.unref(listObj).code
+        c: common_vendor.unref(opc) > 0.5
+      }, common_vendor.unref(opc) > 0.5 ? {
+        d: common_vendor.o(($event) => routerReturn())
+      } : {}, {
+        e: common_vendor.t(common_vendor.unref(listObj).profile.nickname),
+        f: common_vendor.unref(opc) > 0.5,
+        g: common_vendor.unref(opc),
+        h: common_vendor.unref(listObj).code
       }, common_vendor.unref(listObj).code ? {
-        d: common_vendor.unref(listObj).profile.backgroundUrl,
-        e: common_vendor.unref(listObj).profile.avatarUrl,
-        f: common_vendor.t(common_vendor.unref(listObj).profile.nickname),
-        g: common_vendor.t(common_vendor.unref(listObj).profile.signature),
-        h: common_vendor.t(common_vendor.unref(listObj).profile.follows),
-        i: common_vendor.t(common_vendor.unref(listObj).profile.followeds),
-        j: common_vendor.t(common_vendor.unref(listObj).level)
+        i: common_vendor.unref(listObj).profile.backgroundUrl,
+        j: common_vendor.unref(listObj).profile.avatarUrl,
+        k: common_vendor.t(common_vendor.unref(listObj).profile.nickname),
+        l: common_vendor.t(common_vendor.unref(listObj).profile.signature),
+        m: common_vendor.t(common_vendor.unref(listObj).profile.follows),
+        n: common_vendor.t(common_vendor.unref(listObj).profile.followeds),
+        o: common_vendor.t(common_vendor.unref(listObj).level)
       } : {}, {
-        k: common_vendor.unref(scrollIndex) == 0 ? 1 : "",
-        l: common_vendor.o(($event) => changeTitle($event, 0)),
-        m: common_vendor.unref(scrollIndex) == 1 ? 1 : "",
-        n: common_vendor.o(($event) => changeTitle($event, 1)),
-        o: common_vendor.s("left: " + common_vendor.unref(scrollLeft) + "px; width: " + common_vendor.unref(bjWidth) + "px;"),
-        p: common_vendor.p({
+        p: common_vendor.unref(scrollIndex) == 0 ? 1 : "",
+        q: common_vendor.o(($event) => changeTitle($event, 0)),
+        r: common_vendor.unref(scrollIndex) == 1 ? 1 : "",
+        s: common_vendor.o(($event) => changeTitle($event, 1)),
+        t: common_vendor.s("left: " + common_vendor.unref(scrollLeft) + "px; width: " + common_vendor.unref(bjWidth) + "px;"),
+        v: common_vendor.p({
           message: {
             id: Props.id,
             TF: common_vendor.unref(bt)
           }
         }),
-        q: common_vendor.p({
+        w: common_vendor.p({
           message: {
             id: Props.id,
             TF: common_vendor.unref(bt)
           }
         }),
-        r: common_vendor.unref(scrollIndex),
-        s: common_vendor.o(swiperChange),
-        t: !common_vendor.unref(bt) ? 1 : "",
-        v: common_vendor.o(scrollToLower),
-        w: common_vendor.o(scrollToUpper)
+        x: common_vendor.unref(scrollIndex),
+        y: common_vendor.o(swiperChange),
+        z: !common_vendor.unref(bt) ? 1 : "",
+        A: common_vendor.o(scrollToLower),
+        B: common_vendor.o(scrollToUpper),
+        C: common_vendor.o(handleScroll)
       });
     };
   }

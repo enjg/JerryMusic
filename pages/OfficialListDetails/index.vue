@@ -1,10 +1,13 @@
 <template>
-	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper"
+	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" @scroll="handleScroll"
 		class="OfficialListDetails">
 		<view class="bt">
 			<image @click="routerReturn()" src="../../static/Universalimage/返回three.png" mode=""></image>
-			<image v-show="bt==1" :src="listObj.coverImgUrl" mode="widthFix"></image>
-			<p class="name" v-show="bt===1">{{listObj.name}}</p>
+			<view class="image" :style="{opacity:opc}">
+				<image :src="listObj.coverImgUrl" mode="widthFix"></image>
+			</view>
+
+			<p class="name" v-show="opc>0.5">{{listObj.name}}</p>
 		</view>
 		<view class="img">
 			<image :src="listObj.coverImgUrl" mode="widthFix"></image>
@@ -25,7 +28,7 @@
 					<p class="p">{{formatFansCount(countObj.shareCount)}}</p>
 				</view>
 			</view>
-			<view class="songList">
+			<view class="songList" id="item1">
 				<view class="songList_bt">
 					<view>
 						<image src="@/static/SongList/播放.png" alt=""></image>
@@ -41,11 +44,11 @@
 						<image src="@/static/SongList/列表.png" alt=""></image>
 					</view>
 				</view>
-				<view class="songList_content" @click="SongClick(listArray)">
+				<scroll-view :scroll-y="bt" class="songList_content" @click="SongClick(listArray)">
 					<SongBlockOne
 						:message="{name:item.name,index:index,mv:item.mv,ar:item.ar,fee:item.fee,hr:item.hr,sq:item.sq,id:item.id}"
 						v-for="(item,index) in listArray" :key="index"></SongBlockOne>
-				</view>
+				</scroll-view>
 			</view>
 		</view>
 		<Player />
@@ -63,7 +66,8 @@
 	import {
 		onMounted,
 		reactive,
-		ref
+		ref,
+		getCurrentInstance
 	} from "vue";
 	import {
 		useMyPlayBack
@@ -85,6 +89,7 @@
 	onMounted(() => {
 		getPlaylistDetail(Props.id);
 		getPlaylistDetailDynamic(Props.id);
+		getWidth()
 	})
 	let listObj = reactive({});
 	let listArray = reactive([]);
@@ -153,16 +158,42 @@
 	function SongClick(lisArray) {
 		myPlayBack.PostAddSongList(listArray)
 	}
-	let bt = ref(null);
+	let bt = ref(false);
 
 	function scrollToLower() {
 		console.log('底部')
-		bt.value = 1;
+		bt.value = true;
 	}
 
 	function scrollToUpper() {
 		console.log('离开底部')
-		bt.value = null;
+		bt.value = false;
+	}
+
+	const instance = getCurrentInstance();
+
+	let height = ref(null);
+
+	function getWidth() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#item1')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					console.log(rect)
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getWidth();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+		console.log(opc.value)
 	}
 
 	function routerReturn() {
@@ -195,14 +226,21 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
-
-	.bt>image:nth-of-type(2) {
+	.bt>.image{
 		width: 100%;
+		height: 100%;
 		position: absolute;
 		bottom: 0;
 		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 	}
-
+	.bt>.image>image {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+	
 	.bt>.name {
 		line-height: 60px;
 		position: absolute;
@@ -296,14 +334,13 @@
 	.songList_bt {
 		height: 50px;
 		width: 100%;
-		background-color: white;
+		/* 		background-color: white; */
 	}
 
 	.songList_content {
 		width: calc(100% - 40px);
 		padding: 0 20px;
 		height: calc(100% - 50px);
-		overflow-y: auto;
 	}
 
 	.songList_bt>view:nth-of-type(1) {

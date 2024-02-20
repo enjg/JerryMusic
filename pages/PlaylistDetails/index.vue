@@ -1,15 +1,17 @@
 <template>
-	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" class="PlaylistDetails"
-		v-if="listObj.name">
+	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" @scroll="handleScroll"
+		class="PlaylistDetails" v-if="listObj.name">
 		<view class="bt">
 			<image src="@/static/Universalimage/返回three.png" alt="" @click="routerReturn()"></image>
 			<p class="p" v-if="listObj.backgroundCoverUrl!=null">官方动态歌单</p>
-			<p class="p" v-if="listObj.backgroundCoverUrl==null&&!bt">歌单</p>
-			<image v-show="listObj.backgroundCoverUrl!=null&&bt" mode="widthFix" :src="listObj.backgroundCoverUrl">
-			</image>
-			<view class="bj" v-show="listObj.backgroundCoverUrl==null&&bt">
+			<p class="p" v-if="listObj.backgroundCoverUrl==null&&opc<0.5">歌单</p>
+			<view class="image" v-show="listObj.backgroundCoverUrl!=null" :style="{opacity:opc}">
+				<image mode="widthFix" :src="listObj.backgroundCoverUrl">
+				</image>
 			</view>
-			<view class="name" v-show="listObj.backgroundCoverUrl==null&&bt">
+			<view class="bj" v-show="listObj.backgroundCoverUrl==null" :style="{opacity:opc}">
+			</view>
+			<view class="name" v-show="listObj.backgroundCoverUrl==null&&opc>0.5">
 				<p class="p">{{listObj.name}}</p>
 			</view>
 		</view>
@@ -77,7 +79,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="songList" v-if="listObj.name">
+		<view class="songList" id="item1" v-if="listObj.name">
 			<view class="songList_bt">
 				<view>
 					<image @click.stop="myPlayBack.PlayDifference(listObj.tracks)" src="@/static/SongList/播放.png"
@@ -114,7 +116,8 @@
 	import {
 		onMounted,
 		reactive,
-		ref
+		ref,
+		getCurrentInstance
 	} from "vue";
 	import {
 		useMyPlayBack
@@ -137,6 +140,7 @@
 		console.log(Props.id);
 		getPlaylistDetail(Props.id);
 		getPlaylistDetailDynamic(Props.id);
+		getWidth()
 	})
 	let listObj = reactive({});
 
@@ -212,11 +216,12 @@
 	}
 
 	function routerPushTwo(center, type, event, content) {
-		let Obj={
-			name:content.name
+		let Obj = {
+			name: content.name
 		}
 		uni.navigateTo({
-			url: center + '?type=' + type + '&id=' + event + '&content=' + encodeURIComponent(JSON.stringify(content))
+			url: center + '?type=' + type + '&id=' + event + '&content=' + encodeURIComponent(JSON.stringify(
+				content))
 		})
 	}
 
@@ -230,6 +235,40 @@
 	function scrollToUpper() {
 		console.log('离开底部')
 		bt.value = false;
+	}
+	const instance = getCurrentInstance();
+
+	let height = ref(null);
+
+	function getWidth() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#item1')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					console.log(rect)
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getWidth();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+		console.log(opc.value)
+		// const {
+		// 	scrollTop,
+		// 	scrollHeight,
+		// 	scrollWidth
+		// } = event.detail;
+		// console.log('scrollTop:', scrollTop); // 滚动条在垂直方向已滚动的距离  
+		// console.log('scrollHeight:', scrollHeight); // 滚动视图的总高度  
+		// console.log('scrollWidth:', scrollWidth); // 滚动视图的总宽度  
+		// 可以在这里执行你的逻辑，比如根据滚动位置改变某些元素的样式或显示/隐藏某些内容  
 	}
 
 	function routerPushThree(event) {
@@ -291,13 +330,23 @@
 		left: 60px;
 	}
 
-	.bt>image:nth-of-type(2) {
+	.bt>.image {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
+	}
+
+	.bt>.image>image {
 		width: 120%;
 		position: absolute;
 		left: 50%;
 		bottom: 0;
 		transform: translate(-50%, 24%);
-		z-index: -1;
 	}
 
 	.bt>.bj {
@@ -307,7 +356,8 @@
 		z-index: -100;
 		position: absolute;
 		top: 0;
-
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 	}
 
 	.bt>.name {

@@ -47,6 +47,7 @@ const _sfc_main = {
     const instance = common_vendor.getCurrentInstance();
     common_vendor.onMounted(() => {
       getWidth();
+      getHeight();
     });
     function getWidth() {
       const query = common_vendor.index.createSelectorQuery().in(instance);
@@ -86,18 +87,32 @@ const _sfc_main = {
         delta: 1
       });
     }
+    let height = common_vendor.ref(null);
+    function getHeight() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#content").boundingClientRect((rect) => {
+        if (rect) {
+          height.value = rect.height + 60;
+        } else {
+          getHeight();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+    }
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.unref(listObj).artist
       }, common_vendor.unref(listObj).artist ? common_vendor.e({
-        b: !common_vendor.unref(bt)
-      }, !common_vendor.unref(bt) ? {
+        b: common_vendor.unref(opc) < 0.5
+      }, common_vendor.unref(opc) < 0.5 ? {
         c: common_vendor.o(($event) => routerReturn())
       } : {
         d: common_vendor.o(($event) => routerReturn())
       }, {
-        e: common_vendor.unref(bt)
-      }, common_vendor.unref(bt) ? {} : {}, {
+        e: common_vendor.unref(opc),
         f: common_vendor.unref(listObj).artist.cover,
         g: common_vendor.t(common_vendor.unref(listObj).artist.name),
         h: common_vendor.t(common_vendor.unref(listObj).artist.alias[0]),
@@ -151,7 +166,8 @@ const _sfc_main = {
         H: common_vendor.unref(myShare).ShowTF
       }, common_vendor.unref(myShare).ShowTF ? {} : {}, {
         I: common_vendor.o(scrollToLower),
-        J: common_vendor.o(scrollToUpper)
+        J: common_vendor.o(scrollToUpper),
+        K: common_vendor.o(handleScroll)
       }) : {});
     };
   }

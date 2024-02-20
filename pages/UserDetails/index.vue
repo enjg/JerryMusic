@@ -1,7 +1,12 @@
 <template>
-	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" class="UserDetails">
-		<view class="bt" v-if="bt">
-			<p class="p">{{listObj.profile.nickname}}</p>
+	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" @scroll="handleScroll"
+		class="UserDetails ">
+		<view class="bt">
+			<image @click="routerReturn()" v-if="opc<0.5" src="../../static/Universalimage/返回two.png" mode=""></image>
+			<image @click="routerReturn()" v-if="opc>0.5" src="../../static/Universalimage/返回.png" mode=""></image>
+			<p class="p" v-show="opc>0.5">{{listObj.profile.nickname}}</p>
+			<view class="bj" :style="{opacity:opc}">
+			</view>
 		</view>
 		<view class="User_contetn" v-if="listObj.code">
 			<image :src="listObj.profile.backgroundUrl" mode="heightFix"></image>
@@ -36,7 +41,7 @@
 				</view> -->
 			</view>
 		</view>
-		<view class="content" :class="{contentBottom:!bt}">
+		<view class="content" id="content" :class="{contentBottom:!bt}">
 			<view class="content_bt">
 				<scroll-view scroll-x="true" class="scroll-view">
 					<view id="item1" @tap="changeTitle($event,0)" class="content_bt_center">
@@ -110,6 +115,11 @@
 				console.error(err);
 			});
 	}
+	function routerReturn() {
+		wx.navigateBack({
+			delta: 1, // 返回的页面层数，1表示返回上一级页面，2表示返回上两级页面，以此类推
+		});
+	}
 	let bt = ref(false);
 
 	function scrollToLower() {
@@ -127,6 +137,7 @@
 	let scrollIndex = ref(0);
 	onMounted(() => {
 		getWidth();
+		getHeight()
 	})
 
 	function getWidth() {
@@ -157,6 +168,29 @@
 		}
 		scrollIndex.value = event.detail.current;
 	}
+
+
+	let height = ref(null);
+
+	function getHeight() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#content')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getHeight();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+	}
 </script>
 
 
@@ -164,21 +198,39 @@
 	.contentBtCenterClick {
 		color: #313131 !important;
 	}
+
 	.bt {
 		position: fixed;
 		width: 100%;
 		height: 60px;
-		background-color: white;
 		z-index: 999999;
+	}
+
+	.bt>image {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	.bt>.p {
 		line-height: 60px;
+		width: calc(100vw - 120px);
 		position: absolute;
-		left: 50%;
-		top: 50%;
+		left: 60px;
+		line-height: 60px;
 		color: #3e465b;
-		transform: translate(-50%, -50%);
+	}
+
+	.bt>.bj {
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		position: absolute;
+		bottom: 0;
+		z-index: -1;
 	}
 
 	.UserDetails {

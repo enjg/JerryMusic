@@ -1,13 +1,14 @@
 <template>
-	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" class="User">
+	<scroll-view scroll-y="true" @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" @scroll="handleScroll"
+		class="User">
 		<view class="bt">
-			<view class="bt_bj" v-if="bt">
+			<view class="bt_bj" :style="{opacity:opc}">
 
 			</view>
 			<More :sort='sort'></More>
-			<image v-if="!bt" src="@/static/Search/更多2.png" mode=""></image>
+			<image v-if="opc<0.5" src="@/static/Search/更多2.png" mode=""></image>
 			<image v-else src="@/static/Search/更多.png" mode=""></image>
-			<image @click="routerPush('/pages/search/index')" v-if="!bt" src="@/static/Search/放大镜3.png" mode="">
+			<image @click="routerPush('/pages/search/index')" v-if="opc<0.5" src="@/static/Search/放大镜3.png" mode="">
 			</image>
 			<image @click="routerPush('/pages/search/index')" v-else src="@/static/Search/放大镜2.png" mode=""></image>
 		</view>
@@ -42,7 +43,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="content" :class="{contentRadius:!bt}">
+		<view class="content" id="content" :class="{contentRadius:!bt}">
 			<view class="content_bt">
 				<scroll-view scroll-x="true" class="scroll-view">
 					<view id="item1" @tap="changeTitle($event,0)" class="content_bt_center">
@@ -94,6 +95,7 @@
 
 	onMounted(() => {
 		getWidth();
+		getHeight();
 	})
 
 	function getWidth() {
@@ -130,19 +132,44 @@
 	function scrollToLower() {
 		console.log('底部')
 		bt.value = true;
-		sort.value = 1;
 	}
 
 	function scrollToUpper() {
 		console.log('离开底部')
 		bt.value = false;
-		sort.value = 2;
 	}
 
 	function routerPush(event) {
 		wx.navigateTo({
 			url: event
 		})
+	}
+
+	let height = ref(null);
+
+	function getHeight() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#content')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getHeight();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+		if (opc.value < 0.5) {
+			sort.value = 2
+		} else {
+			sort.value = 1;
+		}
 	}
 </script>
 
@@ -188,6 +215,8 @@
 		position: absolute;
 		top: 0;
 		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 	}
 
 	.User {

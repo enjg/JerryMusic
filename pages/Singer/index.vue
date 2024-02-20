@@ -1,10 +1,10 @@
 <template>
-	<scroll-view @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" scroll-y="true" class="Singer"
+	<scroll-view @scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" scroll-y="true" class="Singer" @scroll="handleScroll"
 		v-if="listObj.artist">
 		<view class="bt">
-			<image @click="routerReturn()" v-if="!bt" src="../../static/Universalimage/返回three.png" mode=""></image>
+			<image @click="routerReturn()" v-if="opc<0.5" src="../../static/Universalimage/返回three.png" mode=""></image>
 			<image @click="routerReturn()" v-else src="../../static/Universalimage/返回.png" mode=""></image>
-			<view class="btBj" v-if="bt">
+			<view class="btBj" :style="{opacity:opc}">
 
 			</view>
 		</view>
@@ -18,7 +18,7 @@
 				<p class="p">{{listObj.artist.alias[0]}}</p>
 				<p class="p" v-if="listObj.identify">{{listObj.identify.imageDesc}}</p>
 			</view>
-			<view class="content">
+			<view class="content" id="content">
 				<view class="sort">
 					<scroll-view scroll-x="true" class="scroll-view">
 						<view @tap="changeTitle($event,0)" id="item1" class="sort_center">
@@ -118,6 +118,7 @@
 	const instance = getCurrentInstance();
 	onMounted(() => {
 		getWidth();
+		getHeight()
 	})
 
 	function getWidth() {
@@ -168,6 +169,28 @@
 			delta: 1
 		}); // 返回上一级页面
 	}
+
+	let height = ref(null);
+
+	function getHeight() {
+		const query = uni.createSelectorQuery().in(instance);
+		query
+			.select('#content')
+			.boundingClientRect((rect) => {
+				if (rect) {
+					height.value = rect.height + 60;
+					// 	bjWidth.value = rect.width - 20;
+				} else {
+					getHeight();
+				}
+			})
+			.exec();
+	}
+	let opc = ref(0);
+
+	function handleScroll(event) {
+		opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+	}
 </script>
 
 <style scoped>
@@ -195,6 +218,8 @@
 		top: 0;
 		left: 0;
 		z-index: -1;
+		will-change: opacity;
+		transition: opacity 0.1s ease;
 	}
 
 	.bt>image {

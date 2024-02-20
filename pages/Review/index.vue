@@ -114,12 +114,12 @@
 	let sortType = ref(1);
 	let time = ref(null);
 	onMounted(() => {
-		if (Props.type == 0) {
-			getSongDetail(Props.id);
-		}
-		if (Props.type == 3) {
-			getAlbum(Props.id);
-		}
+		// if (Props.type == 0) {
+		// 	getSongDetail(Props.id);
+		// }
+		// if (Props.type == 3) {
+		// 	getAlbum(Props.id);
+		// }
 		getCommentNew(Props.id, Props.type, commentListArray.length / 20 + 1, 20, 1, time.value);
 	})
 	watch(() => sortType.value, (newValue) => {

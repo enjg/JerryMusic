@@ -29,6 +29,7 @@ const _sfc_main = {
       console.log(Props.id);
       getPlaylistDetail(Props.id);
       getPlaylistDetailDynamic(Props.id);
+      getWidth();
     });
     let listObj = common_vendor.reactive({});
     function getPlaylistDetail(ids) {
@@ -91,7 +92,9 @@ const _sfc_main = {
         name: content.name
       });
       common_vendor.index.navigateTo({
-        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(content))
+        url: center + "?type=" + type + "&id=" + event + "&content=" + encodeURIComponent(JSON.stringify(
+          content
+        ))
       });
     }
     let bt = common_vendor.ref(false);
@@ -102,6 +105,24 @@ const _sfc_main = {
     function scrollToUpper() {
       console.log("离开底部");
       bt.value = false;
+    }
+    const instance = common_vendor.getCurrentInstance();
+    let height = common_vendor.ref(null);
+    function getWidth() {
+      const query = common_vendor.index.createSelectorQuery().in(instance);
+      query.select("#item1").boundingClientRect((rect) => {
+        if (rect) {
+          console.log(rect);
+          height.value = rect.height + 60;
+        } else {
+          getWidth();
+        }
+      }).exec();
+    }
+    let opc = common_vendor.ref(0);
+    function handleScroll(event) {
+      opc.value = event.target.scrollTop / (event.target.scrollHeight - height.value);
+      console.log(opc.value);
     }
     function routerPushThree(event) {
       common_vendor.wx$1.navigateTo({
@@ -116,75 +137,77 @@ const _sfc_main = {
         c: common_vendor.o(($event) => routerReturn()),
         d: common_vendor.unref(listObj).backgroundCoverUrl != null
       }, common_vendor.unref(listObj).backgroundCoverUrl != null ? {} : {}, {
-        e: common_vendor.unref(listObj).backgroundCoverUrl == null && !common_vendor.unref(bt)
-      }, common_vendor.unref(listObj).backgroundCoverUrl == null && !common_vendor.unref(bt) ? {} : {}, {
-        f: common_vendor.unref(listObj).backgroundCoverUrl != null && common_vendor.unref(bt),
-        g: common_vendor.unref(listObj).backgroundCoverUrl,
-        h: common_vendor.unref(listObj).backgroundCoverUrl == null && common_vendor.unref(bt),
-        i: common_vendor.t(common_vendor.unref(listObj).name),
-        j: common_vendor.unref(listObj).backgroundCoverUrl == null && common_vendor.unref(bt),
-        k: common_vendor.unref(listObj).backgroundCoverUrl != null
+        e: common_vendor.unref(listObj).backgroundCoverUrl == null && common_vendor.unref(opc) < 0.5
+      }, common_vendor.unref(listObj).backgroundCoverUrl == null && common_vendor.unref(opc) < 0.5 ? {} : {}, {
+        f: common_vendor.unref(listObj).backgroundCoverUrl,
+        g: common_vendor.unref(listObj).backgroundCoverUrl != null,
+        h: common_vendor.unref(opc),
+        i: common_vendor.unref(listObj).backgroundCoverUrl == null,
+        j: common_vendor.unref(opc),
+        k: common_vendor.t(common_vendor.unref(listObj).name),
+        l: common_vendor.unref(listObj).backgroundCoverUrl == null && common_vendor.unref(opc) > 0.5,
+        m: common_vendor.unref(listObj).backgroundCoverUrl != null
       }, common_vendor.unref(listObj).backgroundCoverUrl != null ? common_vendor.e({
-        l: common_vendor.unref(listObj).backgroundCoverUrl,
-        m: common_vendor.o(($event) => routerPush(common_vendor.unref(listObj).coverImgUrl, common_vendor.unref(listObj).name, common_vendor.unref(listObj).description)),
-        n: common_vendor.t(extractData(common_vendor.unref(listObj).name)),
-        o: common_vendor.t(common_vendor.unref(listObj).updateFrequency),
-        p: common_vendor.t(common_vendor.unref(listObj).description),
-        q: common_vendor.unref(countObj).shareCount
+        n: common_vendor.unref(listObj).backgroundCoverUrl,
+        o: common_vendor.o(($event) => routerPush(common_vendor.unref(listObj).coverImgUrl, common_vendor.unref(listObj).name, common_vendor.unref(listObj).description)),
+        p: common_vendor.t(extractData(common_vendor.unref(listObj).name)),
+        q: common_vendor.t(common_vendor.unref(listObj).updateFrequency),
+        r: common_vendor.t(common_vendor.unref(listObj).description),
+        s: common_vendor.unref(countObj).shareCount
       }, common_vendor.unref(countObj).shareCount ? {
-        r: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount))
+        t: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount))
       } : {}, {
-        s: common_assets._imports_1$3,
-        t: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
-        v: common_vendor.unref(countObj).commentCount
+        v: common_assets._imports_1$3,
+        w: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
+        x: common_vendor.unref(countObj).commentCount
       }, common_vendor.unref(countObj).commentCount ? {
-        w: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
+        y: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
       } : {}, {
-        x: common_assets._imports_2$1,
-        y: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
-        z: common_vendor.unref(countObj).bookedCount
+        z: common_assets._imports_2$1,
+        A: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
+        B: common_vendor.unref(countObj).bookedCount
       }, common_vendor.unref(countObj).bookedCount ? {
-        A: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))
+        C: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))
       } : {}, {
-        B: common_assets._imports_3$1
+        D: common_assets._imports_3$1
       }) : common_vendor.e({
-        C: common_vendor.unref(listObj).coverImgUrl,
-        D: common_vendor.t(common_vendor.unref(listObj).name),
-        E: common_vendor.unref(listObj).creator.avatarUrl,
-        F: common_vendor.t(common_vendor.unref(listObj).creator.nickname),
-        G: common_vendor.o(($event) => routerPushThree(common_vendor.unref(listObj).creator.userId)),
-        H: common_vendor.unref(listObj).description
+        E: common_vendor.unref(listObj).coverImgUrl,
+        F: common_vendor.t(common_vendor.unref(listObj).name),
+        G: common_vendor.unref(listObj).creator.avatarUrl,
+        H: common_vendor.t(common_vendor.unref(listObj).creator.nickname),
+        I: common_vendor.o(($event) => routerPushThree(common_vendor.unref(listObj).creator.userId)),
+        J: common_vendor.unref(listObj).description
       }, common_vendor.unref(listObj).description ? {
-        I: common_vendor.t(common_vendor.unref(listObj).description)
+        K: common_vendor.t(common_vendor.unref(listObj).description)
       } : {}, {
-        J: common_vendor.o(($event) => routerPush(common_vendor.unref(listObj).coverImgUrl, common_vendor.unref(listObj).name, common_vendor.unref(listObj).description)),
-        K: common_vendor.unref(countObj).shareCount
+        L: common_vendor.o(($event) => routerPush(common_vendor.unref(listObj).coverImgUrl, common_vendor.unref(listObj).name, common_vendor.unref(listObj).description)),
+        M: common_vendor.unref(countObj).shareCount
       }, common_vendor.unref(countObj).shareCount ? {
-        L: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount))
+        N: common_vendor.t(formatFansCount(common_vendor.unref(countObj).shareCount))
       } : {}, {
-        M: common_assets._imports_1$3,
-        N: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
-        O: common_vendor.unref(countObj).commentCount
+        O: common_assets._imports_1$3,
+        P: common_vendor.o(($event) => common_vendor.unref(myShare).SharePost(2, Props.id)),
+        Q: common_vendor.unref(countObj).commentCount
       }, common_vendor.unref(countObj).commentCount ? {
-        P: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
+        R: common_vendor.t(formatFansCount(common_vendor.unref(countObj).commentCount))
       } : {}, {
-        Q: common_assets._imports_2$1,
-        R: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
-        S: common_vendor.unref(countObj).bookedCount
+        S: common_assets._imports_2$1,
+        T: common_vendor.o(($event) => routerPushTwo("/pages/Review/index", 2, Props.id, common_vendor.unref(listObj))),
+        U: common_vendor.unref(countObj).bookedCount
       }, common_vendor.unref(countObj).bookedCount ? {
-        T: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))
+        V: common_vendor.t(formatFansCount(common_vendor.unref(countObj).bookedCount))
       } : {}, {
-        U: common_assets._imports_3$1
+        W: common_assets._imports_3$1
       }), {
-        V: common_vendor.unref(listObj).name
+        X: common_vendor.unref(listObj).name
       }, common_vendor.unref(listObj).name ? {
-        W: common_vendor.o(($event) => common_vendor.unref(myPlayBack).PlayDifference(common_vendor.unref(listObj).tracks)),
-        X: common_assets._imports_0$4,
         Y: common_vendor.o(($event) => common_vendor.unref(myPlayBack).PlayDifference(common_vendor.unref(listObj).tracks)),
-        Z: common_vendor.t(common_vendor.unref(listObj).tracks.length),
-        aa: common_assets._imports_1$4,
-        ab: common_assets._imports_1,
-        ac: common_vendor.f(common_vendor.unref(listObj).tracks, (item, index, i0) => {
+        Z: common_assets._imports_0$4,
+        aa: common_vendor.o(($event) => common_vendor.unref(myPlayBack).PlayDifference(common_vendor.unref(listObj).tracks)),
+        ab: common_vendor.t(common_vendor.unref(listObj).tracks.length),
+        ac: common_assets._imports_1$4,
+        ad: common_assets._imports_1,
+        ae: common_vendor.f(common_vendor.unref(listObj).tracks, (item, index, i0) => {
           return {
             a: index,
             b: "dc719c36-0-" + i0,
@@ -202,15 +225,16 @@ const _sfc_main = {
             })
           };
         }),
-        ad: common_vendor.unref(bt),
-        ae: common_vendor.o(($event) => clickSongList(common_vendor.unref(listObj).tracks))
+        af: common_vendor.unref(bt),
+        ag: common_vendor.o(($event) => clickSongList(common_vendor.unref(listObj).tracks))
       } : {}, {
-        af: common_vendor.unref(myMore).TF
+        ah: common_vendor.unref(myMore).TF
       }, common_vendor.unref(myMore).TF ? {} : {}, {
-        ag: common_vendor.unref(myShare).ShowTF
+        ai: common_vendor.unref(myShare).ShowTF
       }, common_vendor.unref(myShare).ShowTF ? {} : {}, {
-        ah: common_vendor.o(scrollToLower),
-        ai: common_vendor.o(scrollToUpper)
+        aj: common_vendor.o(scrollToLower),
+        ak: common_vendor.o(scrollToUpper),
+        al: common_vendor.o(handleScroll)
       }) : {});
     };
   }
