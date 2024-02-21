@@ -28,6 +28,7 @@ const _sfc_main = {
           uid: ids
         }
       }).then((res) => {
+        console.log(res.data);
         Object.assign(listObj, res.data);
       }).catch((err) => {
         console.error(err);

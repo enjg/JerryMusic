@@ -33,7 +33,7 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	//歌曲播放进度
 	let SongPlayProgress = ref(null);
 	//创建播放器
-	let innerAudioContext = uni.createInnerAudioContext();
+	let innerAudioContext = wx.getBackgroundAudioManager();
 	//历史播放
 	let HistoryPlayArray = reactive([]);
 	//播放模式
@@ -260,8 +260,12 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 				},
 			})
 			.then((res) => {
-				console.log(res.data.songs[0].dt, '输出')
+				console.log(res.data.songs[0], '输出')
 				Object.assign(CurrentSong, res.data.songs[0]);
+				innerAudioContext.title = res.data.songs[0].name;
+				innerAudioContext.epname = res.data.songs[0].al.name;
+				innerAudioContext.singer = res.data.songs[0].ar[0].name;
+				innerAudioContext.coverImgUrl = res.data.songs[0].al.picUrl;
 				if (!findDuplicateIdIndex(res.data.songs[0].id, HistoryPlayArray)) {
 					HistoryPlayArray.push(res.data.songs[0]);
 				} else {
@@ -292,8 +296,8 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 				},
 			})
 			.then((res) => {
-				console.log(res.data.data[0].url,'输出2')
-				songTime.value=res.data.data[0].time;
+				console.log(res.data.data[0].url, '输出2')
+				songTime.value = res.data.data[0].time;
 				url.value = res.data.data[0].url;
 			})
 			.catch((err) => {
@@ -303,7 +307,8 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	watch(() => url.value, (newValue) => {
 		if (newValue) {
 			innerAudioContext.src = newValue;
-			innerAudioContext.play();
+			console.log(innerAudioContext, '输出999')
+			// 	innerAudioContext.play();
 		}
 
 	})
@@ -325,6 +330,13 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	})
 	innerAudioContext.onTimeUpdate(() => {
 		SongPlayProgress.value = innerAudioContext.currentTime;
+	})
+	innerAudioContext.onNext(() => {
+		console.log('后台下一首')
+		SwitchSongs(1);
+	})
+	innerAudioContext.onPrev(()=>{
+		SwitchSongs(0);
 	})
 
 	function play() {

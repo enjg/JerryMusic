@@ -65,10 +65,21 @@
 		overflow: hidden;
 		border: 1px solid white;
 		box-sizing: border-box;
+		position: relative;
 }
-.User_contetn>.image>image.data-v-8cd0e5ae {
+.User_contetn>.image>image.data-v-8cd0e5ae:nth-of-type(1) {
 		width: 100%;
 		height: 100%;
+		position: absolute;
+		top: 0;
+}
+.User_contetn>.image>image.data-v-8cd0e5ae:nth-of-type(2) {
+		width: 150%;
+		height: 150%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 }
 .User_contetn>.UserProfile.data-v-8cd0e5ae {
 		width: 100%;

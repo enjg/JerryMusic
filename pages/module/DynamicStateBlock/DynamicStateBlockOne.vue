@@ -2,10 +2,14 @@
 	<view class="DynamicStateBlockOne">
 		<view class="image">
 			<image :src="Props.message.user.avatarUrl" mode=""></image>
+			<image v-if="Props.message.pendantData" :src="Props.message.pendantData.imageAndroidUrl"></image>
 		</view>
 		<view class="text">
 			<view class="name">
 				<p class="p">{{Props.message.user.nickname}}</p>
+				<image
+				 v-if="Props.message.user.vipRights&&Props.message.user.vipRights.associator"
+				 :src="Props.message.user.vipRights.associator.iconUrl" mode="heightFix"></image>
 			</view>
 			<view class="time">
 				<p class="p">{{formatTimestampToDateString(Props.message.showTime)}}</p>
@@ -265,19 +269,32 @@
 
 	.DynamicStateBlockOne>.image {
 		/* 		position: relative; */
-		width: 40px;
+		height: 35px;
+		width: 35px;
 		float: left;
 		margin-left: 20px;
+		position: relative;
 	}
 
-	.DynamicStateBlockOne>.image>image {
-		width: 40px;
-		height: 40px;
+	.DynamicStateBlockOne>.image>image:nth-of-type(1) {
+		width: 35px;
+		height: 35px;
 		border-radius: 50%;
+		position: absolute;
+		top: 0;
+	}
+
+	.DynamicStateBlockOne>.image>image:nth-of-type(2) {
+		width: 150%;
+		height: 150%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.text {
-		width: calc(100vw - 110px);
+		width: calc(100vw - 105px);
 		/* 		position: relative;
 		left: 70px;
 		top: 0; */
@@ -288,16 +305,24 @@
 	.text>.name {
 		height: 25px;
 		width: 100%;
+	}
+
+	.text>.name>.p {
 		line-height: 25px;
 		color: #313332;
 		font-weight: bold;
-		font-size: 15px
+		font-size: 15px;
+		float: left;
 	}
-
+	.text>.name>image{
+		height: 15px;
+		float: left;
+		margin: 5px 2px;
+	}
 	.time {
 		width: 100%;
-		height: 15px;
-		line-height: 15px;
+		height: 10px;
+		line-height: 10px;
 		margin-bottom: 10px;
 		color: #949597;
 		font-size: 12px;

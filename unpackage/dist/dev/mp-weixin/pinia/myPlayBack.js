@@ -13,7 +13,7 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
   let PlayPause = common_vendor.ref(null);
   let SongLength = common_vendor.ref(null);
   let SongPlayProgress = common_vendor.ref(null);
-  let innerAudioContext = common_vendor.index.createInnerAudioContext();
+  let innerAudioContext = common_vendor.wx$1.getBackgroundAudioManager();
   let HistoryPlayArray = common_vendor.reactive([]);
   let PlayMode = common_vendor.ref(0);
   let SongListTF = common_vendor.ref(0);
@@ -201,8 +201,12 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
         ids: id2
       }
     }).then((res) => {
-      console.log(res.data.songs[0].dt, "输出");
+      console.log(res.data.songs[0], "输出");
       Object.assign(CurrentSong, res.data.songs[0]);
+      innerAudioContext.title = res.data.songs[0].name;
+      innerAudioContext.epname = res.data.songs[0].al.name;
+      innerAudioContext.singer = res.data.songs[0].ar[0].name;
+      innerAudioContext.coverImgUrl = res.data.songs[0].al.picUrl;
       if (!findDuplicateIdIndex(res.data.songs[0].id, HistoryPlayArray)) {
         HistoryPlayArray.push(res.data.songs[0]);
       } else {
@@ -236,7 +240,7 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
   common_vendor.watch(() => url.value, (newValue) => {
     if (newValue) {
       innerAudioContext.src = newValue;
-      innerAudioContext.play();
+      console.log(innerAudioContext, "输出999");
     }
   });
   innerAudioContext.onEnded(() => {
@@ -257,6 +261,13 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
   });
   innerAudioContext.onTimeUpdate(() => {
     SongPlayProgress.value = innerAudioContext.currentTime;
+  });
+  innerAudioContext.onNext(() => {
+    console.log("后台下一首");
+    SwitchSongs(1);
+  });
+  innerAudioContext.onPrev(() => {
+    SwitchSongs(0);
   });
   function play() {
     if (innerAudioContext.paused) {

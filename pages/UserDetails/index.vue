@@ -13,6 +13,7 @@
 			<view class="image">
 				<image :src="listObj.profile.avatarUrl" mode="">
 				</image>
+				<!-- 				<image :src="listObj.pendantData.imageAndroidUrl" mode=""></image> -->
 			</view>
 			<view class="UserProfile">
 				<view class="name">
@@ -96,6 +97,7 @@
 				},
 			})
 			.then((res) => {
+				console.log(res.data)
 				Object.assign(listObj, res.data);
 			})
 			.catch((err) => {
@@ -115,6 +117,7 @@
 				console.error(err);
 			});
 	}
+
 	function routerReturn() {
 		wx.navigateBack({
 			delta: 1, // 返回的页面层数，1表示返回上一级页面，2表示返回上两级页面，以此类推
@@ -269,14 +272,24 @@
 		overflow: hidden;
 		border: 1px solid white;
 		box-sizing: border-box;
-
+		position: relative;
 	}
 
-	.User_contetn>.image>image {
+	.User_contetn>.image>image:nth-of-type(1) {
 		width: 100%;
 		height: 100%;
+		position: absolute;
+		top: 0;
 	}
 
+	.User_contetn>.image>image:nth-of-type(2) {
+		width: 150%;
+		height: 150%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
 	.User_contetn>.UserProfile {
 		width: 100%;
