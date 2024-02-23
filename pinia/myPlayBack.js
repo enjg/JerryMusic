@@ -32,7 +32,7 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	let SongLength = ref(null);
 	//歌曲播放进度
 	let SongPlayProgress = ref(null);
-	//创建播放器
+	//创建微信播放器
 	let innerAudioContext = wx.getBackgroundAudioManager();
 	//历史播放
 	let HistoryPlayArray = reactive([]);
