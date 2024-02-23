@@ -225,10 +225,8 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 			}
 		}
 		if (PlayMode.value == 1) {
-			console.log('111')
 			id.value = RandomPlayListArray[RandomPlayIndex.value].id;
 		} else {
-			console.log('222')
 			id.value = SongList[index.value].id;
 		}
 	}
@@ -260,7 +258,6 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 				},
 			})
 			.then((res) => {
-				console.log(res.data.songs[0], '输出')
 				Object.assign(CurrentSong, res.data.songs[0]);
 				innerAudioContext.title = res.data.songs[0].name;
 				innerAudioContext.epname = res.data.songs[0].al.name;
@@ -307,8 +304,6 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	watch(() => url.value, (newValue) => {
 		if (newValue) {
 			innerAudioContext.src = newValue;
-			console.log(innerAudioContext, '输出999')
-			// 	innerAudioContext.play();
 		}
 
 	})
@@ -318,11 +313,9 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 		}
 	})
 	innerAudioContext.onPlay(() => {
-		console.log('播放')
 		PlayPause.value = true;
 	})
 	innerAudioContext.onPause(() => {
-		console.log('暂停播放')
 		PlayPause.value = false;
 	})
 	innerAudioContext.onCanplay(() => {
@@ -332,7 +325,6 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 		SongPlayProgress.value = innerAudioContext.currentTime;
 	})
 	innerAudioContext.onNext(() => {
-		console.log('后台下一首')
 		SwitchSongs(1);
 	})
 	innerAudioContext.onPrev(()=>{
