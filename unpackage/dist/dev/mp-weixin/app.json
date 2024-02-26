@@ -40,24 +40,27 @@
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
-    "color": "#999a9c",
-    "selectedColor": "#f6255es",
+    "color": "#686f7f    ",
+    "selectedColor": "#fe3a3b",
     "backgroundColor": "#fff",
     "list": [
       {
         "iconPath": "static/Bottomnavigationbar/发现.png",
         "pagePath": "pages/discover/index",
-        "text": "发现"
+        "text": "发现",
+        "selectedIconPath": "static/Bottomnavigationbar/发现Two.png"
       },
       {
         "iconPath": "static/Bottomnavigationbar/动态.png",
         "pagePath": "pages/DynamicState/index",
-        "text": "动态"
+        "text": "动态",
+        "selectedIconPath": "static/Bottomnavigationbar/动态Two.png"
       },
       {
         "iconPath": "static/Bottomnavigationbar/我的.png",
         "pagePath": "pages/User/index",
-        "text": "用户"
+        "text": "用户",
+        "selectedIconPath": "static/Bottomnavigationbar/我的Two.png"
       }
     ]
   },
