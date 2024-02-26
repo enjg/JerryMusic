@@ -1,5 +1,5 @@
 <template>
-	<scroll-view class="DynamicState">
+	<scroll-view class="DynamicState" :scroll-y="Props.message.TF">
 		<DynamicStateBlockOne v-for="(item,index) in eventArray" :key="index" :message="item"></DynamicStateBlockOne>
 	</scroll-view>
 </template>
@@ -12,10 +12,13 @@
 	} from '@/pinia/myUser.js'
 	import {
 		onMounted,
-		reactive
+		reactive,
+		defineProps
 	} from 'vue';
 	const myUser = useMyUser();
-
+	const Props = defineProps({
+		message: Object
+	})
 	onMounted(() => {
 		getUserEvent()
 	})
@@ -41,8 +44,6 @@
 				console.error(err);
 			});
 	}
-
-
 </script>
 
 <style scoped>

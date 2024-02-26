@@ -8,7 +8,11 @@ if (!Math) {
 const DynamicStateBlockOne = () => "../../module/DynamicStateBlock/DynamicStateBlockOne.js";
 const _sfc_main = {
   __name: "DynamicState",
+  props: {
+    message: Object
+  },
   setup(__props) {
+    const Props = __props;
     pinia_myUser.useMyUser();
     common_vendor.onMounted(() => {
       getUserEvent();
@@ -36,7 +40,8 @@ const _sfc_main = {
               message: item
             })
           };
-        })
+        }),
+        b: Props.message.TF
       };
     };
   }

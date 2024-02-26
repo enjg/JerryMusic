@@ -8,28 +8,13 @@
 		</view>
 		<scroll-view class="scroll-view" scroll-y="true">
 			<p class="ts" @click="routerPush()" v-if="!myUser.profile.code">请登录</p>
-			<view class="Review_content_center" v-for="(item,index) in listArray" :key="index">
-				<view class="image">
-					<image :src="item.user.avatarUrl" mode="heightFix"></image>
-				</view>
-				<view class="details">
-					<view class="name">
-						<view class="UserDetails">
-							<p class="p">{{item.user.nickname}}</p>
-							<p class="p">{{formatTimestampToDateString(item.showTime)}}</p>
-						</view>
-					</view>
-					<view class="content">
-						<p class="p">{{JsonStringObj(item.json).msg}}</p>
-					</view>
-
-				</view>
-			</view>
+			<DynamicStateBlockOne :message="item" v-for="(item,index) in listArray" :key="index"></DynamicStateBlockOne>
 		</scroll-view>
 	</view>
 </template>
 
 <script setup>
+	import DynamicStateBlockOne from '@/pages/module/DynamicStateBlock/DynamicStateBlockOne.vue'
 	import More from '@/pages/module/More.vue'
 	import axios from '@/axios.js';
 	import {
@@ -47,10 +32,10 @@
 		if (myUser.profile.code) {
 			getEvent(lasttime.value);
 		}
-		// getEvent(lasttime.value);
-		// if (myUser.cookie !== null) {
-		// 	getTopic()
-		// }
+		getEvent(lasttime.value);
+		if (myUser.cookie !== null) {
+			getTopic()
+		}
 	})
 	watch(() => myUser.profile, () => {
 		getEvent(lasttime.value);
@@ -64,7 +49,8 @@
 		axios
 			.get("/event", {
 				params: {
-					lasttime: lasttimes
+					lasttime: lasttimes,
+					cookie: myUser.cookie
 				}
 			})
 			.then((res) => {

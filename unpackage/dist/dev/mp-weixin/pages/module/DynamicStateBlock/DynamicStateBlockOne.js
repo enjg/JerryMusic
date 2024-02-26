@@ -106,14 +106,30 @@ const _sfc_main = {
       }, Props.message.user.vipRights && Props.message.user.vipRights.associator ? {
         f: Props.message.user.vipRights.associator.iconUrl
       } : {}, {
-        g: common_vendor.t(formatTimestampToDateString(Props.message.showTime)),
-        h: common_vendor.unref(EventObj).msg
+        g: Props.message.type == 18
+      }, Props.message.type == 18 ? {} : {}, {
+        h: Props.message.type == 19
+      }, Props.message.type == 19 ? {} : {}, {
+        i: Props.message.type == 17 || Props.message.type == 28
+      }, Props.message.type == 17 || Props.message.type == 28 ? {} : {}, {
+        j: Props.message.type == 22
+      }, Props.message.type == 22 ? {} : {}, {
+        k: Props.message.type == 39
+      }, Props.message.type == 39 ? {} : {}, {
+        l: Props.message.type == 13
+      }, Props.message.type == 13 ? {} : {}, {
+        m: Props.message.type == 24
+      }, Props.message.type == 24 ? {} : {}, {
+        n: Props.message.type == 41 || Props.message.type == 21
+      }, Props.message.type == 41 || Props.message.type == 21 ? {} : {}, {
+        o: common_vendor.t(formatTimestampToDateString(Props.message.showTime)),
+        p: common_vendor.unref(EventObj).msg
       }, common_vendor.unref(EventObj).msg ? {
-        i: common_vendor.t(common_vendor.unref(EventObj).msg)
+        q: common_vendor.t(common_vendor.unref(EventObj).msg)
       } : {}, {
-        j: Props.message.pics.length
+        r: Props.message.pics.length
       }, Props.message.pics.length ? {
-        k: common_vendor.f(Props.message.pics, (item, index, i0) => {
+        s: common_vendor.f(Props.message.pics, (item, index, i0) => {
           return {
             a: item.originUrl,
             b: common_vendor.o(($event) => imgClick(item.originUrl), index),
@@ -122,18 +138,18 @@ const _sfc_main = {
             e: index
           };
         }),
-        l: Props.message.pics.length == 8 ? 1 : "",
-        m: Props.message.pics.length == 7 ? 1 : "",
-        n: Props.message.pics.length === 5 ? 1 : "",
-        o: Props.message.pics.length === 2 || Props.message.pics.length === 4 ? 1 : "",
-        p: Props.message.pics.length === 1 ? 1 : "",
-        q: Props.message.pics.length % 3 === 0 ? 1 : ""
+        t: Props.message.pics.length == 8 ? 1 : "",
+        v: Props.message.pics.length == 7 ? 1 : "",
+        w: Props.message.pics.length === 5 ? 1 : "",
+        x: Props.message.pics.length === 2 || Props.message.pics.length === 4 ? 1 : "",
+        y: Props.message.pics.length === 1 ? 1 : "",
+        z: Props.message.pics.length % 3 === 0 ? 1 : ""
       } : {}, {
-        r: common_vendor.unref(EventObj).album
+        A: common_vendor.unref(EventObj).album
       }, common_vendor.unref(EventObj).album ? {
-        s: common_vendor.unref(EventObj).album.picUrl,
-        t: common_vendor.t(common_vendor.unref(EventObj).album.name),
-        v: common_vendor.f(common_vendor.unref(EventObj).album.artists, (item, index, i0) => {
+        B: common_vendor.unref(EventObj).album.picUrl,
+        C: common_vendor.t(common_vendor.unref(EventObj).album.name),
+        D: common_vendor.f(common_vendor.unref(EventObj).album.artists, (item, index, i0) => {
           return common_vendor.e({
             a: common_vendor.t(item.name),
             b: index < common_vendor.unref(EventObj).album.artists.length - 1
@@ -141,65 +157,65 @@ const _sfc_main = {
             c: index
           });
         }),
-        w: common_vendor.o(($event) => routerPush("/pages/Album/index", common_vendor.unref(EventObj).album.id))
+        E: common_vendor.o(($event) => routerPush("/pages/Album/index", common_vendor.unref(EventObj).album.id))
       } : {}, {
-        x: common_vendor.unref(EventObj).playlist
+        F: common_vendor.unref(EventObj).playlist
       }, common_vendor.unref(EventObj).playlist ? {
-        y: common_vendor.unref(EventObj).playlist.coverImgUrl,
-        z: common_vendor.t(common_vendor.unref(EventObj).playlist.name),
-        A: common_vendor.t(common_vendor.unref(EventObj).playlist.creator.nickname),
-        B: common_vendor.o(($event) => routerPush("/pages/PlaylistDetails/index", common_vendor.unref(EventObj).playlist.id))
+        G: common_vendor.unref(EventObj).playlist.coverImgUrl,
+        H: common_vendor.t(common_vendor.unref(EventObj).playlist.name),
+        I: common_vendor.t(common_vendor.unref(EventObj).playlist.creator.nickname),
+        J: common_vendor.o(($event) => routerPush("/pages/PlaylistDetails/index", common_vendor.unref(EventObj).playlist.id))
       } : {}, {
-        C: common_vendor.unref(EventObj).mv
+        K: common_vendor.unref(EventObj).mv
       }, common_vendor.unref(EventObj).mv ? {
-        D: common_vendor.t(common_vendor.unref(EventObj).mv.name),
-        E: common_vendor.f(common_vendor.unref(EventObj).mv.artists, (item, index, i0) => {
+        L: common_vendor.t(common_vendor.unref(EventObj).mv.name),
+        M: common_vendor.f(common_vendor.unref(EventObj).mv.artists, (item, index, i0) => {
           return common_vendor.e({
             a: common_vendor.t(item.name),
             b: index < common_vendor.unref(EventObj).mv.artists.length - 1
           }, index < common_vendor.unref(EventObj).mv.artists.length - 1 ? {} : {});
         }),
-        F: common_vendor.unref(EventObj).mv.imgurl16v9,
-        G: common_assets._imports_0$14,
-        H: common_vendor.t(number(common_vendor.unref(EventObj).mv.playCount)),
-        I: common_vendor.t(formatMillisecondsToMinutesSeconds(common_vendor.unref(EventObj).mv.duration)),
-        J: common_vendor.o(($event) => routerPush("/pages/VideoPlayback/index", common_vendor.unref(EventObj).mv.id))
+        N: common_vendor.unref(EventObj).mv.imgurl16v9,
+        O: common_assets._imports_0$14,
+        P: common_vendor.t(number(common_vendor.unref(EventObj).mv.playCount)),
+        Q: common_vendor.t(formatMillisecondsToMinutesSeconds(common_vendor.unref(EventObj).mv.duration)),
+        R: common_vendor.o(($event) => routerPush("/pages/VideoPlayback/index", common_vendor.unref(EventObj).mv.id))
       } : {}, {
-        K: common_vendor.unref(EventObj).song
+        S: common_vendor.unref(EventObj).song
       }, common_vendor.unref(EventObj).song ? common_vendor.e({
-        L: common_vendor.unref(EventObj).song.album.picUrl,
-        M: common_vendor.t(common_vendor.unref(EventObj).song.name),
-        N: common_vendor.f(common_vendor.unref(EventObj).song.artists, (item, index, i0) => {
+        T: common_vendor.unref(EventObj).song.album.picUrl,
+        U: common_vendor.t(common_vendor.unref(EventObj).song.name),
+        V: common_vendor.f(common_vendor.unref(EventObj).song.artists, (item, index, i0) => {
           return common_vendor.e({
             a: common_vendor.t(item.name),
             b: index < common_vendor.unref(EventObj).song.artists.length - 1
           }, index < common_vendor.unref(EventObj).song.artists.length - 1 ? {} : {});
         }),
-        O: common_vendor.unref(myPlayBack).id !== common_vendor.unref(EventObj).song.id || common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && !common_vendor.unref(myPlayBack).PlayPause
+        W: common_vendor.unref(myPlayBack).id !== common_vendor.unref(EventObj).song.id || common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && !common_vendor.unref(myPlayBack).PlayPause
       }, common_vendor.unref(myPlayBack).id !== common_vendor.unref(EventObj).song.id || common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && !common_vendor.unref(myPlayBack).PlayPause ? {
-        P: common_vendor.o(($event) => SongPlay())
+        X: common_vendor.o(($event) => SongPlay())
       } : {}, {
-        Q: common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && common_vendor.unref(myPlayBack).PlayPause
+        Y: common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && common_vendor.unref(myPlayBack).PlayPause
       }, common_vendor.unref(myPlayBack).id == common_vendor.unref(EventObj).song.id && common_vendor.unref(myPlayBack).PlayPause ? {
-        R: common_vendor.o(($event) => SongPlay())
+        Z: common_vendor.o(($event) => SongPlay())
       } : {}, {
-        S: common_vendor.o(($event) => SongClick()),
-        T: common_vendor.s(common_vendor.unref(RgbStyle))
+        aa: common_vendor.o(($event) => SongClick()),
+        ab: common_vendor.s(common_vendor.unref(RgbStyle))
       }) : {}, {
-        U: common_assets._imports_1$16,
-        V: Props.message.info.shareCount
+        ac: common_assets._imports_1$13,
+        ad: Props.message.info.shareCount
       }, Props.message.info.shareCount ? {
-        W: common_vendor.t(Props.message.info.shareCount)
+        ae: common_vendor.t(Props.message.info.shareCount)
       } : {}, {
-        X: common_assets._imports_2$9,
-        Y: Props.message.info.commentCount
+        af: common_assets._imports_2$7,
+        ag: Props.message.info.commentCount
       }, Props.message.info.commentCount ? {
-        Z: common_vendor.t(Props.message.info.commentCount)
+        ah: common_vendor.t(Props.message.info.commentCount)
       } : {}, {
-        aa: common_assets._imports_3$8,
-        ab: Props.message.info.likedCount
+        ai: common_assets._imports_3$6,
+        aj: Props.message.info.likedCount
       }, Props.message.info.likedCount ? {
-        ac: common_vendor.t(Props.message.info.likedCount)
+        ak: common_vendor.t(Props.message.info.likedCount)
       } : {});
     };
   }

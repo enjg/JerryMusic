@@ -13,10 +13,10 @@ const _sfc_main = {
       return {
         a: common_assets._imports_0$19,
         b: common_vendor.o(($event) => routerPush("/pages/BestSellerList/index")),
-        c: common_assets._imports_1$15,
+        c: common_assets._imports_1$16,
         d: common_vendor.o(($event) => routerPush("/pages/LanguageStyleAlbum/index")),
-        e: common_assets._imports_2$8,
-        f: common_assets._imports_3$7
+        e: common_assets._imports_2$9,
+        f: common_assets._imports_3$8
       };
     };
   }

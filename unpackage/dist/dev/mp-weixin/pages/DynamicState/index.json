@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "dynamic-state-block-one": "../module/DynamicStateBlock/DynamicStateBlockOne",
     "more": "../module/More"
   }
 }

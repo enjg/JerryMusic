@@ -65,6 +65,7 @@
 				},
 			})
 			.then((res) => {
+				console.log(res.data.cookie)
 				myUser.cookie = res.data.cookie;
 				getUserDetail(res.data.account.id);
 				// Object.assign(myUser.profile, res.data.profile);

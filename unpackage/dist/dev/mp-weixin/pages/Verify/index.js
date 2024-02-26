@@ -37,6 +37,7 @@ const _sfc_main = {
           captcha: captchas
         }
       }).then((res) => {
+        console.log(res.data.cookie);
         myUser.cookie = res.data.cookie;
         getUserDetail(res.data.account.id);
       }).catch((err) => {

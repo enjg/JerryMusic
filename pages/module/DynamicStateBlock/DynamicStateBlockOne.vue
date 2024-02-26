@@ -10,6 +10,14 @@
 				<image
 				 v-if="Props.message.user.vipRights&&Props.message.user.vipRights.associator"
 				 :src="Props.message.user.vipRights.associator.iconUrl" mode="heightFix"></image>
+				 <p class="p" v-if="Props.message.type==18">分享单曲</p>
+				 <p class="p" v-if="Props.message.type==19">分享专辑</p>
+				 <p class="p" v-if="Props.message.type==17 || Props.message.type==28">分享电台节目</p>
+				 <p class="p" v-if="Props.message.type==22">转发</p>
+				 <p class="p" v-if="Props.message.type==39">发布视频</p>
+				 <p class="p" v-if="Props.message.type==13">分享歌单</p>
+				 <p class="p" v-if="Props.message.type==24">分享专栏文字</p>
+				 <p class="p" v-if="Props.message.type==41 || Props.message.type==21">分享视频</p>
 			</view>
 			<view class="time">
 				<p class="p">{{formatTimestampToDateString(Props.message.showTime)}}</p>
@@ -307,10 +315,17 @@
 		width: 100%;
 	}
 
-	.text>.name>.p {
+	.text>.name>.p:nth-of-type(1) {
 		line-height: 25px;
 		color: #313332;
 		font-weight: bold;
+		font-size: 15px;
+		float: left;
+	}
+	.text>.name>.p:nth-of-type(2){
+		line-height: 25px;
+		color: #313332;
+		opacity: 0.8;
 		font-size: 15px;
 		float: left;
 	}

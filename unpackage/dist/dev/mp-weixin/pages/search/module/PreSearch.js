@@ -69,10 +69,10 @@ const _sfc_main = {
       return {
         a: common_assets._imports_0$17,
         b: common_vendor.o(($event) => routerPush("/pages/SingerList/index")),
-        c: common_assets._imports_1$14,
+        c: common_assets._imports_1$15,
         d: common_vendor.o(($event) => routerPush("/pages/MusicalStyle/index")),
-        e: common_assets._imports_2$7,
-        f: common_assets._imports_3$6,
+        e: common_assets._imports_2$8,
+        f: common_assets._imports_3$7,
         g: common_vendor.o(($event) => routerPush("/pages/Sensibilities/index")),
         h: common_vendor.t(common_vendor.unref(mySearch).DefaultSearch),
         i: common_vendor.f(common_vendor.unref(PlaylistChart), (item, index, i0) => {

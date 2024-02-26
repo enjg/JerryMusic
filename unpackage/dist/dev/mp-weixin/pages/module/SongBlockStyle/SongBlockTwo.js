@@ -62,7 +62,7 @@ const _sfc_main = {
         m: common_vendor.o(($event) => Mv(Props.message.mv))
       } : {}, {
         n: common_vendor.o(($event) => moreClick(Props.message)),
-        o: common_assets._imports_1$13,
+        o: common_assets._imports_1$14,
         p: common_vendor.o(($event) => click(Props.message.index, Props.message.id))
       });
     };

@@ -59,10 +59,10 @@
 			<view class="content_center">
 				<swiper duration="300" :current="scrollIndex" @change="swiperChange" class="swiper">
 					<swiper-item class="swiper-item">
-						1
+						<SongList :message="{TF:bt}"></SongList>
 					</swiper-item>
 					<swiper-item class="swiper-item">
-						<DynamicState></DynamicState>
+						<DynamicState :message="{TF:bt}"></DynamicState>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -73,6 +73,7 @@
 
 <script setup>
 	import DynamicState from './DynamicState/DynamicState.vue';
+	import SongList from './SongList/SongList.vue'
 	import More from '@/pages/module/More.vue'
 	import {
 		useMyUser

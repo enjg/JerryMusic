@@ -1,0 +1,61 @@
+
+.Song.data-v-cb3dec60 {
+		width: 100%;
+		height: 100%;
+}
+.SongList.data-v-cb3dec60 {
+		width: calc(100vw - 40px);
+		padding: 0 20px;
+}
+.bt.data-v-cb3dec60 {
+		height: 50px;
+		width: 100%;
+		line-height: 50px;
+		font-size: 15px;
+		color: #424450;
+}
+.SongList_content.data-v-cb3dec60 {
+		width: 100%;
+		height: 60px;
+		margin-bottom: 15px;
+		position: relative;
+}
+.SongList_content>.image.data-v-cb3dec60 {
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		left: 0;
+		overflow: hidden;
+		border-radius: 10px;
+}
+.SongList_content>.image>image.data-v-cb3dec60 {
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+}
+.SongList_content>.details.data-v-cb3dec60 {
+		width: calc(100% - 70px);
+		height: calc(100% - 20px);
+		padding: 10px 0;
+		position: absolute;
+		left: 70px;
+}
+.SongList_content>.details>.name.data-v-cb3dec60 {
+		width: 100%;
+		height: 20px;
+		line-height: 20px;
+		font-size: 15px;
+		color: #424357;
+		font-weight: bold;
+}
+.SongList_content>.details>.intro.data-v-cb3dec60 {
+		width: 100%;
+		height: 20px;
+		line-height: 20px;
+}
+.SongList_content>.details>.intro>.p.data-v-cb3dec60 {
+		float: left;
+		font-size: 13px;
+		color: #818287;
+}

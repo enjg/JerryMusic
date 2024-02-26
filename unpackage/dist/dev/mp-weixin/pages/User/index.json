@@ -2,6 +2,7 @@
   "navigationBarTitleText": "用户",
   "usingComponents": {
     "dynamic-state": "./DynamicState/DynamicState",
+    "song-list": "./SongList/SongList",
     "more": "../module/More"
   }
 }

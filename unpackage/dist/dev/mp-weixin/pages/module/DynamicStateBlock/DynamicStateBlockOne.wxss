@@ -41,10 +41,17 @@
 		height: 25px;
 		width: 100%;
 }
-.text>.name>.p.data-v-3988208b {
+.text>.name>.p.data-v-3988208b:nth-of-type(1) {
 		line-height: 25px;
 		color: #313332;
 		font-weight: bold;
+		font-size: 15px;
+		float: left;
+}
+.text>.name>.p.data-v-3988208b:nth-of-type(2){
+		line-height: 25px;
+		color: #313332;
+		opacity: 0.8;
 		font-size: 15px;
 		float: left;
 }

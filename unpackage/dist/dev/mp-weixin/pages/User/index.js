@@ -7,9 +7,10 @@ if (!Array) {
   _component_Player();
 }
 if (!Math) {
-  (More + DynamicState)();
+  (More + SongList + DynamicState)();
 }
 const DynamicState = () => "./DynamicState/DynamicState.js";
+const SongList = () => "./SongList/SongList.js";
 const More = () => "../module/More.js";
 const _sfc_main = {
   __name: "index",
@@ -137,12 +138,22 @@ const _sfc_main = {
         A: common_vendor.unref(scrollIndex) == 1 ? 1 : "",
         B: common_vendor.o(($event) => changeTitle($event, 1)),
         C: common_vendor.s("left: " + common_vendor.unref(scrollLeft) + "px; width: " + common_vendor.unref(bjWidth) + "px;"),
-        D: common_vendor.unref(scrollIndex),
-        E: common_vendor.o(swiperChange),
-        F: !common_vendor.unref(bt) ? 1 : "",
-        G: common_vendor.o(scrollToLower),
-        H: common_vendor.o(scrollToUpper),
-        I: common_vendor.o(handleScroll)
+        D: common_vendor.p({
+          message: {
+            TF: common_vendor.unref(bt)
+          }
+        }),
+        E: common_vendor.p({
+          message: {
+            TF: common_vendor.unref(bt)
+          }
+        }),
+        F: common_vendor.unref(scrollIndex),
+        G: common_vendor.o(swiperChange),
+        H: !common_vendor.unref(bt) ? 1 : "",
+        I: common_vendor.o(scrollToLower),
+        J: common_vendor.o(scrollToUpper),
+        K: common_vendor.o(handleScroll)
       });
     };
   }
