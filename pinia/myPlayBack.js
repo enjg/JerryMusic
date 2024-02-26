@@ -112,13 +112,14 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 			PlayMode.value = 0;
 			SongList.length = 0;
 			index.value = 0;
+			console.log('输出类型1')
 			getPersonalFm();
 		}
 	})
 	//获取私人FM
 	function getPersonalFm() {
 		let time = Date.now();
-
+		console.log('输出：',time);
 		axios
 			.get("/personal_fm", {
 				params: {
@@ -232,7 +233,8 @@ export const useMyPlayBack = defineStore('myPlayBack', () => {
 	}
 	watch(() => index.value, (newValue) => {
 		if (SongSort.value == 2) {
-			if (newValue >= SongList.length - 2) {
+			if (newValue >= SongList.length - 2 && newValue) {
+				console.log('输出类型2',newValue,SongList.length)
 				getPersonalFm()
 			}
 		}

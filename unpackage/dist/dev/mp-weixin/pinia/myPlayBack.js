@@ -80,11 +80,13 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
       PlayMode.value = 0;
       SongList.length = 0;
       index.value = 0;
+      console.log("输出类型1");
       getPersonalFm();
     }
   });
   function getPersonalFm() {
     let time = Date.now();
+    console.log("输出：", time);
     axios.instance.get("/personal_fm", {
       params: {
         timestamp: time
@@ -173,16 +175,15 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
       }
     }
     if (PlayMode.value == 1) {
-      console.log("111");
       id.value = RandomPlayListArray[RandomPlayIndex.value].id;
     } else {
-      console.log("222");
       id.value = SongList[index.value].id;
     }
   }
   common_vendor.watch(() => index.value, (newValue) => {
     if (SongSort.value == 2) {
-      if (newValue >= SongList.length - 2) {
+      if (newValue >= SongList.length - 2 && newValue) {
+        console.log("输出类型2", newValue, SongList.length);
         getPersonalFm();
       }
     }
@@ -201,7 +202,6 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
         ids: id2
       }
     }).then((res) => {
-      console.log(res.data.songs[0], "输出");
       Object.assign(CurrentSong, res.data.songs[0]);
       innerAudioContext.title = res.data.songs[0].name;
       innerAudioContext.epname = res.data.songs[0].al.name;
@@ -240,7 +240,6 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
   common_vendor.watch(() => url.value, (newValue) => {
     if (newValue) {
       innerAudioContext.src = newValue;
-      console.log(innerAudioContext, "输出999");
     }
   });
   innerAudioContext.onEnded(() => {
@@ -249,11 +248,9 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
     }
   });
   innerAudioContext.onPlay(() => {
-    console.log("播放");
     PlayPause.value = true;
   });
   innerAudioContext.onPause(() => {
-    console.log("暂停播放");
     PlayPause.value = false;
   });
   innerAudioContext.onCanplay(() => {
@@ -263,7 +260,6 @@ const useMyPlayBack = common_vendor.defineStore("myPlayBack", () => {
     SongPlayProgress.value = innerAudioContext.currentTime;
   });
   innerAudioContext.onNext(() => {
-    console.log("后台下一首");
     SwitchSongs(1);
   });
   innerAudioContext.onPrev(() => {
