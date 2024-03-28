@@ -37,7 +37,7 @@ const _sfc_main = {
       return common_vendor.e({
         a: common_vendor.unref(ClickBJ) === 1 ? 1 : "",
         b: common_vendor.unref(ClickBJ) === 1 ? 1 : "",
-        c: Props.message.img,
+        c: Props.message.img + "?param=100y100",
         d: common_vendor.t(Props.message.name),
         e: Props.message.fee == 1
       }, Props.message.fee == 1 ? {} : {}, {

@@ -10,13 +10,9 @@ const _sfc_main = {
   setup(__props) {
     const Props = __props;
     const myPlayBack = pinia_myPlayBack.useMyPlayBack();
-    let listObj = common_vendor.reactive({
-      name: "111"
-    });
+    let listObj = common_vendor.reactive({});
     let listArray = common_vendor.reactive([]);
-    common_vendor.onMounted(() => {
-      getPlaylistDetail(Props.message.id);
-    });
+    getPlaylistDetail(Props.message.id);
     function getPlaylistDetail(ids) {
       axios.instance.get("/playlist/detail", {
         params: {
@@ -50,7 +46,7 @@ const _sfc_main = {
         a: common_vendor.t(common_vendor.unref(listObj).name),
         b: common_vendor.f(common_vendor.unref(listArray).slice(0, 3), (item, index, i0) => {
           return {
-            a: item.al.picUrl,
+            a: item.al.picUrl + "?param=100y100",
             b: common_vendor.t(index + 1),
             c: common_vendor.t(item.name),
             d: common_vendor.f(item.ar, (items, indexs, i1) => {

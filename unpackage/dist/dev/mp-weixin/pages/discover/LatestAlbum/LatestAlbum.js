@@ -6,10 +6,8 @@ const _sfc_main = {
   __name: "LatestAlbum",
   setup(__props) {
     const myPlayBack = pinia_myPlayBack.useMyPlayBack();
-    common_vendor.onMounted(() => {
-      getPersonalizedNewsong();
-      getAlbumNewest();
-    });
+    getPersonalizedNewsong();
+    getAlbumNewest();
     let listArray = common_vendor.reactive([]);
     function getPersonalizedNewsong() {
       axios.instance.get("/personalized/newsong", {
@@ -68,7 +66,7 @@ const _sfc_main = {
         a: common_vendor.o(($event) => routerPush()),
         b: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
           return {
-            a: item.picUrl,
+            a: item.picUrl + "?param=100y100",
             b: common_vendor.t(item.name),
             c: common_vendor.f(item.song.artists, (items, indexs, i1) => {
               return common_vendor.e({
@@ -86,7 +84,7 @@ const _sfc_main = {
         }),
         c: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
           return {
-            a: item.picUrl,
+            a: item.picUrl + "?param=100y100",
             b: common_vendor.t(item.name),
             c: common_vendor.f(item.song.artists, (items, indexs, i1) => {
               return common_vendor.e({
@@ -104,7 +102,7 @@ const _sfc_main = {
         }),
         d: common_vendor.f(common_vendor.unref(albumListArray), (item, index, i0) => {
           return {
-            a: item.picUrl,
+            a: item.picUrl + "?param=100y100",
             b: common_vendor.t(item.name),
             c: common_vendor.t(item.company),
             d: common_vendor.t(item.artist.name),
@@ -116,7 +114,7 @@ const _sfc_main = {
         }),
         e: common_vendor.f(common_vendor.unref(albumListArray), (item, index, i0) => {
           return {
-            a: item.picUrl,
+            a: item.picUrl + "?param=100y100",
             b: common_vendor.t(item.name),
             c: common_vendor.t(item.company),
             d: common_vendor.t(item.artist.name),

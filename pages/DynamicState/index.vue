@@ -10,6 +10,7 @@
 			<p class="ts" @click="routerPush()" v-if="!myUser.profile.code">请登录</p>
 			<DynamicStateBlockOne :message="item" v-for="(item,index) in listArray" :key="index"></DynamicStateBlockOne>
 		</scroll-view>
+		<Player />
 	</view>
 </template>
 

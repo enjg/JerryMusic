@@ -80,8 +80,8 @@ const _sfc_main = {
         a: common_vendor.f(common_vendor.unref(childNodes), (item, index, i0) => {
           return {
             a: common_vendor.t(item.data),
-            b: common_vendor.unref(id) - 1 == index ? 1 : "",
-            c: "line" + index
+            b: "line" + index,
+            c: common_vendor.unref(id) - 1 == index ? 1 : ""
           };
         }),
         b: common_vendor.unref(scrollTop)

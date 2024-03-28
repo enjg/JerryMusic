@@ -7,6 +7,7 @@ const _sfc_main = {
   __name: "RecommendedPlaylist",
   setup(__props) {
     const myUser = pinia_myUser.useMyUser();
+    getRecommendResource();
     let listArray = common_vendor.reactive([]);
     common_vendor.watch(() => myUser.cookie, (newValue) => {
       listArray.length = 0;

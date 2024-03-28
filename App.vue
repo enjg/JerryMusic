@@ -1,49 +1,49 @@
 <script>
-	import axios from '@/axios.js';
-	import {
-		onMounted
-	} from "vue";
-	import {
-		useMyUser
-	} from '@/pinia/myUser.js'
+	// import axios from '@/axios.js';
+	// import {
+	// 	onMounted
+	// } from "vue";
+	// import {
+	// 	useMyUser
+	// } from '@/pinia/myUser.js'
 
-	// 将getRegisterAnonimous函数定义在setup函数外部
-	function getRegisterAnonimous(myUser) {
-		let time = Date.now();
-		return axios.get("/register/anonimous", {
-				params: {
-					timestamp: time,
-				},
-			})
-			.then((res) => {
-				myUser.cookie = res.data.cookie;
-				console.log(res.data.cookie)
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
+	// // 将getRegisterAnonimous函数定义在setup函数外部
+	// function getRegisterAnonimous(myUser) {
+	// 	let time = Date.now();
+	// 	return axios.get("/register/anonimous", {
+	// 			params: {
+	// 				timestamp: time,
+	// 			},
+	// 		})
+	// 		.then((res) => {
+	// 			myUser.cookie = res.data.cookie;
+	// 			console.log(res.data.cookie)
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }
 
-	export default {
-		onLaunch: function() {
-			console.log('App Launch');
-			// 在onLaunch中调用getRegisterAnonimous函数
-			getRegisterAnonimous(useMyUser());
-		},
-		// ... 其他生命周期钩子
+	// export default {
+	// 	onLaunch: function() {
+	// 		console.log('App Launch');
+	// 		// 在onLaunch中调用getRegisterAnonimous函数
+	// 		getRegisterAnonimous(useMyUser());
+	// 	},
+	// 	// ... 其他生命周期钩子
 
-		setup() {
-			const myUser = useMyUser();
+	// 	setup() {
+	// 		const myUser = useMyUser();
 
-			// 在setup函数中不再定义getRegisterAnonimous函数
+	// 		// 在setup函数中不再定义getRegisterAnonimous函数
 
-			// 在这里可以添加其他的响应式数据、computed等
+	// 		// 在这里可以添加其他的响应式数据、computed等
 
-			return {
-				myUser
-			}
-		}
-	};
+	// 		return {
+	// 			myUser
+	// 		}
+	// 	}
+	// };
 </script>
 
 <style>

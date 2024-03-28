@@ -7,7 +7,7 @@
 			<swiper-item class="swiper-item" v-for="(item,index) in listArray" :key="index">
 				<view class="content" :style="{ backgroundColor: colorlist[index] }">
 					<view class="name">
-						<image :src="item.resources[0].resourceExtInfo.songData.album.picUrl" alt=""></image>
+						<image :src="item.resources[0].resourceExtInfo.songData.album.picUrl+'?param=100y100'" alt=""></image>
 						<view>
 							<p class="p">{{item.resources[0].resourceExtInfo.songData.name}}</p>
 							<p class="p">一</p>

@@ -2,6 +2,10 @@
 const common_vendor = require("../../common/vendor.js");
 const axios = require("../../axios.js");
 const pinia_myUser = require("../../pinia/myUser.js");
+if (!Array) {
+  const _component_Player = common_vendor.resolveComponent("Player");
+  _component_Player();
+}
 if (!Math) {
   (More + DynamicStateBlockOne)();
 }

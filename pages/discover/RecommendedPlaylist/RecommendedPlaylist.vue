@@ -35,6 +35,24 @@
 
 	const myUser = useMyUser();
 
+	getRecommendResource();
+
+	function getRegisterAnonimous() {
+		let time = Date.now();
+		return axios.get("/register/anonimous", {
+				params: {
+					timestamp: time,
+				},
+			})
+			.then((res) => {
+				myUser.cookie = res.data.cookie;
+				console.log(res.data.cookie)
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	}
+
 	let listArray = reactive([]);
 	watch(() => myUser.cookie, (newValue) => {
 		listArray.length = 0;
@@ -98,7 +116,7 @@
 
 	.RecommendedPlaylist {
 		margin-left: 20px;
-/* 		margin-top: 20px;
+		/* 		margin-top: 20px;
 		background-color: yellow; */
 	}
 

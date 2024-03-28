@@ -49,7 +49,7 @@ const _sfc_main = {
       return {
         a: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
           return {
-            a: item.resources[0].resourceExtInfo.songData.album.picUrl,
+            a: item.resources[0].resourceExtInfo.songData.album.picUrl + "?param=100y100",
             b: common_vendor.t(item.resources[0].resourceExtInfo.songData.name),
             c: common_vendor.t(item.resources[0].resourceExtInfo.songData.artists[0].name),
             d: common_vendor.t(item.uiElement.mainTitle.titleDesc),

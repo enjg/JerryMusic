@@ -6,7 +6,7 @@
 		<view class="content">
 			<view class="center" :class="{ pulseClick:pulseId==item.id}" @click="pulseClick(index,item.id,listArray)"
 				v-for="(item,index) in listArray.slice(0,3)" :key="index">
-				<image mode="heightFix" :src="item.al.picUrl" alt=""></image>
+				<image mode="heightFix" :src="item.al.picUrl+'?param=100y100'" alt=""></image>
 				<p class="p">{{index+1}}</p>
 				<view class="details">
 					<p class="p">{{item.name}}</p>
@@ -38,12 +38,11 @@
 		message: Object,
 	});
 	let listObj = reactive({
-		name: '111'
 	});
 	let listArray = reactive([]);
-	onMounted(() => {
+	// onMounted(() => {
 		getPlaylistDetail(Props.message.id)
-	})
+	// })
 
 	function getPlaylistDetail(ids) {
 		axios

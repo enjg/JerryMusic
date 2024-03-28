@@ -6,7 +6,7 @@
 			</view>
 		</view>
 		<view class="one">
-			<image :src="Props.message.img" mode=""></image>
+			<image :src="Props.message.img+'?param=100y100'" mode=""></image>
 		</view>
 		<view class="two">
 			<view class="name">

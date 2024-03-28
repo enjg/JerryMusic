@@ -8,7 +8,7 @@
 				<view class="content">
 					<view class="center" :class="{ pulseClick:pulseId==item.id}" @click="Click(index,item.id,listArray)"
 						v-for="(item,index) in listArray" :key="index" v-show="index<3">
-						<image mode="heightFix" :src="item.picUrl" alt=""></image>
+						<image mode="heightFix" :src="item.picUrl+'?param=100y100'" alt=""></image>
 						<view class="details">
 							<p class="p">{{item.name}}</p>
 							<view>
@@ -25,7 +25,7 @@
 				<view class="content">
 					<view class="center" :class="{ pulseClick:pulseId==item.id}" @click="Click(index,item.id,listArray)"
 						v-for="(item,index) in listArray" :key="index" v-show="index>2">
-						<image mode="heightFix" :src="item.picUrl" alt=""></image>
+						<image mode="heightFix" :src="item.picUrl+'?param=100y100'" alt=""></image>
 						<view class="details">
 							<p class="p">{{item.name}}</p>
 							<view>
@@ -45,7 +45,7 @@
 						<view class="bj">
 
 						</view>
-						<image mode="heightFix" :src="item.picUrl" alt=""></image>
+						<image mode="heightFix" :src="item.picUrl+'?param=100y100'" alt=""></image>
 						<view class="details">
 							<p class="p">{{item.name}}</p>
 							<view>
@@ -65,7 +65,7 @@
 						<view class="bj">
 
 						</view>
-						<image mode="heightFix" :src="item.picUrl" alt=""></image>
+						<image mode="heightFix" :src="item.picUrl+'?param=100y100'" alt=""></image>
 						<view class="details">
 							<p class="p">{{item.name}}</p>
 							<view>
@@ -93,10 +93,10 @@
 	} from '@/pinia/myPlayBack.js'
 
 	const myPlayBack = useMyPlayBack();
-	onMounted(() => {
+	// onMounted(() => {
 		getPersonalizedNewsong();
 		getAlbumNewest();
-	})
+	// })
 	let listArray = reactive([]);
 
 	function getPersonalizedNewsong() {

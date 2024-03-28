@@ -2,8 +2,9 @@
 	<view class="lyric">
 		<scroll-view :scroll-top="scrollTop" behavior="smooth" class="songlyric" scroll-y="true" show-scrollbar='false'
 			scroll-with-animation="true">
-			<view class="line" :id="'line' + index" v-for="(item,index) in childNodes" key="index">
-				<p :class="{PClick:id-1==index}" class="p">{{item.data}}</p>
+			<view class="line" :id="'line' + index" :class="{PClick:id-1==index}" v-for="(item,index) in childNodes"
+				key="index">
+				<p class="p">{{item.data}}</p>
 			</view>
 			<view class="Abc" id="abc">
 
@@ -184,7 +185,20 @@
 
 <style scoped>
 	.PClick {
+		height: auto !important;
+		min-height: 30px !important;
+		/* 		background-color: red; */
+		transition: all 0.1s ease !important;
+	}
+
+	.PClick>.p {
 		color: white !important;
+		font-size: 22px !important;
+		line-height: 50px !important;
+		transition: all 0.3s ease !important;
+		white-space: normal !important;
+		overflow: auto !important;
+		text-overflow: clip !important;
 	}
 
 	.lyric {
@@ -205,8 +219,16 @@
 	.line>.p {
 		font-size: 17px;
 		line-height: 30px;
+/* 		background-color: red; */
+		white-space: nowrap;
+		/* 不允许换行 */
+		overflow: hidden;
+		/* 超出部分隐藏 */
+		text-overflow: ellipsis;
+		/* 显示省略号 */
 		text-align: center;
 		color: rgba(255, 255, 255, 0.5);
+/* 		transition: all 0.2s ease; */
 	}
 
 	.line {
