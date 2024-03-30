@@ -2,8 +2,9 @@
 	<view class="lyric">
 		<scroll-view :scroll-top="scrollTop" behavior="smooth" class="songlyric" scroll-y="true" show-scrollbar='false'
 			scroll-with-animation="true">
-			<view class="line" :id="'line' + index" :class="{PClick:id-1==index}" v-for="(item,index) in childNodes"
-				key="index">
+			<view class="line" :id="'line' + index" :class="{PClick:id-1==index,
+			PClickTwo:id==index||id-2==index,
+			PClickThree:id-2>index||id<index}" v-for="(item,index) in childNodes" key="index">
 				<p class="p">{{item.data}}</p>
 			</view>
 			<view class="Abc" id="abc">
@@ -188,17 +189,39 @@
 		height: auto !important;
 		min-height: 30px !important;
 		/* 		background-color: red; */
-		transition: all 0.1s ease !important;
+		/* 		transition: all 0.1s ease !important; */
 	}
 
 	.PClick>.p {
 		color: white !important;
-		font-size: 22px !important;
+		font-size: 23px !important;
 		line-height: 50px !important;
-		transition: all 0.3s ease !important;
+		transition: all 0.4s ease !important;
 		white-space: normal !important;
 		overflow: auto !important;
 		text-overflow: clip !important;
+		text-shadow: 2px 2px 5px black;
+	}
+
+	.PClickTwo {
+		height: auto !important;
+		min-height: 30px !important;
+		transition: all 0.1s ease !important;
+	}
+
+	.PClickTwo>.p {
+		/* 		color: red !important; */
+		font-size: 18px !important;
+		color: white;
+		transition: all 0.4s ease !important;
+		opacity: 0.65;
+	}
+
+	.PClickThree>.p {
+		font-size: 16px;
+		color: white;
+		opacity: 0.3;
+		transition: all 0.4s ease !important;
 	}
 
 	.lyric {
@@ -217,18 +240,11 @@
 	}
 
 	.line>.p {
-		font-size: 17px;
 		line-height: 30px;
-/* 		background-color: red; */
 		white-space: nowrap;
-		/* 不允许换行 */
 		overflow: hidden;
-		/* 超出部分隐藏 */
 		text-overflow: ellipsis;
-		/* 显示省略号 */
 		text-align: center;
-		color: rgba(255, 255, 255, 0.5);
-/* 		transition: all 0.2s ease; */
 	}
 
 	.line {

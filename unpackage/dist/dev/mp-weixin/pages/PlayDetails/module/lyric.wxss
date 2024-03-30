@@ -3,16 +3,35 @@
 		height: auto !important;
 		min-height: 30px !important;
 		/* 		background-color: red; */
-		transition: all 0.1s ease !important;
+		/* 		transition: all 0.1s ease !important; */
 }
 .PClick>.p.data-v-5af958d9 {
 		color: white !important;
-		font-size: 22px !important;
+		font-size: 23px !important;
 		line-height: 50px !important;
-		transition: all 0.3s ease !important;
+		transition: all 0.4s ease !important;
 		white-space: normal !important;
 		overflow: auto !important;
 		text-overflow: clip !important;
+		text-shadow: 2px 2px 5px black;
+}
+.PClickTwo.data-v-5af958d9 {
+		height: auto !important;
+		min-height: 30px !important;
+		transition: all 0.1s ease !important;
+}
+.PClickTwo>.p.data-v-5af958d9 {
+		/* 		color: red !important; */
+		font-size: 18px !important;
+		color: white;
+		transition: all 0.4s ease !important;
+		opacity: 0.65;
+}
+.PClickThree>.p.data-v-5af958d9 {
+		font-size: 16px;
+		color: white;
+		opacity: 0.3;
+		transition: all 0.4s ease !important;
 }
 .lyric.data-v-5af958d9 {
 		width: 100%;
@@ -28,18 +47,11 @@
 		overflow: hidden;
 }
 .line>.p.data-v-5af958d9 {
-		font-size: 17px;
 		line-height: 30px;
-/* 		background-color: red; */
 		white-space: nowrap;
-		/* 不允许换行 */
 		overflow: hidden;
-		/* 超出部分隐藏 */
 		text-overflow: ellipsis;
-		/* 显示省略号 */
 		text-align: center;
-		color: rgba(255, 255, 255, 0.5);
-/* 		transition: all 0.2s ease; */
 }
 .line.data-v-5af958d9 {
 		margin: 20px 0;

@@ -81,7 +81,9 @@ const _sfc_main = {
           return {
             a: common_vendor.t(item.data),
             b: "line" + index,
-            c: common_vendor.unref(id) - 1 == index ? 1 : ""
+            c: common_vendor.unref(id) - 1 == index ? 1 : "",
+            d: common_vendor.unref(id) == index || common_vendor.unref(id) - 2 == index ? 1 : "",
+            e: common_vendor.unref(id) - 2 > index || common_vendor.unref(id) < index ? 1 : ""
           };
         }),
         b: common_vendor.unref(scrollTop)
