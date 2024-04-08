@@ -7,10 +7,11 @@ const _sfc_main = {
   __name: "RecommendedPlaylist",
   setup(__props) {
     const myUser = pinia_myUser.useMyUser();
-    getRecommendResource();
-    let listArray = common_vendor.reactive([]);
+    common_vendor.onMounted(() => {
+      getRecommendResource();
+    });
+    let listArray = common_vendor.reactive(["", "", "", ""]);
     common_vendor.watch(() => myUser.cookie, (newValue) => {
-      listArray.length = 0;
       getRecommendResource(newValue);
     });
     function getRecommendResource(cookies) {
@@ -22,7 +23,7 @@ const _sfc_main = {
           cookie: cookies
         }
       }).then((res) => {
-        listArray.push(...res.data.recommend);
+        listArray.splice(0, listArray.length, ...res.data.recommend);
       }).catch((err) => {
         console.error(err);
       });
@@ -55,14 +56,25 @@ const _sfc_main = {
       return {
         a: common_vendor.o(($event) => routerPushTwo("/pages/SongList/index")),
         b: common_vendor.f(common_vendor.unref(listArray), (item, index, i0) => {
-          return {
-            a: common_vendor.t(formatNumber(item.playcount)),
-            b: common_vendor.unref(ClickId) == item.id ? 1 : "",
-            c: item.picUrl,
-            d: common_vendor.t(item.name),
-            e: common_vendor.o(($event) => routerPush(item.id), index),
-            f: index
-          };
+          return common_vendor.e({
+            a: item.name
+          }, item.name ? {
+            b: common_vendor.t(formatNumber(item.playcount))
+          } : {}, {
+            c: item.name,
+            d: item.name,
+            e: item.name
+          }, item.name ? {
+            f: common_vendor.unref(ClickId) == item.id ? 1 : "",
+            g: item.picUrl
+          } : {}, {
+            h: item.name
+          }, item.name ? {
+            i: common_vendor.t(item.name)
+          } : {}, {
+            j: common_vendor.o(($event) => routerPush(item.id), index),
+            k: index
+          });
         }),
         c: common_assets._imports_0$11,
         d: common_assets._imports_0$11,

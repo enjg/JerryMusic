@@ -5,14 +5,16 @@
 		</view>
 		<scroll-view scroll-x="true" class="songList" show-scrollbar="false">
 			<view class="center" @click="routerPush(item.id)" v-for="(item,index) in listArray" :key="index">
-				<view class="playcount">
+				<view class="playcount" v-show="item.name">
 					<image src="./img/播放.png" alt="">
 					</image>
-					<p class="p">{{formatNumber(item.playcount)}}</p>
+					<p v-if="item.name" class="p">{{formatNumber(item.playcount)}}</p>
 				</view>
-				<image src="./img/播放.png" alt=""></image>
-				<image :class="{Click:ClickId==item.id}" :src="item.picUrl" alt=""></image>
-				<p class="p">{{item.name}}</p>
+				<image v-show="item.name" src="./img/播放.png" alt=""></image>
+				<view class="image">
+					<image v-if="item.name" :class="{Click:ClickId==item.id}" :src="item.picUrl" alt=""></image>
+				</view>
+				<p class="p" v-if="item.name">{{item.name}}</p>
 				<view class="bj"></view>
 			</view>
 		</scroll-view>
@@ -34,8 +36,9 @@
 
 
 	const myUser = useMyUser();
-
-	getRecommendResource();
+	onMounted(() => {
+		getRecommendResource();
+	})
 
 	function getRegisterAnonimous() {
 		let time = Date.now();
@@ -46,16 +49,14 @@
 			})
 			.then((res) => {
 				myUser.cookie = res.data.cookie;
-				console.log(res.data.cookie)
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	}
 
-	let listArray = reactive([]);
+	let listArray = reactive(['', '', '', '']);
 	watch(() => myUser.cookie, (newValue) => {
-		listArray.length = 0;
 		getRecommendResource(newValue)
 	})
 
@@ -70,7 +71,9 @@
 				},
 			})
 			.then((res) => {
-				listArray.push(...res.data.recommend);
+				listArray.splice(0, listArray.length, ...res.data.recommend);
+				// listArray.push(...res.data.recommend);
+				// console.log(listArray)
 				// let Array = res.data.result.slice(0, 9);
 				// Object.assign(abc, Array);
 			})
@@ -118,6 +121,7 @@
 		margin-left: 20px;
 		/* 		margin-top: 20px;
 		background-color: yellow; */
+		min-height: calc((100vw - 20px) / 2.8 + 90px);
 	}
 
 	.bt {
@@ -163,13 +167,24 @@
 		right: 5px;
 	}
 
-	.center>image:nth-of-type(2) {
+	.center>.image {
 		width: 100%;
 		height: calc((100vw - 20px) / 2.8);
 		margin-top: 5px;
 		border-radius: 10px;
 		z-index: 2;
+		overflow: hidden;
+		background-color: #bcbcbc;
 	}
+
+	.center>.image>image {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* 	.center>image:nth-of-type(2) {
+		
+	} */
 
 	.playcount {
 		height: 15px;

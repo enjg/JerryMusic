@@ -196,7 +196,7 @@
 		color: white !important;
 		font-size: 23px !important;
 		line-height: 50px !important;
-		transition: all 0.4s ease !important;
+		transition: all 0.3s ease !important;
 		white-space: normal !important;
 		overflow: auto !important;
 		text-overflow: clip !important;
@@ -205,20 +205,21 @@
 
 	.PClickTwo {
 		height: auto !important;
-		min-height: 30px !important;
-		transition: all 0.1s ease !important;
+		height: 30px !important;
+/* 		background-color: red; */
+/* 		transition: all 0.1s ease !important; */
 	}
 
 	.PClickTwo>.p {
 		/* 		color: red !important; */
-		font-size: 18px !important;
+		font-size: 17px !important;
 		color: white;
-		transition: all 0.4s ease !important;
-		opacity: 0.65;
+		transition: all 0.3s ease !important;
+		opacity: 0.6;
 	}
 
 	.PClickThree>.p {
-		font-size: 16px;
+		font-size: 15px;
 		color: white;
 		opacity: 0.3;
 		transition: all 0.4s ease !important;

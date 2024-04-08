@@ -6,6 +6,7 @@
 		margin-left: 20px;
 		/* 		margin-top: 20px;
 		background-color: yellow; */
+		min-height: calc((100vw - 20px) / 2.8 + 90px);
 }
 .bt.data-v-d6f715fc {
 		height: 50px;
@@ -44,13 +45,23 @@
 		bottom: 40px;
 		right: 5px;
 }
-.center>image.data-v-d6f715fc:nth-of-type(2) {
+.center>.image.data-v-d6f715fc {
 		width: 100%;
 		height: calc((100vw - 20px) / 2.8);
 		margin-top: 5px;
 		border-radius: 10px;
 		z-index: 2;
+		overflow: hidden;
+		background-color: #bcbcbc;
 }
+.center>.image>image.data-v-d6f715fc {
+		width: 100%;
+		height: 100%;
+}
+
+	/* 	.center>image:nth-of-type(2) {
+		
+	} */
 .playcount.data-v-d6f715fc {
 		height: 15px;
 		position: absolute;

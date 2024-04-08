@@ -1,6 +1,6 @@
 "use strict";
 const common_vendor = require("./common/vendor.js");
-let url = "";
+let url = "https://mu-api.yuk0.com";
 const instance = common_vendor.axios.create({
   adapter: common_vendor.mpAdapter,
   baseURL: url,
